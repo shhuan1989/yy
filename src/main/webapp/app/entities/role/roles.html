@@ -1,0 +1,70 @@
+<div>
+    <h2 data-translate="yiyingOaApp.role.home.title">Roles</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="role.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="yiyingOaApp.role.home.createLabel">
+                        Create new Role
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="yiyingOaApp.role.createTime">Create Time</span></th>
+                    <th><span data-translate="yiyingOaApp.role.lastModifiedTime">Last Modified Time</span></th>
+                    <th><span data-translate="yiyingOaApp.role.auths">Auths</span></th>
+                    <th><span data-translate="yiyingOaApp.role.name">Name</span></th>
+                    <th><span data-translate="yiyingOaApp.role.creator">Creator</span></th>
+                    <th><span data-translate="yiyingOaApp.role.lastModifier">Last Modifier</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="role in vm.roles track by role.id">
+                    <td><a ui-sref="role-detail({id:role.id})">{{role.id}}</a></td>
+                    <td>{{role.createTime}}</td>
+                    <td>{{role.lastModifiedTime}}</td>
+                    <td>{{role.auths}}</td>
+                    <td>{{role.name}}</td>
+                    <td>
+                        <a ui-sref="employee-detail({id:role.creatorId})">{{role.creatorId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="employee-detail({id:role.lastModifierId})">{{role.lastModifierId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="role-detail({id:role.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="role.edit({id:role.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="role.delete({id:role.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,201 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "jobTitle",
+            "otherEntityName": "jobTitle",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "employee"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "nativePlace",
+            "otherEntityName": "city",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "employee"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "dept",
+            "otherEntityName": "dept",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "employee"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "aedProjects",
+            "otherEntityName": "project",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "aes"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "participatedProjects",
+            "otherEntityName": "project",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "members"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gender",
+            "fieldType": "Gender",
+            "fieldValues": "MALE,FEMALE"
+        },
+        {
+            "fieldName": "age",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "education",
+            "fieldType": "Education",
+            "fieldValues": "UNDER_HIGH_SCHOOL,JUNIOR_COLLEGE,BACHELOR,MASTER"
+        },
+        {
+            "fieldName": "empNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nativePlace",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nationality",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "basicInfo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hireDate",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "probationSalary",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "salary",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "jobPositionStatus",
+            "fieldType": "JobPositionStatus",
+            "fieldValues": "PROBATION,STAFF,RESIGNED,FIRED"
+        },
+        {
+            "fieldName": "jobPositionInfo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "birthDate",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "marriage",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "childbearing",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "hukou",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pensionAccount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "houseFoundAccount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hasDriverLicense",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "cellphone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "qq",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "workQq",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "workQqPassword",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "wechart",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emergencyTel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emergencyContact",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "relationshipWithEmergencyContact",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "additionalInfo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "computerLevel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "foreignLanguageLevel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "probationDeduction",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "employeeDeduction",
+            "fieldType": "Double"
+        }
+    ],
+    "changelogDate": "20161002130240",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "employee",
+    "pagination": "pager"
+}

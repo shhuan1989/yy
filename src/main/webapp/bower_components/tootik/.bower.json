@@ -1,0 +1,28 @@
+{
+  "name": "tootik",
+  "version": "1.0.2",
+  "homepage": "https://github.com/eliorshalev/tootik",
+  "authors": [
+    "Elior Shalev Tabeka (elioooor@gmail.com)"
+  ],
+  "description": "A pure CSS/SCSS/LESS Tooltip library",
+  "main": "css/tootik.css",
+  "keywords": [
+    "css",
+    "scss",
+    "less",
+    "tooltips",
+    "tooltip"
+  ],
+  "license": "MIT",
+  "_release": "1.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.2",
+    "commit": "a68678804d0e6328ed7ea164e7954b439ce7ecbb"
+  },
+  "_source": "https://github.com/eliorshalev/tootik.git",
+  "_target": "^1.0.2",
+  "_originalSource": "tootik",
+  "_direct": true
+}

@@ -1,0 +1,273 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myEmployeeLabel" data-translate="yiyingOaApp.employee.home.createOrEditLabel">Create or edit a Employee</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.employee.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.employee.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.employee.name"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.gender" for="field_gender">Gender</label>
+            <select class="form-control" name="gender" ng-model="vm.employee.gender" id="field_gender">
+                <option value="MALE" data-translate="yiyingOaApp.Gender.MALE">MALE</option>
+                <option value="FEMALE" data-translate="yiyingOaApp.Gender.FEMALE">FEMALE</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.age" for="field_age">Age</label>
+            <input type="number" class="form-control" name="age" id="field_age"
+                    ng-model="vm.employee.age"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.education" for="field_education">Education</label>
+            <select class="form-control" name="education" ng-model="vm.employee.education" id="field_education">
+                <option value="UNDER_HIGH_SCHOOL" data-translate="yiyingOaApp.Education.UNDER_HIGH_SCHOOL">UNDER_HIGH_SCHOOL</option>
+                <option value="JUNIOR_COLLEGE" data-translate="yiyingOaApp.Education.JUNIOR_COLLEGE">JUNIOR_COLLEGE</option>
+                <option value="BACHELOR" data-translate="yiyingOaApp.Education.BACHELOR">BACHELOR</option>
+                <option value="MASTER" data-translate="yiyingOaApp.Education.MASTER">MASTER</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.empNumber" for="field_empNumber">Emp Number</label>
+            <input type="text" class="form-control" name="empNumber" id="field_empNumber"
+                    ng-model="vm.employee.empNumber"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.nativePlace" for="field_nativePlace">Native Place</label>
+            <input type="text" class="form-control" name="nativePlace" id="field_nativePlace"
+                    ng-model="vm.employee.nativePlace"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.nationality" for="field_nationality">Nationality</label>
+            <input type="text" class="form-control" name="nationality" id="field_nationality"
+                    ng-model="vm.employee.nationality"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.idNumber" for="field_idNumber">Id Number</label>
+            <input type="text" class="form-control" name="idNumber" id="field_idNumber"
+                    ng-model="vm.employee.idNumber"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.basicInfo" for="field_basicInfo">Basic Info</label>
+            <input type="text" class="form-control" name="basicInfo" id="field_basicInfo"
+                    ng-model="vm.employee.basicInfo"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.hireDate" for="field_hireDate">Hire Date</label>
+            <input type="number" class="form-control" name="hireDate" id="field_hireDate"
+                    ng-model="vm.employee.hireDate"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.probationSalary" for="field_probationSalary">Probation Salary</label>
+            <input type="number" class="form-control" name="probationSalary" id="field_probationSalary"
+                    ng-model="vm.employee.probationSalary"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.salary" for="field_salary">Salary</label>
+            <input type="number" class="form-control" name="salary" id="field_salary"
+                    ng-model="vm.employee.salary"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.jobPositionStatus" for="field_jobPositionStatus">Job Position Status</label>
+            <select class="form-control" name="jobPositionStatus" ng-model="vm.employee.jobPositionStatus" id="field_jobPositionStatus">
+                <option value="PROBATION" data-translate="yiyingOaApp.JobPositionStatus.PROBATION">PROBATION</option>
+                <option value="STAFF" data-translate="yiyingOaApp.JobPositionStatus.STAFF">STAFF</option>
+                <option value="RESIGNED" data-translate="yiyingOaApp.JobPositionStatus.RESIGNED">RESIGNED</option>
+                <option value="FIRED" data-translate="yiyingOaApp.JobPositionStatus.FIRED">FIRED</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.jobPositionInfo" for="field_jobPositionInfo">Job Position Info</label>
+            <input type="text" class="form-control" name="jobPositionInfo" id="field_jobPositionInfo"
+                    ng-model="vm.employee.jobPositionInfo"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.birthDate" for="field_birthDate">Birth Date</label>
+            <input type="number" class="form-control" name="birthDate" id="field_birthDate"
+                    ng-model="vm.employee.birthDate"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.marriage" for="field_marriage">Marriage</label>
+            <input type="number" class="form-control" name="marriage" id="field_marriage"
+                    ng-model="vm.employee.marriage"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.childbearing" for="field_childbearing">Childbearing</label>
+            <input type="number" class="form-control" name="childbearing" id="field_childbearing"
+                    ng-model="vm.employee.childbearing"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.hukou" for="field_hukou">Hukou</label>
+            <input type="text" class="form-control" name="hukou" id="field_hukou"
+                    ng-model="vm.employee.hukou"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.pensionAccount" for="field_pensionAccount">Pension Account</label>
+            <input type="text" class="form-control" name="pensionAccount" id="field_pensionAccount"
+                    ng-model="vm.employee.pensionAccount"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.houseFoundAccount" for="field_houseFoundAccount">House Found Account</label>
+            <input type="text" class="form-control" name="houseFoundAccount" id="field_houseFoundAccount"
+                    ng-model="vm.employee.houseFoundAccount"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.hasDriverLicense" for="field_hasDriverLicense">Has Driver License</label>
+            <input type="number" class="form-control" name="hasDriverLicense" id="field_hasDriverLicense"
+                    ng-model="vm.employee.hasDriverLicense"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.cellphone" for="field_cellphone">Cellphone</label>
+            <input type="text" class="form-control" name="cellphone" id="field_cellphone"
+                    ng-model="vm.employee.cellphone"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.mail" for="field_mail">Mail</label>
+            <input type="text" class="form-control" name="mail" id="field_mail"
+                    ng-model="vm.employee.mail"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.qq" for="field_qq">Qq</label>
+            <input type="text" class="form-control" name="qq" id="field_qq"
+                    ng-model="vm.employee.qq"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.workQq" for="field_workQq">Work Qq</label>
+            <input type="text" class="form-control" name="workQq" id="field_workQq"
+                    ng-model="vm.employee.workQq"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.workQqPassword" for="field_workQqPassword">Work Qq Password</label>
+            <input type="text" class="form-control" name="workQqPassword" id="field_workQqPassword"
+                    ng-model="vm.employee.workQqPassword"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.wechart" for="field_wechart">Wechart</label>
+            <input type="text" class="form-control" name="wechart" id="field_wechart"
+                    ng-model="vm.employee.wechart"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.address" for="field_address">Address</label>
+            <input type="text" class="form-control" name="address" id="field_address"
+                    ng-model="vm.employee.address"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.tel" for="field_tel">Tel</label>
+            <input type="text" class="form-control" name="tel" id="field_tel"
+                    ng-model="vm.employee.tel"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.emergencyTel" for="field_emergencyTel">Emergency Tel</label>
+            <input type="text" class="form-control" name="emergencyTel" id="field_emergencyTel"
+                    ng-model="vm.employee.emergencyTel"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.emergencyContact" for="field_emergencyContact">Emergency Contact</label>
+            <input type="text" class="form-control" name="emergencyContact" id="field_emergencyContact"
+                    ng-model="vm.employee.emergencyContact"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.relationshipWithEmergencyContact" for="field_relationshipWithEmergencyContact">Relationship With Emergency Contact</label>
+            <input type="text" class="form-control" name="relationshipWithEmergencyContact" id="field_relationshipWithEmergencyContact"
+                    ng-model="vm.employee.relationshipWithEmergencyContact"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.additionalInfo" for="field_additionalInfo">Additional Info</label>
+            <input type="text" class="form-control" name="additionalInfo" id="field_additionalInfo"
+                    ng-model="vm.employee.additionalInfo"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.computerLevel" for="field_computerLevel">Computer Level</label>
+            <input type="text" class="form-control" name="computerLevel" id="field_computerLevel"
+                    ng-model="vm.employee.computerLevel"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.foreignLanguageLevel" for="field_foreignLanguageLevel">Foreign Language Level</label>
+            <input type="text" class="form-control" name="foreignLanguageLevel" id="field_foreignLanguageLevel"
+                    ng-model="vm.employee.foreignLanguageLevel"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.probationDeduction" for="field_probationDeduction">Probation Deduction</label>
+            <input type="number" class="form-control" name="probationDeduction" id="field_probationDeduction"
+                    ng-model="vm.employee.probationDeduction"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.employee.employeeDeduction" for="field_employeeDeduction">Employee Deduction</label>
+            <input type="number" class="form-control" name="employeeDeduction" id="field_employeeDeduction"
+                    ng-model="vm.employee.employeeDeduction"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="yiyingOaApp.employee.jobTitle" for="field_jobTitle">Job Title</label>
+            <select class="form-control" id="field_jobTitle" name="jobTitle" ng-model="vm.employee.jobTitleId" ng-options="jobTitle.id as jobTitle.id for jobTitle in vm.jobtitles | orderBy:'id'">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="yiyingOaApp.employee.nativePlace" for="field_nativePlace">Native Place</label>
+            <select class="form-control" id="field_nativePlace" name="nativePlace" ng-model="vm.employee.nativePlaceId" ng-options="city.id as city.id for city in vm.nativeplaces | orderBy:'id'">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="yiyingOaApp.employee.dept" for="field_dept">Dept</label>
+            <select class="form-control" id="field_dept" name="dept" ng-model="vm.employee.deptId" ng-options="dept.id as dept.id for dept in vm.depts | orderBy:'id'">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,28 @@
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <form class="form-horizontal" ng-submit="vm.search()">
+                    <div class="box-body">
+                        <div class="col-md-12">
+                            <div ng-cloak>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <h1 data-translate="error.title">Error Page!</h1>
+
+                                        <div ng-show="errorMessage">
+                                            <div class="alert alert-danger">{{errorMessage}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+

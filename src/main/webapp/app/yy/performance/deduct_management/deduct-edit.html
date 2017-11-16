@@ -1,0 +1,126 @@
+<section class="content-header">
+    <h1>
+        {{vm.pageTitle}}
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li><a ui-sref="yy_perf_deductmgt"><i class="fa fa-balance-scale"></i> 绩效管理</a></li>
+        <li class="active">{{vm.pageTitle}}</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content employee-edit-content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-body">
+                    <form class="form-horizontal" novalidate data-parsley-validate>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_employee_id">姓名：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12" id="field_employee_id_containder">
+                                <select class="form-control select2" name="employee_name" ng-model="vm.employee" \
+                                        ng-options="emp as emp.name for emp in vm.employees track by emp.id"
+                                        id="field_employee_id" ng-disabled="vm.disableEdit" \
+                                        required="required" data-parsley-trigger="blur"
+                                        data-parsley-errors-container="#field_employee_id_containder"
+                                >
+                                    <!--<option value="" disabled selected>请选择</option>-->
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-5 col-sm-5 col-xs-12" for="field_dept">所在部门：</label>
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                <input type="text" class="form-control" name="employeeName" id="field_dept"
+                                       ng-model="vm.employee.dept.name" disabled
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-5 col-sm-5 col-xs-12" for="field_position_status">岗位状态：</label>
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                <input type="text" class="form-control" name="jobPositionStatus" id="field_position_status"
+                                       ng-model="vm.employee.jobPositionStatus.name" disabled
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-5 col-sm-5 col-xs-12" for="field_probation_salary">试用期基本工资：</label>
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                <input type="text" class="form-control" name="probationSalary" id="field_probation_salary"
+                                       ng-model="vm.employee.probationSalary" disabled
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-5 col-sm-5 col-xs-12" for="field_probation_employee">试用期提成比例：</label>
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="probationemployee" id="field_probation_employee"
+                                           ng-model="vm.employee.probationDeductionPercentage" required="required"
+                                           data-parsley-trigger="blur"
+                                           ng-disabled="vm.disableEdit"
+                                           placeholder=""
+                                    />
+                                    <div class="input-group-addon">
+                                        <span>%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-5 col-sm-5 col-xs-12" for="field_employee_employee">转正基本工资：</label>
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                <input type="text" class="form-control" name="employeeemployee" id="field_employee_employee"
+                                       ng-model="vm.employee.salary" disabled
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-5 col-sm-5 col-xs-12" for="field_emp_employeeion">转正后提成比例：</label>
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="employeeemployeeion" id="field_emp_employeeion"
+                                           ng-model="vm.employee.employeeDeductionPercentage" required="required"
+                                           data-parsley-trigger="blur"
+                                           ng-disabled="vm.disableEdit"
+                                    />
+                                    <div class="input-group-addon">
+                                        <span>%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12" data-ng-switch="vm.disableEdit">
+                <div ng-switch-when="false">
+                    <div class="col-sm-offset-4 col-sm-2 col-md-offset-4 col-md-2 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.save()">保存</button>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">取消</button>
+                    </div>
+                </div>
+                <div ng-switch-default>
+                    <div class="col-sm-offset-5 col-sm-2 col-md-offset-5 col-md-2 col-xs-offset-3 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">返回</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div ng-init="vm.initJsComponents()"></div>

@@ -1,0 +1,185 @@
+<section class="content-header">
+    <h1>
+        发票管理
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li class="active">发票管理</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">查询</h3>
+                </div>
+
+                <div class="box-body">
+                    <form class="form-horizontal" ng-submit="vm.search()">
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_project_number">项目编号：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="idNumber" id="field_project_number"
+                                       ng-model="vm.searchParams.projectIdNumber"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_contract_number">合同/PO编号：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="contractNumber" id="field_contract_number"
+                                       ng-model="vm.searchParams.idNumber"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_project_name">项目名称：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="projectName" id="field_project_name"
+                                       ng-model="vm.searchParams.projectName"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_client_name">客户名称：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="clientName" id="field_client_name"
+                                       ng-model="vm.searchParams.clientName"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_cat">开票状态：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control" id="field_cat" name="invoiceStatus"
+                                        ng-model="vm.invoiceStatus">
+                                    <option value="">全部</option>
+                                    <option value="1">已开票</option>
+                                    <option value="2">未开票</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <div class="col-sm-offset-5 col-sm-2 col-md-offset-5 col-md-2 col-xs-offset-4 col-xs-4">
+                                <button type="submit" class="btn btn-primary btn-full">查询</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="dataTables_length" id="example1_length">
+                                <label>每页显示
+                                    <select class="form-control input-sm" ng-options="count for count in vm.contractsTableParams.settings().counts" ng-model="vm.pageSize">
+
+                                    </select> 条, 共 {{vm.contracts.length}}条
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <table ng-table="vm.contractsTableParams" class="table table-bordered table-hover">
+                        <tr ng-repeat="contract in $data">
+                            <!--<td data-title="'合同/PO编号'">{{contract.idNumber}}</td>-->
+                            <td data-title="'项目编号'">{{contract.project.idNumber}}</td>
+                            <td data-title="'项目名称'">{{contract.project.name}}</td>
+                            <td data-title="'客户名称'">{{contract.project.client.name}}</td>
+                            <td data-title="'合同总额'">{{contract.moneyAmount}}</td>
+                            <td data-title="'已开发票金额'">{{contract.invoicedAmount | yymoney}}</td>
+                            <td data-title="'未开发票金额'">{{contract.notInvoicedAmount | yymoney}}</td>
+                            <td data-title="'操作'">
+                                <div class="btn-group flex-btn-group-container">
+                                    <a ui-sref="yy_contract_invoice.view({id:contract.id})" data-tootik="查看" has-any-authority="ROLE_ADMIN,VIEW_INVOICE_MANAGE,EDIT_INVOICE_MANAGE"><i class="icon glyphicon glyphicon-search" ></i></a>
+                                    <a ng-click="vm.newInvoice(contract)" data-tootik="开具发票" ng-if="contract.notInvoicedAmount > 0" has-any-authority="ROLE_ADMIN,EDIT_INVOICE_MANAGE"><i class="icon glyphicon glyphicon-barcode" ></i></a>
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th  colspan="2">已开票 / 未开票 / 合同总额</th>
+                            <td colspan="5">{{vm.totalInvoiced | yymoney}} / {{vm.totalNotInvoiced | yymoney}} / {{vm.totalAmount | yymoney}}</td>
+                        </tr>
+                    </table>
+
+                </div>
+                <!-- /.box-body -->
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
+
+
+
+<!-- new invoice modal-->
+<div class="modal" data-backdrop="static" id="modal-new-invoice">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">开具发票</h4>
+            </div>
+            <div class="modal-body">
+
+                <form class="form-horizontal" novalidate data-parsley-validate>
+
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_modal_contract_id">合同编号：</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" class="form-control" id="field_modal_contract_id"
+                                   ng-model="vm.invoiceContract.idNumber" disabled
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_modal_notinvioce_amount">未开发票金额：</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" class="form-control" id="field_modal_notinvioce_amount"
+                                   ng-model="vm.invoiceContract.notInvoicedAmount" disabled
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_new_invoice_amount">开票金额：</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="number" step="any" class="form-control" name="newInvoiceAmount" id="field_new_invoice_amount"
+                                   ng-model="vm.newInvoiceAmount" data-parsley-min="0.001"
+                                   data-parsley-trigger="blur" data-parsley-type="number"
+                            />
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" ng-click="vm.saveInvoice()">保存</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

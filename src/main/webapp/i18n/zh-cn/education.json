@@ -1,0 +1,11 @@
+{
+    "yiyingOaApp": {
+        "Education" : {
+            "null": "",
+            "UNDER_HIGH_SCHOOL": "UNDER_HIGH_SCHOOL",
+            "JUNIOR_COLLEGE": "JUNIOR_COLLEGE",
+            "BACHELOR": "BACHELOR",
+            "MASTER": "MASTER"
+        }
+    }
+}

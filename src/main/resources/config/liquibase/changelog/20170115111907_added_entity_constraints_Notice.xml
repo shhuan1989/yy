@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Notice.
+    -->
+    <changeSet id="20170115111907-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="project_id"
+                                 baseTableName="notice"
+                                 constraintName="fk_notice_project_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="project"/>
+
+        <addForeignKeyConstraint baseColumnNames="creator_id"
+                                 baseTableName="notice"
+                                 constraintName="fk_notice_creator_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="notices_id"
+                                 baseTableName="notice_depts"
+                                 constraintName="fk_notice_depts_notices_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="notice"/>
+        <addForeignKeyConstraint baseColumnNames="depts_id"
+                                 baseTableName="notice_depts"
+                                 constraintName="fk_notice_depts_depts_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dept"/>
+        
+        <addForeignKeyConstraint baseColumnNames="notices_id"
+                                 baseTableName="notice_projects"
+                                 constraintName="fk_notice_projects_notices_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="notice"/>
+        <addForeignKeyConstraint baseColumnNames="projects_id"
+                                 baseTableName="notice_projects"
+                                 constraintName="fk_notice_projects_projects_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="project"/>
+        
+        <addForeignKeyConstraint baseColumnNames="notices_id"
+                                 baseTableName="notice_employees"
+                                 constraintName="fk_notice_employees_notices_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="notice"/>
+        <addForeignKeyConstraint baseColumnNames="employees_id"
+                                 baseTableName="notice_employees"
+                                 constraintName="fk_notice_employees_employees_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+        
+    </changeSet>
+</databaseChangeLog>

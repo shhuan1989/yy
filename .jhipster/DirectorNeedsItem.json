@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "directorNeeds",
+            "otherEntityName": "directorNeeds",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "memo",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170107051429",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "director_needs_item",
+    "pagination": "no"
+}

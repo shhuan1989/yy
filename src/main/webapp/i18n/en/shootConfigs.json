@@ -1,0 +1,23 @@
+{
+    "yiyingOaApp": {
+        "shootConfigs" : {
+            "home": {
+                "title": "Shoot Configs",
+                "createLabel": "Create a new Shoot Configs",
+                "createOrEditLabel": "Create or edit a Shoot Configs",
+                "search": "Search for Shoot Configs"
+            },
+            "created": "A new Shoot Configs is created with identifier {{ param }}",
+            "updated": "A Shoot Configs is updated with identifier {{ param }}",
+            "deleted": "A Shoot Configs is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Shoot Configs {{ id }}?"
+            },
+            "detail": {
+                "title": "Shoot Configs"
+            },
+            "configs": "Configs",
+            "project": "Project"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "yiyingOaApp": {
+        "income" : {
+            "home": {
+                "title": "Incomes",
+                "createLabel": "Create a new Income",
+                "createOrEditLabel": "Create or edit a Income",
+                "search": "Search for Income"
+            },
+            "created": "A new Income is created with identifier {{ param }}",
+            "updated": "A Income is updated with identifier {{ param }}",
+            "deleted": "A Income is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Income {{ id }}?"
+            },
+            "detail": {
+                "title": "Income"
+            },
+            "incomeTime": "Income Time",
+            "amount": "Amount",
+            "incomeDesc": "Income Desc",
+            "memo": "Memo",
+            "incomeMethod": "Income Method"
+        }
+    }
+}

@@ -1,0 +1,68 @@
+<div>
+    <h2 data-translate="yiyingOaApp.projectCost.home.title">Project Costs</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="project-cost.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="yiyingOaApp.projectCost.home.createLabel">
+                        Create new Project Cost
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="yiyingOaApp.projectCost.createTime">Create Time</span></th>
+                    <th><span data-translate="yiyingOaApp.projectCost.amount">Amount</span></th>
+                    <th><span data-translate="yiyingOaApp.projectCost.info">Info</span></th>
+                    <th><span data-translate="yiyingOaApp.projectCost.creator">Creator</span></th>
+                    <th><span data-translate="yiyingOaApp.projectCost.project">Project</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="projectCost in vm.projectCosts track by projectCost.id">
+                    <td><a ui-sref="project-cost-detail({id:projectCost.id})">{{projectCost.id}}</a></td>
+                    <td>{{projectCost.createTime}}</td>
+                    <td>{{projectCost.amount}}</td>
+                    <td>{{projectCost.info}}</td>
+                    <td>
+                        <a ui-sref="employee-detail({id:projectCost.creatorId})">{{projectCost.creatorId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="project-detail({id:projectCost.projectId})">{{projectCost.projectId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="project-cost-detail({id:projectCost.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="project-cost.edit({id:projectCost.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="project-cost.delete({id:projectCost.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{
+    "yiyingOaApp": {
+        "approvalRequest" : {
+            "home": {
+                "title": "Approval Requests",
+                "createLabel": "Create a new Approval Request",
+                "createOrEditLabel": "Create or edit a Approval Request",
+                "search": "Search for Approval Request"
+            },
+            "created": "A new Approval Request is created with identifier {{ param }}",
+            "updated": "A Approval Request is updated with identifier {{ param }}",
+            "deleted": "A Approval Request is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Approval Request {{ id }}?"
+            },
+            "detail": {
+                "title": "Approval Request"
+            },
+            "createTime": "Create Time",
+            "lastModifiedTime": "Last Modified Time",
+            "name": "Name",
+            "status": "Status",
+            "applicant": "Applicant"
+        }
+    }
+}

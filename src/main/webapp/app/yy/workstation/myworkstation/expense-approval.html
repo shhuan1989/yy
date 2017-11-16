@@ -1,0 +1,101 @@
+<section class="content-header">
+    <h1>
+        支出审批
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li><a ui-sref="yy_workstation_mystation"><i class="fa fa-dashboard"></i> 我的工作台</a></li>
+        <li class="active">支出审批</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content expense-edit-content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">支出详情</h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" novalidate data-parsley-validate>
+
+                        <div class="row">
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">支出方式：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <label class="control-label">
+                                        {{vm.expense.payMethodName}}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">支出时间：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <label class="control-label">
+                                        {{vm.expense.payTime | yydate}}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" >所属项目：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <label class="control-label" ng-if="vm.expense.projectName">
+                                        {{vm.expense.projectName}}
+                                    </label>
+                                    <label class="control-label" ng-if="!vm.expense.projectName">
+                                        非项目支出
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" ng-repeat="item in vm.expense.items">
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" >支出用途：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <label class="control-label">{{item.purpose}}</label>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" >支出金额：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <label class="control-label">{{item.amount}}</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-4 col-sm-6 col-xs-10">
+                            </div>
+                            <div class="form-group col-md-4 col-sm-6 col-xs-10">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">合计金额：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <label class="control-label">{{vm.expense.total}}</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="box-footer">
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12">
+                <div class="col-sm-offset-4 col-sm-2 col-md-offset-4 col-md-2 col-xs-6">
+                    <button type="submit" class="btn btn-primary btn-full" ng-click="vm.approve()" ng-disabled="vm.isLoading">通过</button>
+                </div>
+                <div class="col-sm-2 col-md-2 col-xs-6">
+                    <button type="submit" class="btn btn-danger btn-full" ng-click="vm.reject()" ng-disabled="vm.isLoading">驳回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

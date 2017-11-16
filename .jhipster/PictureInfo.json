@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "thumbnail",
+            "otherEntityName": "pictureInfo",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "originPicture"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "originName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createTime",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastModifier",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastModifiedTime",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20161005140427",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "picture",
+    "pagination": "pagination"
+}

@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "configs",
+            "otherEntityName": "shootConfig",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "shootConfigs"
+        },
+        {
+            "relationshipName": "project",
+            "otherEntityName": "project",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20161119023119",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "shoot_configs",
+    "pagination": "no"
+}

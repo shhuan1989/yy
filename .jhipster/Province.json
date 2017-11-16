@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "cities",
+            "otherEntityName": "city",
+            "otherEntityRelationshipName": "province"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160928033144",
+    "entityTableName": "province",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "angularSuffix": "yj"
+}

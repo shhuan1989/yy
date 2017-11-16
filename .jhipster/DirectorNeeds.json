@@ -1,0 +1,17 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "project",
+            "otherEntityName": "project",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20170107051210",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "director_needs",
+    "pagination": "no"
+}

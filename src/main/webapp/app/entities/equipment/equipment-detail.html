@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span>Equipment</span> {{vm.equipment.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{vm.equipment.name}}</span>
+        </dd>
+        <dt><span>Vendor</span></dt>
+        <dd>
+            <span>{{vm.equipment.vendor}}</span>
+        </dd>
+        <dt><span>Price</span></dt>
+        <dd>
+            <span>{{vm.equipment.price}}</span>
+        </dd>
+        <dt><span>Create Time</span></dt>
+        <dd>
+            <span>{{vm.equipment.createTime}}</span>
+        </dd>
+        <dt><span>Input Operator</span></dt>
+        <dd>
+            <span>{{vm.equipment.inputOperator}}</span>
+        </dd>
+        <dt><span>Last Modified Time</span></dt>
+        <dd>
+            <span>{{vm.equipment.lastModifiedTime}}</span>
+        </dd>
+        <dt><span>Last Modifier</span></dt>
+        <dd>
+            <span>{{vm.equipment.lastModifier}}</span>
+        </dd>
+        <dt><span>Category</span></dt>
+        <dd>
+            <a ui-sref="dictionary-detail({id:vm.equipment.categoryId})">{{vm.equipment.categoryName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="equipment-detail.edit({id:vm.equipment.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

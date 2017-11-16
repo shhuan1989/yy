@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span data-translate="yiyingOaApp.meeting.detail.title">Meeting</span> {{vm.meeting.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="yiyingOaApp.meeting.name">Name</span></dt>
+        <dd>
+            <span>{{vm.meeting.name}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.meeting.startTime">Start Time</span></dt>
+        <dd>
+            <span>{{vm.meeting.startTime}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.meeting.endTime">End Time</span></dt>
+        <dd>
+            <span>{{vm.meeting.endTime}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.meeting.info">Info</span></dt>
+        <dd>
+            <span>{{vm.meeting.info}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.meeting.creator">Creator</span></dt>
+        <dd>
+            <a ui-sref="employee-detail({id:vm.meeting.creatorId})">{{vm.meeting.creatorId}}</a>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.meeting.room">Room</span></dt>
+        <dd>
+            <a ui-sref="room-detail({id:vm.meeting.roomId})">{{vm.meeting.roomId}}</a>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.meeting.project">Project</span></dt>
+        <dd>
+            <a ui-sref="project-detail({id:vm.meeting.projectId})">{{vm.meeting.projectId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="meeting-detail.edit({id:vm.meeting.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,25 @@
+{
+    "yiyingOaApp": {
+        "projectPayment" : {
+            "home": {
+                "title": "Project Payments",
+                "createLabel": "Create a new Project Payment",
+                "createOrEditLabel": "Create or edit a Project Payment",
+                "search": "Search for Project Payment"
+            },
+            "created": "A new Project Payment is created with identifier {{ param }}",
+            "updated": "A Project Payment is updated with identifier {{ param }}",
+            "deleted": "A Project Payment is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Project Payment {{ id }}?"
+            },
+            "detail": {
+                "title": "Project Payment"
+            },
+            "appointedTime": "Appointed Time",
+            "amount": "Amount",
+            "payTime": "Pay Time",
+            "project": "Project"
+        }
+    }
+}

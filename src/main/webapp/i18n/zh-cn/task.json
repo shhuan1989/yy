@@ -1,0 +1,34 @@
+{
+    "yiyingOaApp": {
+        "task" : {
+            "home": {
+                "title": "Tasks",
+                "createLabel": "Create a new Task",
+                "createOrEditLabel": "Create or edit a Task",
+                "search": "Search for Task"
+            },
+            "created": "A new Task is created with identifier {{ param }}",
+            "updated": "A Task is updated with identifier {{ param }}",
+            "deleted": "A Task is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Task {{ id }}?"
+            },
+            "detail": {
+                "title": "Task"
+            },
+            "name": "Name",
+            "info": "Info",
+            "createTime": "Create Time",
+            "eta": "Eta",
+            "owner": "Owner",
+            "members": "Members",
+            "attachments": "Attachments",
+            "pictureInfos": "Picture Infos",
+            "status": "Status",
+            "comments": "Comments",
+            "creator": "Creator",
+            "owner": "Owner",
+            "project": "Project"
+        }
+    }
+}

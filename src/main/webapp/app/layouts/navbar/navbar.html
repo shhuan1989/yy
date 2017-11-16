@@ -1,0 +1,509 @@
+<header class="main-header">
+    <!-- Logo -->
+    <a href="/" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini">EING</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>EING</b>YY</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+        <!-- Sidebar toggle button-->
+        <a class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <!-- Messages: style can be found in dropdown.less-->
+                <!--<li class="dropdown messages-menu">-->
+                    <!--<a class="dropdown-toggle" data-toggle="dropdown">-->
+                        <!--<i class="fa fa-envelope-o"></i>-->
+                        <!--<span class="label label-success">{{vm.meetings.length}}</span>-->
+                    <!--</a>-->
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li class="header">您有{{vm.meetings.length}}条消息</li>-->
+                        <!--<li>-->
+                            <!--&lt;!&ndash; inner menu: contains the actual data &ndash;&gt;-->
+                            <!--<ul class="menu">-->
+                                <!--<li ng-repeat="meeting in vm.meetings">&lt;!&ndash; start message &ndash;&gt;-->
+                                    <!--<a>-->
+                                        <!--<div class="pull-left">-->
+                                            <!--<img http-src="resource/pictures/{{meeting.creator.photo.id}}" alt="{{meeting.creator.name}}" class="img-circle">-->
+                                        <!--</div>-->
+                                        <!--<h4>-->
+                                            <!--{{meeting.name}}-->
+                                            <!--<small><i class="fa fa-clock-o"></i> {{meeting.startTime | yytime}}</small>-->
+                                        <!--</h4>-->
+                                        <!--<p>{{meeting.info}}</p>-->
+                                    <!--</a>-->
+                                <!--</li>-->
+                                <!--&lt;!&ndash; end message &ndash;&gt;-->
+                            <!--</ul>-->
+                        <!--</li>-->
+                        <!--&lt;!&ndash;<li class="footer"><a>See All Messages</a></li>&ndash;&gt;-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <!-- Notifications: style can be found in dropdown.less -->
+                <!--<li class="dropdown notifications-menu">-->
+                    <!--<a class="dropdown-toggle" data-toggle="dropdown">-->
+                        <!--<i class="fa fa-bell-o"></i>-->
+                        <!--<span class="label label-warning">{{vm.meetings.count}}</span>-->
+                    <!--</a>-->
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li class="header">您有{{vm.meetings.count}}条消息</li>-->
+                        <!--<li>-->
+                            <!--&lt;!&ndash; inner menu: contains the actual data &ndash;&gt;-->
+                            <!--<ul class="menu">-->
+                                <!--<li ng-repeat="meeting in vm.meetings">-->
+                                    <!--<a>-->
+                                        <!--<i class="fa fa-users text-aqua"></i> {{meeting.name}} - {{}}-->
+                                    <!--</a>-->
+                                <!--</li>-->
+                                <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<a>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the&ndash;&gt;-->
+                                        <!--&lt;!&ndash;page and may cause design problems&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<a>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<i class="fa fa-users text-red"></i> 5 new members joined&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<a>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<i class="fa fa-shopping-cart text-green"></i> 25 sales made&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<a>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<i class="fa fa-user text-red"></i> You changed your username&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                            <!--</ul>-->
+                        <!--</li>-->
+                        <!--&lt;!&ndash;<li class="footer"><a>View all</a></li>&ndash;&gt;-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <!-- Tasks: style can be found in dropdown.less -->
+                <!--<li class="dropdown tasks-menu">-->
+                    <!--<a class="dropdown-toggle" data-toggle="dropdown">-->
+                        <!--<i class="fa fa-flag-o"></i>-->
+                        <!--<span class="label label-danger">9</span>-->
+                    <!--</a>-->
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li class="header">You have 9 tasks</li>-->
+                        <!--<li>-->
+                            <!--&lt;!&ndash; inner menu: contains the actual data &ndash;&gt;-->
+                            <!--<ul class="menu">-->
+                                <!--<li>&lt;!&ndash; Task item &ndash;&gt;-->
+                                    <!--<a>-->
+                                        <!--<h3>-->
+                                            <!--Design some buttons-->
+                                            <!--<small class="pull-right">20%</small>-->
+                                        <!--</h3>-->
+                                        <!--<div class="progress xs">-->
+                                            <!--<div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">-->
+                                                <!--<span class="sr-only">20% Complete</span>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</a>-->
+                                <!--</li>-->
+                                <!--&lt;!&ndash; end task item &ndash;&gt;-->
+                                <!--<li>&lt;!&ndash; Task item &ndash;&gt;-->
+                                    <!--<a>-->
+                                        <!--<h3>-->
+                                            <!--Create a nice theme-->
+                                            <!--<small class="pull-right">40%</small>-->
+                                        <!--</h3>-->
+                                        <!--<div class="progress xs">-->
+                                            <!--<div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">-->
+                                                <!--<span class="sr-only">40% Complete</span>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</a>-->
+                                <!--</li>-->
+                                <!--&lt;!&ndash; end task item &ndash;&gt;-->
+                                <!--<li>&lt;!&ndash; Task item &ndash;&gt;-->
+                                    <!--<a>-->
+                                        <!--<h3>-->
+                                            <!--Some task I need to do-->
+                                            <!--<small class="pull-right">60%</small>-->
+                                        <!--</h3>-->
+                                        <!--<div class="progress xs">-->
+                                            <!--<div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">-->
+                                                <!--<span class="sr-only">60% Complete</span>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</a>-->
+                                <!--</li>-->
+                                <!--&lt;!&ndash; end task item &ndash;&gt;-->
+                                <!--<li>&lt;!&ndash; Task item &ndash;&gt;-->
+                                    <!--<a>-->
+                                        <!--<h3>-->
+                                            <!--Make beautiful transitions-->
+                                            <!--<small class="pull-right">80%</small>-->
+                                        <!--</h3>-->
+                                        <!--<div class="progress xs">-->
+                                            <!--<div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">-->
+                                                <!--<span class="sr-only">80% Complete</span>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</a>-->
+                                <!--</li>-->
+                                <!--&lt;!&ndash; end task item &ndash;&gt;-->
+                            <!--</ul>-->
+                        <!--</li>-->
+                        <!--<li class="footer">-->
+                            <!--<a>View all tasks</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <!-- User Account: style can be found in dropdown.less -->
+                <li class="dropdown user user-menu" ng-if="vm.isAuthenticated()">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <img http-src="resource/pictures/{{vm.employee.photo.id}}" alt="{{vm.employee.name}}" class="user-image" >
+                        <span class="hidden-xs">{{vm.employee.name}}</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header">
+                            <img http-src="resource/pictures/{{vm.employee.photo.id}}" alt="{{vm.employee.name}}">
+
+                            <p>
+                                {{vm.employee.dept.name}}
+                                <!--<small>Member since Nov. 2012</small>-->
+                            </p>
+                        </li>
+                        <!-- Menu Body -->
+                        <!--<li class="user-body">-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-xs-4 text-center">-->
+                                    <!--<a>Followers</a>-->
+                                <!--</div>-->
+                                <!--<div class="col-xs-4 text-center">-->
+                                    <!--<a>Sales</a>-->
+                                <!--</div>-->
+                                <!--<div class="col-xs-4 text-center">-->
+                                    <!--<a>Friends</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; /.row &ndash;&gt;-->
+                        <!--</li>-->
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <!--<div class="pull-left">-->
+                                <!--<a class="btn btn-default btn-flat" ui-sref="settings" ng-click="vm.collapseNavbar()">-->
+                                    <!--<span class="glyphicon glyphicon-wrench"></span>&nbsp;-->
+                                    <!--<span data-translate="global.menu.account.settings">Settings</span>-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <div class="pull-right">
+                                <a class="btn btn-default btn-flat" ng-click="vm.logout()" id="logout">
+                                    <span class="glyphicon glyphicon-log-out"></span>&nbsp;
+                                    <span>退出登录</span>
+                                </a>
+                            </div>
+                            <div class="pull-left">
+                                <a class="btn btn-default btn-flat" ui-sref="password" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-lock"></span>&nbsp;
+                                    <span>修改密码</span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Control Sidebar Toggle Button -->
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <!-- /.sidebar -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <!--<div class="user-panel">-->
+            <!--<div class="pull-left image">-->
+                <!--<img src="content/images/user2-160x160.jpg" class="img-circle" alt="User Image">-->
+            <!--</div>-->
+            <!--<div class="pull-left info">-->
+                <!--<p>Alexander Pierce</p>-->
+                <!--<a><i class="fa fa-circle text-success"></i> Online</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; search form &ndash;&gt;-->
+        <!--<form action="#" method="get" class="sidebar-form">-->
+            <!--<div class="input-group">-->
+                <!--<input type="text" name="q" class="form-control" placeholder="Search...">-->
+              <!--<span class="input-group-btn">-->
+                <!--<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>-->
+                <!--</button>-->
+              <!--</span>-->
+            <!--</div>-->
+        <!--</form>-->
+        <!-- /.search form -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="header">系统菜单</li>
+            <li class="treeview" has-any-authority="ROLE_ADMIN,ROLE_USER">
+                <a>
+                    <i class="fa fa-dashboard"></i> <span>工作台</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a ui-sref="yy_workstation_mystation"></i> 我的工作台</a></li>
+                    <li has-any-authority="ROLE_ADMIN,WKS_MY_VACATION"><a ui-sref="yy_wks_vacation"></i> 我的请假</a></li>
+                    <!--<li><a ui-sref="yy_wks_work"></i> 我的加班</a></li>-->
+                    <li has-any-authority="ROLE_ADMIN,WKS_MY_GOODS"><a ui-sref="yy_wks_goods"></i> 物品领用申请</a></li>
+                    <li has-any-authority="ROLE_ADMIN,WKS_MY_PERFORMANCE"><a ui-sref="yy_wks_bonus"></i> 我的绩效</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview" has-any-authority="ROLE_ADMIN,EDIT_PROJECT_MANAGE,VIEW_PROJECT_MANAGE_ALL,VIEW_ONGOING_PROJECT_ALL,VIEW_PROJECT_MANAGE,VIEW_MEETING,EDIT_MEETING,VIEW_ONGOING_PROJECT,EDIT_ONGOING_PROJECT,VIEW_ARCHIVED_PROJECT,EDIT_ARCHIVED_PROJECT,VIEW_PROJECT_RATE,EDIT_PROJECT_RATE">
+                <a>
+                    <i class="fa fa-tasks"></i> <span>项目管理</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li has-any-authority="ROLE_ADMIN,EDIT_PROJECT_MANAGE,VIEW_PROJECT_MANAGE,VIEW_PROJECT_MANAGE_ALL"><a ui-sref="yy_project_mgt"></i> 项目管理</a></li>
+                    <li has-any-authority="ROLE_ADMIN,VIEW_OWNED_MEETING,VIEW_MEETING,EDIT_MEETING"><a ui-sref="yy_meeting"></i> 项目会议管理</a></li>
+                    <li has-any-authority="ROLE_ADMIN,VIEW_ONGOING_PROJECT,EDIT_ONGOING_PROJECT,VIEW_ONGOING_PROJECT_ALL"><a ui-sref="yy_project_ongoing"></i> 进行中的项目</a></li>
+                    <li has-any-authority="ROLE_ADMIN,VIEW_ARCHIVED_PROJECT,EDIT_ARCHIVED_PROJECT"><a ui-sref="yy_project_archived"></i> 已经归档的项目</a></li>
+                    <li has-any-authority="ROLE_ADMIN,VIEW_PROJECT_RATE,EDIT_PROJECT_RATE"><a ui-sref="yy_project_audit"></i> 项目评级</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview" has-any-authority="ROLE_ADMIN,VIEW_CLIENT,EDIT_CLIENT">
+                <a>
+                    <i class="fa fa-users fa-fw"></i> <span> 客户管理</span>
+		<span class="pull-right-container">
+			<i class="fa fa-angle-left pull-right"></i>
+		</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li has-any-authority="ROLE_ADMIN,VIEW_CLIENT,EDIT_CLIENT">
+                        <a ui-sref="yy_client_mgt"></i>客户管理</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview" has-any-authority="ROLE_ADMIN,VIEW_DEDUCT_SETTING,EDIT_DEDUCT_SETTING,VIEW_BONUS_ISSUE,EDIT_BONUS_ISSUE,VIEW_PERFORMANCE_MANAGE,EDIT_PERFORMANCE_MANAGE">
+                <a>
+                    <i class="fa fa-balance-scale fa-fw"></i> <span> 绩效管理</span>
+		<span class="pull-right-container">
+			<i class="fa fa-angle-left pull-right"></i>
+		</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li has-any-authority="ROLE_ADMIN,VIEW_DEDUCT_SETTING,EDIT_DEDUCT_SETTING">
+                        <a ui-sref="yy_perf_deductmgt"></i>提成比例设置</a>
+                    </li>
+                    <li has-any-authority="ROLE_ADMIN,VIEW_PERFORMANCE_MANAGE,EDIT_PERFORMANCE_MANAGE">
+                        <a ui-sref="yy_perf_mgt"></i>项目绩效管理</a>
+                    </li>
+                    <li has-any-authority="ROLE_ADMIN,VIEW_BONUS_ISSUE,EDIT_BONUS_ISSUE">
+                        <a ui-sref="yy_perf_issue"></i>绩效发放</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview" has-any-authority="ROLE_ADMIN,VIEW_STAFF_MANAGE,EDIT_STAFF_MANAGE,VIEW_VACATION_RECORDS,EDIT_VACATION_RECORDS,VIEW_OTWORK_RECORDS,EDIT_OTWORK_RECORDS,VIEW_UTIL_APPLICATION_RECORDS,EDIT_UTIL_APPLICATION_RECORDS,VIEW_ASSET_MANAGE,EDIT_ASSET_MANAGE,VIEW_NOTICE,EDIT_NOTICE">
+                <a>
+                    <i class="fa fa-table fa-fw"></i> <span> 行政管理</span>
+		<span class="pull-right-container">
+			<i class="fa fa-angle-left pull-right"></i>
+		</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li has-any-authority="ROLE_ADMIN,VIEW_STAFF_MANAGE,EDIT_STAFF_MANAGE">
+                        <a ui-sref="yy_admin_emp"></i>员工管理</a>
+                    </li>
+                    <li has-any-authority="ROLE_ADMIN,VIEW_VACATION_RECORDS,EDIT_VACATION_RECORDS">
+                        <a ui-sref="yy_admin_vacation"></i>请假管理</a>
+                    </li>
+
+                    <li has-any-authority="ROLE_ADMIN,VIEW_NOTICE,EDIT_NOTICE">
+                        <a ui-sref="yy_admin_notice"></i>公告管理</a>
+                    </li>
+                    <!--<li>-->
+                        <!--<a ui-sref="yy_admin_work" has-any-authority="ROLE_ADMIN,VIEW_OTWORK_RECORDS,EDIT_OTWORK_RECORDS"></i>加班记录</a>-->
+                    <!--</li>-->
+                    <li has-any-authority="ROLE_ADMIN,VIEW_UTIL_APPLICATION_RECORDS,EDIT_UTIL_APPLICATION_RECORDS">
+                        <a ui-sref="yy_admin_goods"></i>物品领用记录</a>
+                    </li>
+                    <li has-any-authority="ROLE_ADMIN,VIEW_ASSET_MANAGE,EDIT_ASSET_MANAGE">
+                        <a ui-sref="yy_admin_asset"></i>资产管理</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview" has-any-authority="ROLE_ADMIN,VIEW_CONTRACT_MANAGE,EDIT_CONTRACT_MANAGE,VIEW_INCOME_MANAGE,EDIT_INCOME_MANAGE,VIEW_INVOICE_MANAGE,EDIT_INVOICE_MANAGE">
+                <a>
+                    <i class="fa fa-file-text-o fa-fw"></i> <span> 财务管理</span>
+		<span class="pull-right-container">
+			<i class="fa fa-angle-left pull-right"></i>
+		</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li has-any-authority="ROLE_ADMIN,VIEW_CONTRACT_MANAGE,EDIT_CONTRACT_MANAGE">
+                        <a ui-sref="yy_contract_mgt"></i>合同管理</a>
+                    </li>
+                    <li has-any-authority="ROLE_ADMIN,VIEW_INCOME_MANAGE,EDIT_INCOME_MANAGE">
+                        <a ui-sref="yy_contract_income"></i>收入管理</a>
+                    </li>
+                    <li has-any-authority="ROLE_ADMIN,VIEW_EXPENSE_MANAGE,EDIT_EXPENSE_MANAGE">
+                        <a ui-sref="yy_contract_expense"></i>支出管理</a>
+                    </li>
+                    <li has-any-authority="ROLE_ADMIN,VIEW_INVOICE_MANAGE,EDIT_INVOICE_MANAGE">
+                        <a ui-sref="yy_contract_invoice"></i>发票管理</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview" has-any-authority="ROLE_ADMIN,VIEW_SHOOT_AGENDA,EDIT_SHOOT_AGENDA,VIEW_OWNED_SHOOT_CONFIG,VIEW_SHOOT_CONFIG,EDIT_OWNED_SHOOT_CONFIG,EDIT_SHOOT_CONFIG,VIEW_OWNED_SHOOT_BUDGET,VIEW_BUDGET,EDIT_BUDGET,VIEW_OWNED_SHOOT_COST,VIEW_COST,EDIT_COST,VIEW_OWNED_SHOOT_AUDIT,VIEW_BUDGET_VS_COST">
+                <a>
+                    <i class="fa fa-bar-chart fa-fw"></i> <span> 拍摄管理</span>
+		<span class="pull-right-container">
+			<i class="fa fa-angle-left pull-right"></i>
+		</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li has-any-authority="ROLE_ADMIN,VIEW_OWNED_SHOOT_CONFIG,VIEW_SHOOT_CONFIG,EDIT_OWNED_SHOOT_CONFIG,EDIT_SHOOT_CONFIG">
+                        <a ui-sref="yy_director_needs"></i>拍摄配置管理</a>
+                    </li>
+                    <li has-any-authority="ROLE_ADMIN,VIEW_OWNED_SHOOT_BUDGET,VIEW_BUDGET,EDIT_BUDGET">
+                        <a ui-sref="yy_shoot_budget"></i>拍摄预算管理</a>
+                    </li>
+                    <li has-any-authority="ROLE_ADMIN,VIEW_OWNED_SHOOT_COST,VIEW_COST,EDIT_COST">
+                        <a ui-sref="yy_shoot_cost"></i>拍摄决算管理</a>
+                    </li>
+                    <li has-any-authority="ROLE_ADMIN,VIEW_OWNED_SHOOT_AUDIT,VIEW_BUDGET_VS_COST">
+                        <a ui-sref="yy_shoot_cost_audit"></i>预算决算对比</a>
+                    </li>
+                    <li has-any-authority="ROLE_ADMIN,VIEW_SHOOT_AGENDA,EDIT_SHOOT_AGENDA,VIEW_OWNED_AGENDA,EDIT_OWNED_AGENDA">
+                        <a ui-sref="yy_shoot_agenda"></i>拍摄排期</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview" has-any-authority="ROLE_ADMIN,VIEW_STAFFS,EDIT_STAFFS,VIEW_ACTORS,EDIT_ACTORS,VIEW_INSTRUMENTS,EDIT_INSTRUMENTS">
+                <a>
+                    <i class="fa fa-university fa-fw"></i> <span> 资源库管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li has-any-authority="ROLE_ADMIN,VIEW_INSTRUMENTS,EDIT_INSTRUMENTS">
+                        <a ui-sref="yy_resource_equipment"></i>器材库</a>
+                    </li>
+                    <li has-any-authority="ROLE_ADMIN,VIEW_ACTORS,EDIT_ACTORS">
+                        <a ui-sref="yy_resource_actor"></i>演员库</a>
+                    </li>
+                    <li has-any-authority="ROLE_ADMIN,VIEW_STAFFS,EDIT_STAFFS">
+                        <a ui-sref="yy_resource_staff"></i>工作人员库</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview" has-any-authority="ROLE_ADMIN,VIEW_USER_MANAGE,EDIT_USER_MANAGE,VIEW_SYS_ROLE,EDIT_SYS_ROLE,VIEW_SYS_DIC,EDIT_SYS_DIC">
+                <a>
+                    <i class="fa fa-cogs fa-fw"></i> <span> 系统管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li has-any-authority="ROLE_ADMIN,VIEW_USER_MANAGE,EDIT_USER_MANAGE">
+                        <a ui-sref="yy_user-management"></i>用户管理</a>
+                    </li>
+                    <li has-any-authority="ROLE_ADMIN,VIEW_SYS_ROLE,EDIT_SYS_ROLE">
+                        <a ui-sref="yy_sys_role"></i>角色管理</a>
+                    </li>
+                    <li has-any-authority="ROLE_ADMIN,VIEW_SYS_DIC,EDIT_SYS_DIC">
+                        <a ui-sref="yy_sys_dictionary"></i>字典管理</a>
+                    </li>
+                </ul>
+            </li>
+
+            <!--<li class="treeview" has-any-authority="ROLE_ADMIN">-->
+                <!--<a>-->
+                    <!--<i class="fa fa-cloud fa-fw"></i> <span> API </span>-->
+		<!--<span class="pull-right-container">-->
+			<!--<i class="fa fa-angle-left pull-right"></i>-->
+		<!--</span>-->
+                <!--</a>-->
+                <!--<ul class="treeview-menu">-->
+                    <!--<li>-->
+                        <!--<a ui-sref="dictionary"></i>字典</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="project"></i>项目</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="job-title"></i>职位</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="city"></i>城市</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="client"></i>客户</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="contract"></i>合同</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="dept"></i>部门</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="employee"></i>员工</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="actor"></i>演员</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="city"></i>城市</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="picture-info"></i>图片</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="task">任务</a>-->
+                    <!--</li>-->
+
+                    <!--<li>-->
+                        <!--<a ui-sref="project-cost">项目支出</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="user-management"></i>User management</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="jhi-tracker"></i>User tracker</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="jhi-metrics"></i>Metrics</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="jhi-health"></i>Health</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="jhi-configuration"></i>Configuration</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="audits"></i>Audits</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="logs"></i>Logs</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a ui-sref="docs"></i>API</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        </ul>
+    </section>
+</aside>
+
+
+

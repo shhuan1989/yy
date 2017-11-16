@@ -1,0 +1,16 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160927101046",
+    "entityTableName": "job_title",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "angularSuffix": "yj"
+}

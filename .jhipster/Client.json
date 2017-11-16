@@ -1,0 +1,102 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "industry",
+            "otherEntityName": "dictionary",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "client"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "source",
+            "otherEntityName": "dictionary",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "client"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contact",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactTel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createTime",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "telCorp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "websiteCorp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "addressCorp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "qq",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "wechat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "owner",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactJobTitle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactBirthDate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactHobby",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "comment",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastModifiedTime",
+            "fieldType": "Long",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "lastModifier",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "inputOperator",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161003020123",
+    "entityTableName": "client",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "angularSuffix": "yj"
+}

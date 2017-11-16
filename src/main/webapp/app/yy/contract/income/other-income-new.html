@@ -1,0 +1,138 @@
+<section class="content-header">
+    <h1>
+        新增收入
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li><a ui-sref="yy_contract_mgt">收入管理</a></li>
+        <li class="active">新增收入</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content other-income-edit-content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">收入详情</h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" novalidate data-parsley-validate>
+
+                        <div class="row">
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_pay_method">收入方式：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12" id="pay_method_error_container">
+                                    <select class="form-control" id="field_pay_method" name="pay_methodId"
+                                            ng-model="vm.income.incomeMethodId"
+                                            data-parsley-errors-container="#pay_method_error_container"
+                                            data-parsley-required="true"
+                                            ng-options="pm.id as pm.name for pm in vm.payMethodOptions">
+                                        <option value="" disabled selected>请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_pay_time">收入时间：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <div class='input-group date'>
+                                        <input type='text' class="form-control" id="field_pay_time"/>
+                                        <span class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_income_amount">收入金额：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input class="form-control" type="number" step="any" ng-model="vm.income.amount" id="field_income_amount"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_income_desc">收入说明：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input class="form-control" type="text" ng-model="vm.income.incomeDesc" id="field_income_desc"/>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12">
+                                <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_basic_info">备注：</label>
+                                </div>
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="form-control" name="basicInfo" id="field_basic_info"
+                                          ng-model="vm.income.memo"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="box-footer">
+                    <p>审批人：</p>
+                    <div ng-repeat="auditor in vm.auditors" class="approver">
+                        <img http-src="resource/pictures/{{auditor.photo.id}}" alt="{{auditor.name}}" class="img-circle" >
+                        <a ng-click="vm.deleteAuditor(auditor)" data-tootik="删除" class="image-tool">
+                            <i class="icon glyphicon glyphicon-trash" ></i>
+                        </a>
+                        <a class="users-list-name">{{auditor.name}}</a>
+                    </div>
+
+                    <div class="approver-more">
+                        <button class="btn btn-primary btn-full" ng-click="vm.addNewAuditor()">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                        <a class="text-center label-full users-list-name">添加</a>
+                    </div>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12">
+                <div class="col-sm-offset-4 col-sm-2 col-md-offset-4 col-md-2 col-xs-6">
+                    <button type="submit" class="btn btn-primary btn-full" ng-click="vm.save()">保存</button>
+                </div>
+                <div class="col-sm-2 col-md-2 col-xs-6">
+                    <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- add approver modal-->
+<div class="modal" data-backdrop="static" id="modal-add-income-auditor">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加审批人员</h4>
+            </div>
+            <div class="modal-body">
+                <select class="form-control select2" ng-model="vm.newAuditors"
+                        ng-options="emp as emp.name for emp in vm.employeesNotIncluded"
+                        id="field_new_member" required="required"
+                >
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" ng-click="vm.saveNewAuditor()">保存</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div ng-init="vm.initJsComponents()"></div>

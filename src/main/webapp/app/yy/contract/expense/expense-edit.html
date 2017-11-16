@@ -1,0 +1,196 @@
+<section class="content-header">
+    <h1>
+        {{vm.pageTitle}}
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li><a ui-sref="yy_contract_expense">支出管理</a></li>
+        <li class="active">{{vm.pageTitle}}</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content expense-edit-content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">支出详情</h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" novalidate data-parsley-validate>
+
+                        <div class="row">
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_pay_method">支出方式：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12" id="pay_method_error_container">
+                                    <select class="form-control" id="field_pay_method" name="pay_methodId"
+                                            ng-model="vm.expense.payMethodId"
+                                            ng-disabled="vm.disableEdit"
+                                            data-parsley-errors-container="#pay_method_error_container"
+                                            data-parsley-required="true"
+                                            ng-options="pm.id as pm.name for pm in vm.payMethodOptions">
+                                        <option value="" disabled selected>请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_pay_time">支出时间：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12" ng-hide="vm.disableEdit">
+                                    <div class='input-group date'>
+                                        <input type='text' class="form-control" id="field_pay_time"/>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-12" ng-if="vm.disableEdit">
+                                    <input class="form-control" type="text" disabled value="{{vm.expense.payTime | yytime}}"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_project">所属项目：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <select class="form-control select2" id="field_project" name="pay_methodId"
+                                            ng-model="vm.expense.projectId"
+                                            ng-disabled="vm.disableEdit"
+                                            ng-options="pm.id as pm.name for pm in vm.projects">
+                                        <option value="">非项目支出</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" ng-repeat="item in vm.expense.items">
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_purpose_{{$index}}">支出用途：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input class="form-control" type="text" ng-model="item.purpose" ng-disabled="vm.disableEdit" id="field_purpose_{{$index}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 col-sm-6 col-xs-10">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_amount_{{$index}}">支出金额：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input class="form-control" type="number" step="any" ng-model="item.amount" ng-disabled="vm.disableEdit" id="field_amount_{{$index}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-1 col-xs-2" ng-hide="vm.disableEdit">
+                                <a ng-click="vm.removeExpense($index)" data-tootik="删除"><i class="icon glyphicon glyphicon-trash" ></i></a>
+                            </div>
+                        </div>
+
+                        <div class="row" ng-hide="vm.disableEdit">
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_purpose_new">支出用途：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input class="form-control" type="text" ng-model="vm.newExpense.purpose" ng-disabled="vm.disableEdit" id="field_purpose_new"/>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 col-sm-6 col-xs-10">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_amount_new">支出金额：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input class="form-control" type="number" step="any" ng-model="vm.newExpense.amount"  ng-disabled="vm.disableEdit"id="field_amount_new"/>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-1 col-xs-2">
+                                <a ng-click="vm.addNewExpense()" data-tootik="添加"><i class="icon glyphicon glyphicon-plus" ></i></a>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-4 col-sm-6 col-xs-10">
+                            </div>
+                            <div class="form-group col-md-4 col-sm-6 col-xs-10">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_total_cost">合计金额：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input class="form-control" id="field_total_cost" type="number" disabled value="{{vm.expense.total}}" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="box-footer">
+                    <p>审批人：</p>
+                    <div data-ng-switch="vm.disableEdit">
+                        <div ng-repeat="auditor in vm.auditors" class="approver" ng-switch-when="true">
+                            <div data-ng-switch="auditor.approval.status.id" >
+                                <div ng-switch-when="2" data-tootik-conf="right success" data-tootik="已通过">
+                                    <img http-src="resource/pictures/{{auditor.photo.id}}" alt="{{task.owner.name}}" class="img-circle">
+                                    <i class="fa fa-check-circle-o fa-2x image-tool-static" aria-hidden="true"></i>
+                                </div>
+                                <div ng-switch-when="3" data-tootik-conf="right danger multiline" data-tootik="已驳回，{{auditor.approval.result}}">
+                                    <img http-src="resource/pictures/{{auditor.photo.id}}" alt="{{task.owner.name}}" class="img-circle">
+                                    <i class="fa fa-times-circle-o fa-2x image-tool-static text-red" aria-hidden="true"></i>
+                                </div>
+                                <div ng-switch-default data-tootik-conf="right info" data-tootik="进行中">
+                                    <img http-src="resource/pictures/{{auditor.photo.id}}" alt="{{task.owner.name}}" class="img-circle">
+                                    <span>{{auditor.name}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-switch-default>
+                            <div ng-repeat="auditor in vm.auditors" class="approver">
+                                <img http-src="resource/pictures/{{auditor.photo.id}}" alt="{{auditor.name}}" class="img-circle" >
+                                <a ng-click="vm.deleteAuditor(auditor)" data-tootik="删除" class="image-tool">
+                                    <i class="icon glyphicon glyphicon-trash" ></i>
+                                </a>
+                                <a class="users-list-name">{{auditor.name}}</a>
+                            </div>
+
+                            <div class="approver-more">
+                                <button class="btn btn-primary btn-full" ng-click="vm.addNewAuditor()">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </button>
+                                <a class="text-center label-full users-list-name">添加</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12">
+                <div class="col-sm-offset-4 col-sm-2 col-md-offset-4 col-md-2 col-xs-6">
+                    <button type="submit" class="btn btn-primary btn-full" ng-click="vm.save()">保存</button>
+                </div>
+                <div class="col-sm-2 col-md-2 col-xs-6">
+                    <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- add approver modal-->
+<div class="modal" data-backdrop="static" id="modal-add-expense-auditor">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加审批人员</h4>
+            </div>
+            <div class="modal-body">
+                <select class="form-control select2" ng-model="vm.newAuditors"
+                        ng-options="emp as emp.name for emp in vm.employeesNotIncluded"
+                        id="field_new_member" required="required"
+                >
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" ng-click="vm.saveNewAuditor()">保存</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div ng-init="vm.initJsComponents()"></div>

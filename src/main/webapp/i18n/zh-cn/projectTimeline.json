@@ -1,0 +1,26 @@
+{
+    "yiyingOaApp": {
+        "projectTimeline" : {
+            "home": {
+                "title": "Project Timelines",
+                "createLabel": "Create a new Project Timeline",
+                "createOrEditLabel": "Create or edit a Project Timeline",
+                "search": "Search for Project Timeline"
+            },
+            "created": "A new Project Timeline is created with identifier {{ param }}",
+            "updated": "A Project Timeline is updated with identifier {{ param }}",
+            "deleted": "A Project Timeline is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Project Timeline {{ id }}?"
+            },
+            "detail": {
+                "title": "Project Timeline"
+            },
+            "createTime": "Create Time",
+            "name": "Name",
+            "info": "Info",
+            "creator": "Creator",
+            "project": "Project"
+        }
+    }
+}

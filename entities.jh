@@ -1,0 +1,178 @@
+entity Project {
+	no String
+    name String
+    hasContract Integer
+    isNewClient Integer
+    budget Double
+    negotiator String
+    telNegotiator String
+    qqNegotiator String
+    wechartNegotiator String
+    mailNegotiator String
+    description String
+}
+
+entity Dictionary {
+    name String
+    creator String
+    createTime Long
+    lastModifiedTime Long
+    comment String
+    isSystem Boolean
+}
+
+relationship OneToMany {
+    Dictionary{children} to Dictionary{parent}
+}
+
+relationship OneToOne {
+    Dictionary{parent} to Dictionary
+}
+
+entity Client {
+	name String
+    contact String
+    contactTel String
+    createTime Long
+    telCorp String
+    websiteCorp String
+    addressCorp String
+    qq String
+    wechat String
+    email String
+    owner String
+    contactJobTitle String
+    contactBirthDate String
+    contactHobby String
+    comment String
+}
+
+relationship OneToOne {
+    Client{industry} to Dictionary
+}
+
+relationship OneToOne {
+    Client{source} to Dictionary
+}
+
+enum Gender {
+    MALE, FEMALE
+}
+
+enum Education {
+      UNDER_HIGH_SCHOOL,
+      JUNIOR_COLLEGE,
+      BACHELOR,
+      MASTER
+}
+
+enum JobPositionStatus {
+    PROBATION,
+    STAFF,
+    RESIGNED,
+    FIRED
+}
+
+entity Employee {
+	name String
+	gender Gender
+	age Integer
+    education Education,
+    empNumber String,
+    nativePlace String,
+    nationality String,
+    idNumber String,
+    basicInfo String,
+    hireDate Long,
+    probationSalary Double,
+    salary Double,
+    jobPositionStatus JobPositionStatus,
+    jobPositionInfo String,
+    birthDate Long,
+    marriage Integer,
+    childbearing Integer,
+    hukou String,
+    pensionAccount String,
+    houseFoundAccount String,
+    hasDriverLicense Integer,
+    cellphone String,
+    mail String,
+    qq String,
+    workQq String,
+    workQqPassword String,
+    wechart String,
+    address String,
+    tel String,
+    emergencyTel String,
+    emergencyContact String,
+    relationshipWithEmergencyContact String,
+    additionalInfo String,
+    computerLevel String,
+    foreignLanguageLevel String
+}
+
+entity Contract {
+	name String
+}
+
+entity Dept {
+    name String
+}
+
+entity Province {
+    name String
+}
+
+entity City {
+    name String
+}
+
+entity JobTitle {
+    name String
+}
+
+relationship OneToMany {
+    Province{cities} to City
+}
+
+relationship OneToOne {
+    Employee{jobTitle} to JobTitle
+}
+
+relationship OneToOne {
+    Employee{nativePlace} to City
+}
+
+relationship OneToOne {
+    Employee{dept} to Dept
+}
+
+relationship OneToOne {
+	Project{client} to Client
+}
+
+relationship OneToOne {
+	Project{contract} to Contract
+}
+
+relationship OneToOne {
+	Project{director} to Employee
+}
+
+relationship ManyToMany {
+	Project{aes} to Employee{aedProjects}
+}
+
+relationship ManyToMany {
+	Project{members} to Employee{participatedProjects}
+}
+
+// Set pagination options
+paginate * with pager
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix
+angularSuffix * with yj

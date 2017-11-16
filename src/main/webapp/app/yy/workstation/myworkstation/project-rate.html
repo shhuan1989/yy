@@ -1,0 +1,282 @@
+<section class="content-header">
+    <h1>
+        项目评级
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li><a ui-sref="yy_workstation_mystation"><i class="fa fa-dashboard"></i> 我的工作台</a></li>
+        <li class="active">{{vm.rate.projectName}}</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <div class="row">
+                        <div class="col-md-3 col-xs-12 col-sm-4">
+                            项目编号：{{vm.project.id}}
+                        </div>
+                        <div class="col-md-3 col-xs-12 col-sm-4">
+                            项目名称：{{vm.project.name}}
+                        </div>
+                        <div class="col-md-3 col-xs-12 col-sm-4">
+                            项目金额：<span class="label label-danger">{{vm.project.contract.moneyAmount}}</span>
+                        </div>
+                        <div class="col-md-3 col-xs-12 col-sm-4">
+                            项目总监：{{vm.project.director.name}}
+                        </div>
+                        <div class="col-md-3 col-xs-12 col-sm-4">
+                            项目经理：{{vm.project.aes | arrprop: 'name'}}
+                        </div>
+                        <div class="col-md-3 col-xs-12 col-sm-4">
+                            参与人数：{{vm.project.participantsCount}}
+                        </div>
+                        <div class="col-md-3 col-xs-12 col-sm-4">
+                            创建时间：{{vm.project.createTime | yytime}}
+                        </div>
+                        <div class="col-md-3 col-xs-12 col-sm-4">
+                            验收时间：{{vm.project.archiveTime | yytime}}
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div>
+                        <p>
+                            评分规则：
+                        </p>
+                        <ol>
+                            <li>评分分值为0-100间</li>
+                            <li>对后期可以分别对各单项评分，也可直接给项目整体评分</li>
+                            <li>评分规则依据详见《YY作品质量级别考评方法》</li>
+                        </ol>
+                    </div>
+                    <div class="rate-edit-content">
+                        <form class="form-horizontal row" novalidate>
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12" ng-if="vm.ratableItems.indexOf('项目管理质量') >= 0">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_rate_management">项目管理质量：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12" ng-if="vm.isFinalDecision != true">
+                                    <input type="number" class="form-control" name="management" id="field_rate_management"
+                                           ng-model="vm.rate.management" required="required" data-parsley-type="integer"
+                                           data-parsley-range="[0, 100]"  data-parsley-trigger="blur"
+                                    />
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-12" ng-if="vm.isFinalDecision == true">
+                                    <input type="text" disabled class="form-control" ng-value="vm.rate.managementDesc"/>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-5 col-sm-6 col-xs-12" ng-if="vm.ratableItems.indexOf('项目管理质量') >= 0 && vm.isFinalDecision">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_rate_management_re">重新评级：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <select class="form-control" id="field_rate_management_re" name="managementDesc"
+                                            ng-model="vm.rate.managementRe"
+                                            ng-options="v for v in vm.rateOptions">
+                                        <option value="" selected>请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12" ng-if="vm.ratableItems.indexOf('创意质量') >= 0">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_rate_creation">创意质量：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12" ng-if="vm.isFinalDecision != true">
+                                    <input type="number" class="form-control" name="creation" id="field_rate_creation"
+                                           ng-model="vm.rate.creation" required="required" data-parsley-type="integer"
+                                           data-parsley-range="[0, 100]"  data-parsley-trigger="blur" ng-disabled="vm.isFinalDecision"
+                                    />
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-12" ng-if="vm.isFinalDecision == true">
+                                    <input type="text" disabled class="form-control" ng-value="vm.rate.creationDesc"/>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-5 col-sm-6 col-xs-12" ng-if="vm.ratableItems.indexOf('创意质量') >= 0 && vm.isFinalDecision">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_rate_creation_re">重新评级：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <select class="form-control" id="field_rate_creation_re" name="creationDesc"
+                                            ng-model="vm.rate.creationRe"
+                                            ng-options="v for v in vm.rateOptions">
+                                        <option value="" selected>请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12" ng-if="vm.ratableItems.indexOf('制片质量') >= 0">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_rate_production">制片质量：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12" ng-if="vm.isFinalDecision != true">
+                                    <input type="number" class="form-control" name="production" id="field_rate_production"
+                                           ng-model="vm.rate.production" required="required" data-parsley-type="integer"
+                                           data-parsley-range="[0, 100]"  data-parsley-trigger="blur" ng-disabled="vm.isFinalDecision"
+                                    />
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-12" ng-if="vm.isFinalDecision == true">
+                                    <input type="text" disabled class="form-control" ng-value="vm.rate.productionDesc"/>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-5 col-sm-6 col-xs-12" ng-if="vm.ratableItems.indexOf('制片质量') >= 0 && vm.isFinalDecision">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_rate_production_re">重新评级：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <select class="form-control" id="field_rate_production_re" name="productionDesc"
+                                            ng-model="vm.rate.productionRe"
+                                            ng-options="v for v in vm.rateOptions">
+                                        <option value="" selected>请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12" ng-if="vm.ratableItems.indexOf('导演质量') >= 0">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_rate_direct">导演质量：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12" ng-if="vm.isFinalDecision != true">
+                                    <input type="number" class="form-control" name="direct" id="field_rate_direct"
+                                           ng-model="vm.rate.direct" required="required" data-parsley-type="integer"
+                                           data-parsley-range="[0, 100]"  data-parsley-trigger="blur" ng-disabled="vm.isFinalDecision"
+                                    />
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-12" ng-if="vm.isFinalDecision == true">
+                                    <input type="text" disabled class="form-control" ng-value="vm.rate.directDesc"/>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-5 col-sm-6 col-xs-12" ng-if="vm.ratableItems.indexOf('导演质量') >= 0 && vm.isFinalDecision">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_rate_direct_re">重新评级：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <select class="form-control" id="field_rate_direct_re" name="directDesc"
+                                            ng-model="vm.rate.directRe"
+                                            ng-options="v for v in vm.rateOptions">
+                                        <option value="" selected>请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12" ng-if="vm.ratableItems.indexOf('摄像质量') >= 0">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_rate_phtography">摄像质量：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12" ng-if="vm.isFinalDecision != true">
+                                    <input type="number" class="form-control" name="photography" id="field_rate_phtography"
+                                           ng-model="vm.rate.photography" required="required" data-parsley-type="integer"
+                                           data-parsley-range="[0, 100]"  data-parsley-trigger="blur" ng-disabled="vm.isFinalDecision"
+                                    />
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-12" ng-if="vm.isFinalDecision == true">
+                                    <input type="text" disabled class="form-control" ng-value="vm.rate.photographyDesc"/>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-5 col-sm-6 col-xs-12" ng-if="vm.ratableItems.indexOf('摄像质量') >= 0 && vm.isFinalDecision">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_rate_phtography_re">重新评级：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <select class="form-control" id="field_rate_phtography_re" name="photographyDesc"
+                                            ng-model="vm.rate.photographyRe"
+                                            ng-options="v for v in vm.rateOptions">
+                                        <option value="" selected>请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                        <form class="form-horizontal row" novalidate ng-if="vm.ratableItems.indexOf('后期设计质量') >= 0">
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_rate_postprogress">后期质量：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12" id="postgress-input-group" ng-if="vm.isFinalDecision != true">
+                                    <div class="input-group">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"
+                                                    ng-disabled="vm.isFinalDecision">
+                                                <span ng-if="vm.postprogressMethod == 0">总体评分</span>
+                                                <span ng-if="vm.postprogressMethod == 1">单项评分</span>
+                                                <span class="fa fa-caret-down"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a ng-click="vm.setPostprocessRateMethod(0)">总体评分</a></li>
+                                                <li><a ng-click="vm.setPostprocessRateMethod(1)">单项评分</a></li>
+                                            </ul>
+                                        </div>
+                                        <input type="number" class="form-control" name="manage" id="field_rate_postprogress"
+                                               ng-model="vm.rate.postprocess" required="required" data-parsley-type="integer"
+                                               data-parsley-range="[0, 100]" data-parsley-errors-container="#postgress-input-group"
+                                               data-parsley-trigger="blur" ng-if="vm.postprogressMethod != 1" ng-disabled="vm.isFinalDecision"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-12" ng-if="vm.isFinalDecision == true">
+                                    <input type="text" disabled class="form-control" ng-value="vm.rate.postprocessDesc"/>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-5 col-sm-6 col-xs-12" ng-if="vm.ratableItems.indexOf('后期设计质量') >= 0 && vm.isFinalDecision">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_rate_postprogress_re">重新评级：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <select class="form-control" id="field_rate_postprogress_re" name="postprocessDesc"
+                                            ng-model="vm.rate.postprocessRe"
+                                            ng-options="v for v in vm.rateOptions">
+                                        <option value="" selected>请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                        <form class="form-horizontal row" ng-show="vm.postprogressMethod == 1" novalidate ng-if="vm.ratableItems.indexOf('后期设计质量') >= 0">
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_rate_cutting">剪辑质量：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="number" class="form-control" name="manage" id="field_rate_cutting"
+                                           ng-model="vm.rate.cutting" ng-required="vm.postprogressMethod == 1" data-parsley-type="integer"
+                                           data-parsley-range="[0, 100]"  data-parsley-trigger="blur"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_rate_effect">特效质量：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="number" class="form-control" name="manage" id="field_rate_effect"
+                                           ng-model="vm.rate.effect" ng-required="vm.postprogressMethod == 1" data-parsley-type="integer"
+                                           data-parsley-range="[0, 100]"  data-parsley-trigger="blur"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_rate_graphic">平面质量：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="number" class="form-control" name="manage" id="field_rate_graphic"
+                                           ng-model="vm.rate.graphic" ng-required="vm.postprogressMethod == 1" data-parsley-type="integer"
+                                           data-parsley-range="[0, 100]"  data-parsley-trigger="blur"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_rate_music">音乐质量：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="number" class="form-control" name="manage" id="field_rate_music"
+                                           ng-model="vm.rate.music" ng-required="vm.postprogressMethod == 1" data-parsley-type="integer"
+                                           data-parsley-range="[0, 100]"  data-parsley-trigger="blur"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_rate_3d">三维质量：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="number" class="form-control" name="manage" id="field_rate_3d"
+                                           ng-model="vm.rate.threeDimension" ng-required="vm.postprogressMethod == 1" data-parsley-type="integer"
+                                           data-parsley-range="[0, 100]"  data-parsley-trigger="blur"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_rate_total">后期质量总分：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="number" class="form-control" name="manage" id="field_rate_total"
+                                           ng-model="vm.rate.postprocess" disabled
+                                    />
+                                </div>
+                            </div>
+                        </form>
+                        <div class="form-group row">
+                            <div class="col-sm-offset-5 col-sm-2 col-md-offset-5 col-md-2 col-xs-offset-4 col-xs-4">
+                                <button type="submit" class="btn btn-primary btn-full"
+                                        ng-click="vm.save()">提交</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->

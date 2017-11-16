@@ -1,0 +1,40 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "pictureInfo",
+            "otherEntityName": "pictureInfo",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "comment"
+        },
+        {
+            "relationshipName": "fileInfo",
+            "otherEntityName": "fileInfo",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "comment"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "text",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createTime",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20161012134122",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "comment",
+    "pagination": "no"
+}

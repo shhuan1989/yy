@@ -1,0 +1,64 @@
+<div>
+    <h2 data-translate="yiyingOaApp.approval.home.title">Approvals</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="approval.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="yiyingOaApp.approval.home.createLabel">
+                        Create new Approval
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="yiyingOaApp.approval.createTime">Create Time</span></th>
+                    <th><span data-translate="yiyingOaApp.approval.lastModifiedTime">Last Modified Time</span></th>
+                    <th><span data-translate="yiyingOaApp.approval.status">Status</span></th>
+                    <th><span data-translate="yiyingOaApp.approval.previousApproval">Previous Approval</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="approval in vm.approvals track by approval.id">
+                    <td><a ui-sref="approval-detail({id:approval.id})">{{approval.id}}</a></td>
+                    <td>{{approval.createTime}}</td>
+                    <td>{{approval.lastModifiedTime}}</td>
+                    <td>{{approval.status}}</td>
+                    <td>
+                        <a ui-sref="approval-detail({id:approval.previousApprovalId})">{{approval.previousApprovalId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="approval-detail({id:approval.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="approval.edit({id:approval.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="approval.delete({id:approval.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

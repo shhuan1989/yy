@@ -1,0 +1,108 @@
+{
+    "name": "总经理",
+    "subordinates": [
+        {
+            "name": "市场总监",
+            "subordinates": [
+                {
+                    "name": "市场经理",
+                    "subordinates": [
+                        {
+                            "name": "推广专员"
+                        },
+                        {
+                            "name": "销售专员"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "行政总监",
+            "subordinates": [
+                {
+                    "name": "行政经理",
+                    "subordinates": [
+                        {
+                            "name": "行政文员"
+                        }
+                    ]
+                },
+                {
+                    "name": "人事经理",
+                    "subordinates": [
+                        {
+                            "name": "人事文员"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "财务总监",
+            "subordinates": [
+                {
+                    "name": "财务经理",
+                    "subordinates": [
+                        {
+                            "name": "出纳"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "制片主任",
+            "subordinates": [
+                {
+                    "name": "制片"
+                }
+            ]
+        },
+        {
+            "name": "总导演",
+            "subordinates": [
+                {
+                    "name": "导演"
+                },
+                {
+                    "name": "摄像师"
+                }
+            ]
+        },
+        {
+            "name": "项目总监",
+            "subordinates": [
+                {
+                    "name": "项目经理"
+                }
+            ]
+        },
+        {
+            "name": "创意总监",
+            "subordinates": [
+                {
+                    "name": "创意经理",
+                    "subordinates": [
+                        {
+                            "name": "文案策划"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "设计总监",
+            "subordinates": [
+                {
+                    "name": "设计经理",
+                    "subordinates": [
+                        {
+                            "name": "设计师"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

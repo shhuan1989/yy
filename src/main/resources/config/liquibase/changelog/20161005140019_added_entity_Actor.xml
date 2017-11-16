@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle"/>
+
+    <!--
+        Added the entity Actor.
+    -->
+    <changeSet id="20161005140019-1" author="jhipster">
+        <createTable tableName="actor">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            
+            <column name="gender" type="integer">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="birth_date" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="height" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="bust" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="waist" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="hip" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="tel" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="input_operator" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="input_time" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="last_modifier" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="last_modified_time" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="age" type="integer">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="source_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="country_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
+        </createTable>
+        
+    </changeSet>
+</databaseChangeLog>

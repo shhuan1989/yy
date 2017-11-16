@@ -1,0 +1,24 @@
+{
+    "yiyingOaApp": {
+        "projectRate" : {
+            "home": {
+                "title": "Project Rates",
+                "createLabel": "Create a new Project Rate",
+                "createOrEditLabel": "Create or edit a Project Rate",
+                "search": "Search for Project Rate"
+            },
+            "created": "A new Project Rate is created with identifier {{ param }}",
+            "updated": "A Project Rate is updated with identifier {{ param }}",
+            "deleted": "A Project Rate is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Project Rate {{ id }}?"
+            },
+            "detail": {
+                "title": "Project Rate"
+            },
+            "createTime": "Create Time",
+            "creator": "Creator",
+            "project": "Project"
+        }
+    }
+}

@@ -1,0 +1,140 @@
+<section class="content-header">
+    <h1>
+        发起新的会议
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li><a ui-sref="yy_meeting">项目会议管理</a></li>
+        <li class="active">发起新的会议</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content meeting-edit-content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-body">
+                    <form class="form-horizontal" novalidate data-parsley-validate data-parsley-focus="none">
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_meeting_start_time">会议开始时间：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class='input-group date'>
+                                    <input type='text' class="form-control" required="required" id='field_meeting_start_time'/>
+                                    <span class="input-group-addon">
+                                            <i class="fa fa-clock-o"></i>
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_meeting_end_time">会议结束时间：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class='input-group date'>
+                                    <input type='text' class="form-control" required="required" id='field_meeting_end_time'/>
+                                    <span class="input-group-addon">
+                                            <i class="fa fa-clock-o"></i>
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_meeting_room">会议室：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control" id="field_meeting_room" name="meetingRoom"\
+                                        ng-model="vm.meeting.room.id" required="required"
+                                        ng-options="room.id as room.name for room in vm.roomOptions">
+                                    <option value="" disabled selected>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_meeting_subject">会议主题：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12" id="field_subject_container">
+                                <select class="select2 form-control" id="field_meeting_subject" name="subjectId"\
+                                        ng-model="vm.meeting.projectId" required="required" \
+                                        data-parsley-errors-container="#field_subject_container"
+                                        ng-options="subject.id as subject.name for subject in vm.projectOptions">
+                                    <!--<option value="">请选择</option>-->
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_meeting_info">会议说明：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="info" id="field_meeting_info"
+                                       ng-model="vm.meeting.info"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xs-12 col-sm-12">
+                            <label class="control-label">选择与会人员：</label>
+                            <label ng-show="vm.members == undefined || vm.members.length <= 0" class="text-red">请选择与会人员！</label>
+                        </div>
+                        <div class="form-group col-xs-12 col-sm-12">
+                            <div ng-repeat="member in vm.members" class="meeting-member">
+                                <img http-src="resource/pictures/{{member.photo.id}}" alt="{{task.owner.name}}" class="img-circle" >
+                                <a ng-click="vm.deleteMember(member)" data-tootik="删除" class="image-tool">
+                                    <i class="icon glyphicon glyphicon-trash" ></i>
+                                </a>
+                                <a class="users-list-name">{{member.name}}</a>
+                            </div>
+                            <div class="meeting-member-more">
+                                <button class="btn btn-primary btn-full" ng-click="vm.addNewMember()">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </button>
+                                <a class="text-center label-full users-list-name">添加</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+            <div class="form-group col-sm-12">
+                <div class="col-sm-offset-4 col-sm-2 col-md-offset-4 col-md-2 col-xs-6">
+                    <button type="submit" class="btn btn-primary btn-full" ng-click="vm.save()">保存</button>
+                </div>
+                <div class="col-sm-2 col-md-2 col-xs-6">
+                    <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- add participant modal-->
+<div class="modal" data-backdrop="static" id="modal-add-member">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加参会人员</h4>
+            </div>
+            <div class="modal-body">
+                <select class="form-control select2" multiple="multiple" ng-model="vm.newMembers" \
+                        ng-options="emp as emp.name for emp in vm.employeesNotIncluded"
+                        id="field_new_member" required="required"
+                >
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" ng-click="vm.saveNewMember()">保存</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div ng-init="vm.initJsComponents()"></div>

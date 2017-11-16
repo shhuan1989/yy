@@ -1,0 +1,190 @@
+<section class="content-header">
+    <h1>
+        {{vm.pageTitle}}
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li><a ui-sref="yy_director_needs">导演拍摄需求</a></li>
+        <li class="active">{{vm.pageTitle}}</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content shootconfig-edit-content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">项目概况</h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" novalidate data-parsley-validate>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12" ng-show="!vm.disableEdit">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_project">项目：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12" id="project_error_container">
+                                <select class="form-control select2" id="field_project" name="projectId"
+                                        ng-model="vm.projectId" ng-disabled="vm.disableEdit"
+                                        ng-options="project.id as project.name for project in vm.projects"
+                                        required="required" data-parsley-trigger="blur"
+                                        data-parsley-errors-container="#project_error_container"
+                                >
+                                    <option value="" ng-if="vm.projectId == undefined">请选择</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12" ng-if="vm.disableEdit">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12">项目：</label>
+                            <label class="control-label col-md-8 col-sm-8 col-xs-12 text-left">{{vm.project.name}}</label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12">项目编号：</label>
+                            <label class="control-label col-md-8 col-sm-8 col-xs-12 text-left">{{vm.project.idNumber}}</label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12">合同/PO编号：</label>
+                            <label class="control-label col-md-8 col-sm-8 col-xs-12 text-left">{{vm.project.contract.idNumber}}</label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12">客户名称：</label>
+                            <label class="control-label col-md-8 col-sm-8 col-xs-12 text-left">{{vm.project.client.name}}</label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12">合同金额：</label>
+                            <label class="control-label col-md-8 col-sm-8 col-xs-12 text-left">{{vm.project.contract.moneyAmount}}</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">导演需求</h3>
+                </div>
+                <div class="box-body">
+                    <table class="table table-bordered table-hover ng-scope ng-table">
+                        <thead>
+                            <tr>
+                                <th>名称</th>
+                                <th>数量</th>
+                                <th>备注</th>
+                                <th ng-if="!vm.disableEdit">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="sc in vm.shootConfig.items">
+                                <td>
+                                    {{sc.name}}
+                                </td>
+                                <td>
+                                    {{sc.amount}}
+                                </td>
+                                <td>
+                                    {{sc.memo}}
+                                </td>
+                                <td ng-if="!vm.disableEdit">
+                                    <a ng-click="vm.removeConfig($index)" data-tootik="删除"><i class="icon glyphicon glyphicon-trash" ></i></a>
+                                </td>
+                            </tr>
+                            <tr ng-if="!vm.disableEdit" class="new-config-row" data-parsley-validate>
+                                <td>
+                                    <input type="text" ng-model="vm.newConfig.name" />
+                                </td>
+                                <td>
+                                    <input type="number" ng-model="vm.newConfig.amount" />
+                                </td>
+                                <td>
+                                    <input type="text" ng-model="vm.newConfig.memo" />
+                                </td>
+                                <td>
+                                    <a ng-click="vm.addNewConfig()" data-tootik="添加"><i class="icon glyphicon glyphicon-plus" ></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+                <div class="box-footer">
+                </div>
+            </div>
+
+            <div class="box box-solid box-primary" ng-if="vm.isView">
+                <div class="box-header with-border">
+                    <h3 class="box-title">需求讨论</h3>
+                </div>
+                <div class="box-body chat" id="chat-box">
+                    <!-- chat item -->
+                    <div class="item" ng-repeat="comment in vm.shootConfig.comments">
+                        <img http-src="resource/pictures/{{comment.creator.photo.id}}" alt="comment.creator.name" class="online">
+                        <p class="message">
+                            <a href="#" class="name">
+                                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> {{comment.createTime | yytime}}</small>
+                                {{comment.creator.name}}
+                            </a>
+                            <span>{{comment.content}}</span>
+                        </p>
+                        <div ng-if="comment.pictureInfo" class="image-container">
+                            <div>
+                                <img class="content-img" http-src="resource/pictures/{{comment.pictureInfo.id}}"/>
+                            </div>
+                            <div class="image-button-wrapper">
+                                <button type="button" class="btn btn-primary btn-sm btn-flat pull-right" ng-click="vm.download(comment.pictureInfo)">下载</button>
+                            </div>
+                        </div>
+
+                        <div class="attachment" ng-if="comment.fileInfo">
+                            <h4>附件:</h4>
+
+                            <p class="filename">
+                                <a ng-click="vm.download(comment.fileInfo)"><i class="fa fa-file-archive-o"></i>{{comment.fileInfo.originName}}</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.chat -->
+                <div class="box-footer">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="点击发表评论" ng-model="vm.newCommentText">
+                        <div class="input-group-btn">
+                            <!--<label type="button" class="btn btn-success"><i class="fa fa-upload"></i><input type="file" yy-file-change="vm.newFileSelected"/></label>-->
+                            <!--<label type="button" class="btn btn-success"><i class="fa fa-picture-o"></i><input type="file" ng-model="vm.newPicture"/></label>-->
+                            <button type="button" class="btn btn-success" ng-click="vm.sendComment()"><i class="fa fa-paper-plane-o"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12" data-ng-switch="vm.disableEdit">
+                <div ng-switch-when="false">
+                    <div class="col-sm-offset-4 col-sm-2 col-md-offset-4 col-md-2 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.save()">保存</button>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">取消</button>
+                    </div>
+                </div>
+                <div ng-switch-default>
+                    <div class="col-sm-offset-5 col-sm-2 col-md-offset-5 col-md-2 col-xs-offset-3 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">返回</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div ng-init="vm.initJsComponents()"></div>

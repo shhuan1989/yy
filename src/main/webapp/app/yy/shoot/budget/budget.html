@@ -1,0 +1,128 @@
+<section class="content-header">
+    <h1>
+        拍摄预算管理
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li class="active">拍摄预算管理</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">查询</h3>
+                </div>
+
+                <div class="box-body">
+                    <form class="form-horizontal" ng-submit="vm.search()">
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_project_number">项目编号：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="idNumber" id="field_project_number"
+                                       ng-model="vm.searchParams.projectIdNumber"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_shootConfig_number">合同/PO编号：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="shootConfigNumber" id="field_shootConfig_number"
+                                       ng-model="vm.searchParams.contractIdNumber"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_project_name">项目名称：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="projectName" id="field_project_name"
+                                       ng-model="vm.searchParams.projectName"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- 申请人和申请状态 -->
+
+                        <div class="form-group col-sm-12">
+                            <div class="col-sm-offset-5 col-sm-2 col-md-offset-5 col-md-2 col-xs-offset-4 col-xs-4">
+                                <button type="submit" class="btn btn-primary btn-full">查询</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <div has-any-authority="ROLE_ADMIN,EDIT_BUDGET">
+                        <button class="btn btn-primary" ui-sref="yy_shoot_budget.new" >
+                            <span class="glyphicon glyphicon-plus"></span>
+                            <span >
+                                新增拍摄预算申请表
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="dataTables_length" id="example1_length">
+                                <label>每页显示
+                                    <select class="form-control input-sm" ng-options="count for count in vm.shootConfigsTableParams.settings().counts" ng-model="vm.pageSize">
+
+                                    </select> 条, 共 {{vm.shootConfigs.length}}条
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <table ng-table="vm.shootConfigsTableParams" class="table table-bordered table-hover">
+                        <tr ng-repeat="sc in $data">
+                            <!--<td data-title="'合同/PO编号'">{{sc.contractIdNumber}}</td>-->
+                            <td data-title="'项目编号'">{{sc.projectIdNumber}}</td>
+                            <td data-title="'项目名称'">{{sc.projectName}}</td>
+                            <td data-title="'预算总额'">{{sc.budget | yymoney}}</td>
+                            <td data-title="'申请人'">{{sc.owner.name}}</td>
+                            <td data-title="'申请时间'">{{sc.createTime | yydate}}</td>
+                            <td data-title="'申请状态'">
+                                <div data-ng-switch="sc.approvalRequest.status.id">
+                                    <span class="label label-info" ng-switch-when="1">{{sc.approvalRequest.status.name}}</span>
+                                    <span class="label label-success" ng-switch-when="2">{{sc.approvalRequest.status.name}}</span>
+                                    <span class="label label-danger" ng-switch-when="3">{{sc.approvalRequest.status.name}}</span>
+                                    <span class="label label-warning" ng-switch-when="4">{{sc.approvalRequest.status.name}}</span>
+                                    <span class="label label-primary" ng-switch-default>{{sc.approvalRequest.status.name}}</span>
+                                </div>
+                            </td>
+                            <td data-title="'操作'">
+                                <div class="btn-group flex-btn-group-container">
+                                    <a ui-sref="yy_shoot_budget.view({id:sc.projectId})" data-tootik="查看" has-any-authority="ROLE_ADMIN,VIEW_OWNED_SHOOT_BUDGET,VIEW_BUDGET,EDIT_BUDGET"><i class="icon glyphicon glyphicon-search" ></i></a>
+                                    <a ui-sref="yy_shoot_budget.edit({id:sc.projectId})" data-tootik="编辑" ng-if="sc.approvalRequest == undefined || sc.approvalRequest.status.id == 0" has-any-authority="ROLE_ADMIN,EDIT_BUDGET"><i class="icon glyphicon glyphicon-pencil" ></i></a>
+                                    <a ng-click="vm.submitApplication(sc)" data-tootik="提交审批" ng-if="sc.approvalRequest.status.id == 0" has-any-authority="ROLE_ADMIN,EDIT_BUDGET"><i class="icon glyphicon glyphicon-play" ></i></a>
+                                    <a ui-sref="yy_shoot_budget.append({id:sc.projectId})" data-tootik="追加" ng-if="sc.approvalRequest.status.id > 1" has-any-authority="ROLE_ADMIN,EDIT_BUDGET"><i class="icon glyphicon glyphicon-forward" ></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+                <!-- /.box-body -->
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->

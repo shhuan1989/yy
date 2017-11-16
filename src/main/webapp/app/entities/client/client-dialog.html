@@ -1,0 +1,146 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myClientLabel">Create or edit a Client</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.client.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.client.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.client.name"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_contact">Contact</label>
+            <input type="text" class="form-control" name="contact" id="field_contact"
+                    ng-model="vm.client.contact"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_contactTel">Contact Tel</label>
+            <input type="text" class="form-control" name="contactTel" id="field_contactTel"
+                    ng-model="vm.client.contactTel"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_createTime">Create Time</label>
+            <input type="number" class="form-control" name="createTime" id="field_createTime"
+                    ng-model="vm.client.createTime"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_telCorp">Tel Corp</label>
+            <input type="text" class="form-control" name="telCorp" id="field_telCorp"
+                    ng-model="vm.client.telCorp"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_websiteCorp">Website Corp</label>
+            <input type="text" class="form-control" name="websiteCorp" id="field_websiteCorp"
+                    ng-model="vm.client.websiteCorp"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_addressCorp">Address Corp</label>
+            <input type="text" class="form-control" name="addressCorp" id="field_addressCorp"
+                    ng-model="vm.client.addressCorp"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_qq">Qq</label>
+            <input type="text" class="form-control" name="qq" id="field_qq"
+                    ng-model="vm.client.qq"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_wechat">Wechat</label>
+            <input type="text" class="form-control" name="wechat" id="field_wechat"
+                    ng-model="vm.client.wechat"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                    ng-model="vm.client.email"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_owner">Owner</label>
+            <input type="text" class="form-control" name="owner" id="field_owner"
+                    ng-model="vm.client.owner"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_contactJobTitle">Contact Job Title</label>
+            <input type="text" class="form-control" name="contactJobTitle" id="field_contactJobTitle"
+                    ng-model="vm.client.contactJobTitle"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_contactBirthDate">Contact Birth Date</label>
+            <input type="text" class="form-control" name="contactBirthDate" id="field_contactBirthDate"
+                    ng-model="vm.client.contactBirthDate"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_contactHobby">Contact Hobby</label>
+            <input type="text" class="form-control" name="contactHobby" id="field_contactHobby"
+                    ng-model="vm.client.contactHobby"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_comment">Comment</label>
+            <input type="text" class="form-control" name="comment" id="field_comment"
+                    ng-model="vm.client.comment"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_lastModifiedTime">Last Modified Time</label>
+            <input type="number" class="form-control" name="lastModifiedTime" id="field_lastModifiedTime"
+                    ng-model="vm.client.lastModifiedTime"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_inputOperator">Input Operator</label>
+            <input type="text" class="form-control" name="inputOperator" id="field_inputOperator"
+                    ng-model="vm.client.inputOperator"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_lastModifier">Last Modifier</label>
+            <input type="text" class="form-control" name="lastModifier" id="field_lastModifier"
+                    ng-model="vm.client.lastModifier"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label for="field_industry">Industry</label>
+            <select class="form-control" id="field_industry" name="industry" ng-model="vm.client.industryId" ng-options="dictionary.id as dictionary.id for dictionary in vm.industries | orderBy:'id'">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_source">Source</label>
+            <select class="form-control" id="field_source" name="source" ng-model="vm.client.sourceId" ng-options="dictionary.id as dictionary.id for dictionary in vm.sources | orderBy:'id'">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

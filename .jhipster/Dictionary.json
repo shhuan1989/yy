@@ -1,0 +1,52 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "children",
+            "otherEntityName": "dictionary",
+            "otherEntityRelationshipName": "parent"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "parent",
+            "otherEntityName": "dictionary",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createTime",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "comment",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isSystem",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "lastModifiedTime",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "lastModifier",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161003020122",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "dictionary",
+    "pagination": "pager"
+}

@@ -1,0 +1,49 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "type",
+            "otherEntityName": "dictionary",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "inputOperator",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createTime",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "lastModifier",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastModifiedTime",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20161008041936",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "staff",
+    "pagination": "pagination"
+}

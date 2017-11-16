@@ -1,0 +1,328 @@
+<section class="content-header">
+    <h1>
+        项目评级详情 - {{vm.project.name}}
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li><a ui-sref="yy_project_audit">项目评级</a></li>
+        <li class="active">项目评级详情</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content project-audit-detail-content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-body">
+                    <h4>员工评分</h4>
+                    <table class="table table-bordered table-hover ng-scope ng-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>项目管理质量</th>
+                                <th>创意质量</th>
+                                <th>制片质量</th>
+                                <th>导演质量</th>
+                                <th>摄像质量</th>
+                                <th>后期质量</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="member in vm.project.firstLevelRateMembers">
+                                <th>{{member.name}}</th>
+                                <td data-ng-switch="member.rate.shouldRateManagement">
+                                    <span ng-switch-when="true">
+                                        <span ng-if="member.rate.management != undefined">
+                                            {{member.rate.management}}
+                                        </span>
+                                        <span ng-if="member.rate.management == undefined" class="text-red">
+                                            未评价
+                                        </span>
+                                    </span>
+                                    <span ng-switch-default>
+                                        N/A
+                                    </span>
+                                </td>
+                                <td data-ng-switch="member.rate.shouldRateCreation">
+                                    <span ng-switch-when="true">
+                                        <span ng-if="member.rate.creation != undefined">
+                                            {{member.rate.creation}}
+                                        </span>
+                                        <span ng-if="member.rate.creation == undefined" class="text-red">
+                                            未评价
+                                        </span>
+                                    </span>
+                                    <span ng-switch-default>
+                                        N/A
+                                    </span>
+                                </td>
+                                <td data-ng-switch="member.rate.shouldRateProduction">
+                                    <span ng-switch-when="true">
+                                        <span ng-if="member.rate.production != undefined">
+                                            {{member.rate.production}}
+                                        </span>
+                                        <span ng-if="member.rate.production == undefined" class="text-red">
+                                            未评价
+                                        </span>
+                                    </span>
+                                    <span ng-switch-default>
+                                        N/A
+                                    </span>
+                                </td>
+                                <td data-ng-switch="member.rate.shouldRateDirect">
+                                    <span ng-switch-when="true">
+                                        <span ng-if="member.rate.direct != undefined">
+                                            {{member.rate.direct}}
+                                        </span>
+                                        <span ng-if="member.rate.direct == undefined" class="text-red">
+                                            未评价
+                                        </span>
+                                    </span>
+                                    <span ng-switch-default>
+                                        N/A
+                                    </span>
+                                </td>
+                                <td data-ng-switch="member.rate.shouldRatePhotography">
+                                    <span ng-switch-when="true">
+                                        <span ng-if="member.rate.photography != undefined">
+                                            {{member.rate.photography}}
+                                        </span>
+                                        <span ng-if="member.rate.photography == undefined" class="text-red">
+                                            未评价
+                                        </span>
+                                    </span>
+                                    <span ng-switch-default>
+                                        N/A
+                                    </span>
+                                </td>
+                                <td data-ng-switch="member.rate.shouldRatePostprocess">
+                                    <span ng-switch-when="true">
+                                        <span ng-if="member.rate.postprocess != undefined">
+                                            {{member.rate.postprocess}}
+                                        </span>
+                                        <span ng-if="member.rate.postprocess == undefined" class="text-red">
+                                            未评价
+                                        </span>
+                                    </span>
+                                    <span ng-switch-default>
+                                        N/A
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>平均分</th>
+                                <td data-ng-switch="vm.project.avgRate.management || '_undefined_'">
+                                    <span ng-switch-when="_undefined_">
+                                        N/A
+                                    </span>
+                                    <span ng-switch-default>
+                                        {{vm.project.avgRate.management}}
+                                    </span>
+                                </td>
+                                <td data-ng-switch="vm.project.avgRate.creation || '_undefined_'">
+                                    <span ng-switch-when="_undefined_">
+                                        N/A
+                                    </span>
+                                    <span ng-switch-default>
+                                        {{vm.project.avgRate.creation}}
+                                    </span>
+                                </td>
+                                <td data-ng-switch="vm.project.avgRate.production || '_undefined_'">
+                                    <span ng-switch-when="_undefined_">
+                                        N/A
+                                    </span>
+                                    <span ng-switch-default>
+                                        {{vm.project.avgRate.production}}
+                                    </span>
+                                </td>
+                                <td data-ng-switch="vm.project.avgRate.direct || '_undefined_'">
+                                    <span ng-switch-when="_undefined_">
+                                        N/A
+                                    </span>
+                                    <span ng-switch-default>
+                                        {{vm.project.avgRate.direct}}
+                                    </span>
+                                </td>
+                                <td data-ng-switch="vm.project.avgRate.photography || '_undefined_'">
+                                    <span ng-switch-when="_undefined_">
+                                        N/A
+                                    </span>
+                                    <span ng-switch-default>
+                                        {{vm.project.avgRate.photography}}
+                                    </span>
+                                </td>
+                                <td data-ng-switch="vm.project.avgRate.postprocess || '_undefined_'">
+                                    <span ng-switch-when="_undefined_">
+                                        N/A
+                                    </span>
+                                    <span ng-switch-default>
+                                        {{vm.project.avgRate.postprocess}}
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>等级</th>
+                                <td data-ng-switch="vm.project.avgRate.managementDesc || '_undefined_'">
+                                    <span ng-switch-when="_undefined_">
+                                        N/A
+                                    </span>
+                                    <span ng-switch-default>
+                                        {{vm.project.avgRate.managementDesc}}
+                                    </span>
+                                </td>
+                                <td data-ng-switch="vm.project.avgRate.creationDesc || '_undefined_'">
+                                    <span ng-switch-when="_undefined_">
+                                        N/A
+                                    </span>
+                                    <span ng-switch-default>
+                                        {{vm.project.avgRate.creationDesc}}
+                                    </span>
+                                </td>
+                                <td data-ng-switch="vm.project.avgRate.productionDesc || '_undefined_'">
+                                    <span ng-switch-when="_undefined_">
+                                        N/A
+                                    </span>
+                                    <span ng-switch-default>
+                                        {{vm.project.avgRate.productionDesc}}
+                                    </span>
+                                </td>
+                                <td data-ng-switch="vm.project.avgRate.directDesc || '_undefined_'">
+                                    <span ng-switch-when="_undefined_">
+                                        N/A
+                                    </span>
+                                    <span ng-switch-default>
+                                        {{vm.project.avgRate.directDesc}}
+                                    </span>
+                                </td>
+                                <td data-ng-switch="vm.project.avgRate.photographyDesc || '_undefined_'">
+                                    <span ng-switch-when="_undefined_">
+                                        N/A
+                                    </span>
+                                    <span ng-switch-default>
+                                        {{vm.project.avgRate.photographyDesc}}
+                                    </span>
+                                </td>
+                                <td data-ng-switch="vm.project.avgRate.postprocessDesc || '_undefined_'">
+                                    <span ng-switch-when="_undefined_">
+                                        N/A
+                                    </span>
+                                    <span ng-switch-default>
+                                        {{vm.project.avgRate.postprocessDesc}}
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h4>总监评分</h4>
+                    <table class="table table-bordered table-hover ng-scope ng-table">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>项目管理质量</th>
+                            <th>创意质量</th>
+                            <th>制片质量</th>
+                            <th>导演质量</th>
+                            <th>摄像质量</th>
+                            <th>后期质量</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="member in vm.project.secondLevelRateMembers">
+                            <th>{{member.name}}</th>
+                            <td data-ng-switch="member.rate.shouldRateManagement">
+                                    <span ng-switch-when="true">
+                                        <span ng-if="member.rate.managementDesc != undefined">
+                                            {{member.rate.managementDesc}}
+                                        </span>
+                                        <span ng-if="member.rate.managementDesc == undefined" class="text-red">
+                                            未评价
+                                        </span>
+                                    </span>
+                                    <span ng-switch-default>
+                                        N/A
+                                    </span>
+                            </td>
+                            <td data-ng-switch="member.rate.shouldRateCreation">
+                                    <span ng-switch-when="true">
+                                        <span ng-if="member.rate.creationDesc != undefined">
+                                            {{member.rate.creationDesc}}
+                                        </span>
+                                        <span ng-if="member.rate.creationDesc == undefined" class="text-red">
+                                            未评价
+                                        </span>
+                                    </span>
+                                    <span ng-switch-default>
+                                        N/A
+                                    </span>
+                            </td>
+                            <td data-ng-switch="member.rate.shouldRateProduction">
+                                    <span ng-switch-when="true">
+                                        <span ng-if="member.rate.productionDesc != undefined">
+                                            {{member.rate.productionDesc}}
+                                        </span>
+                                        <span ng-if="member.rate.productionDesc == undefined" class="text-red">
+                                            未评价
+                                        </span>
+                                    </span>
+                                    <span ng-switch-default>
+                                        N/A
+                                    </span>
+                            </td>
+                            <td data-ng-switch="member.rate.shouldRateDirect">
+                                    <span ng-switch-when="true">
+                                        <span ng-if="member.rate.directDesc != undefined">
+                                            {{member.rate.directDesc}}
+                                        </span>
+                                        <span ng-if="member.rate.directDesc == undefined" class="text-red">
+                                            未评价
+                                        </span>
+                                    </span>
+                                    <span ng-switch-default>
+                                        N/A
+                                    </span>
+                            </td>
+                            <td data-ng-switch="member.rate.shouldRatePhotography">
+                                    <span ng-switch-when="true">
+                                        <span ng-if="member.rate.photographyDesc != undefined">
+                                            {{member.rate.photographyDesc}}
+                                        </span>
+                                        <span ng-if="member.rate.photographyDesc == undefined" class="text-red">
+                                            未评价
+                                        </span>
+                                    </span>
+                                    <span ng-switch-default>
+                                        N/A
+                                    </span>
+                            </td>
+                            <td data-ng-switch="member.rate.shouldRatePostprocess">
+                                    <span ng-switch-when="true">
+                                        <span ng-if="member.rate.postprocessDesc != undefined">
+                                            {{member.rate.postprocessDesc}}
+                                        </span>
+                                        <span ng-if="member.rate.postprocessDesc == undefined" class="text-red">
+                                            未评价
+                                        </span>
+                                    </span>
+                                    <span ng-switch-default>
+                                        N/A
+                                    </span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12">
+                <div class="col-sm-offset-5 col-sm-2 col-md-offset-5 col-md-2 col-xs-offset-3 col-xs-6">
+                    <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">返回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

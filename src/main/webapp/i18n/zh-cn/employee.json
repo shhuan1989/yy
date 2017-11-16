@@ -1,0 +1,63 @@
+{
+    "yiyingOaApp": {
+        "employee" : {
+            "home": {
+                "title": "Employees",
+                "createLabel": "Create a new Employee",
+                "createOrEditLabel": "Create or edit a Employee",
+                "search": "Search for Employee"
+            },
+            "created": "A new Employee is created with identifier {{ param }}",
+            "updated": "A Employee is updated with identifier {{ param }}",
+            "deleted": "A Employee is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Employee {{ id }}?"
+            },
+            "detail": {
+                "title": "Employee"
+            },
+            "name": "Name",
+            "gender": "Gender",
+            "age": "Age",
+            "education": "Education",
+            "empNumber": "Emp Number",
+            "nativePlace": "Native Place",
+            "nationality": "Nationality",
+            "idNumber": "Id Number",
+            "basicInfo": "Basic Info",
+            "hireDate": "Hire Date",
+            "probationSalary": "Probation Salary",
+            "salary": "Salary",
+            "jobPositionStatus": "Job Position Status",
+            "jobPositionInfo": "Job Position Info",
+            "birthDate": "Birth Date",
+            "marriage": "Marriage",
+            "childbearing": "Childbearing",
+            "hukou": "Hukou",
+            "pensionAccount": "Pension Account",
+            "houseFoundAccount": "House Found Account",
+            "hasDriverLicense": "Has Driver License",
+            "cellphone": "Cellphone",
+            "mail": "Mail",
+            "qq": "Qq",
+            "workQq": "Work Qq",
+            "workQqPassword": "Work Qq Password",
+            "wechart": "Wechart",
+            "address": "Address",
+            "tel": "Tel",
+            "emergencyTel": "Emergency Tel",
+            "emergencyContact": "Emergency Contact",
+            "relationshipWithEmergencyContact": "Relationship With Emergency Contact",
+            "additionalInfo": "Additional Info",
+            "computerLevel": "Computer Level",
+            "foreignLanguageLevel": "Foreign Language Level",
+            "probationDeduction": "Probation Deduction",
+            "employeeDeduction": "Employee Deduction",
+            "jobTitle": "Job Title",
+            "nativePlace": "Native Place",
+            "dept": "Dept",
+            "aedProjects": "Aed Projects",
+            "participatedProjects": "Participated Projects"
+        }
+    }
+}

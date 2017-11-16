@@ -1,0 +1,359 @@
+688bf363e74e57162034acd2193150493254e260 Overtime work record in adminitrative management
+d9c6487689246563e4a8a9308ba9ea8001360c46 Vacation in administration
+1b608c2aecb5087b9227fbc6d2a0ba9b92ce65fc attachments mangement in contract
+ca6856f04c3fc2602f654cc762f1e759331d9fa6 Refact all add buttons to use it's actual size instead of responsive percentage
+08a65fdd6f2f6f77f4ecc4cde369e05c62447c1e Fix font-awesome error
+c267fe0e9e4eb5336fd8fa05321abe3d0fa5de22 Fix gulp build error
+d432da0a6b977b47fd38f241df74fc61cb94476c Involve gulp-build
+2212565caa53bd69945569d88c0451740b0663ea Finish manage contract invoice
+52745c032d620609a00dc478142c9e79140caaa1 Domain object for invoice
+5e586f6887c38e0f91e0bcc5fd8e76bd99d4a704 Search contract installmetn by status
+0c8aea3a3cdbb54d4aa3d0154baf95e08fbb3691 Finished installment of contract
+d2659ccf4eff82714e24b2e22eba0f3d8e2f18ca default time fro all datetime picker to avoid empty value when editing
+1e2e0313a56aed551b742260de3e0524a27fe971 Tip actual error message when add new contract with exists id number
+798bc541793bfc51fb42ca7c61918477e6859b23 Save contract with installments info
+0720b38ef62917a63941494f7e8860545b29b742 Fix issues of overtime work/vacation application
+9de1f2fb139d242c1908cf058db4fc562ed313a6 page for overtime work approval
+878924b98094d6f400182159cb7cb793995f44b8 pages for approve vacation request
+3963a92cf29a832437ee8a0bc7a71699a5ac2fe6 Finish save vacation approval, not trigger approval chain yet
+d7c713d6cf12b6fe7355b3879a5cacb598bd8f50 Vacation page
+bc7ae2b65e2fb2274fe81639d5f91a9001e5be40 fix babel issue
+f17074d2d8aa450da4c03133bff97017bdb4f31e Refact delete options in front-end
+91a32d4fb0a6d4e7ac11e371ef6f637188beef03 Involve babel to use ES6
+5f53d060763d30553e242a0a5fc319a49e24c3b8 UI for contract installments
+d5fb6868f9daaf0b66b20b22fd3ac70f6916cf59 Show  datetime picker when focus input in meeting
+dbf6ebf7bc6f4c16103f5f42a64b17aebc0d630e fix float problem after switched to new datetime picker
+4b92c63aa24992ca6ce62c101517626a628f4e0b can't cancel meeting after started, can only export after meeting finished
+db1a7e95c4a736186cbccf8b1e0a00d8d72a6d28 adjust ui for workstation
+0fc2517e01df7d072b1537db492e641630299956 Basic pages for all left components
+b4c666c78319fab1653625d99709a42f268d8f15 Fix build issues and user profile issues
+2d0797b30038baddcd16d887c164d3630d30013a domain for overtime work approval
+a9e4142e56efa7b59ba24d4dde8d6ef0bf915c1c Basic for vacation
+f4bfe14ff55cd1922f1a474fb50eede4e473dfb0 add meeting notification in navibar
+76b9c069232612d4478687177355102fe9b645b8 update meeting status automatically
+0bdb1b31c7bca83dd70a3cd0d4d682bfc08c17b5 Add and save meeting
+d44f6493ba2895da8ee9e77923cbc26f9bc1a8f3 Front-end ui for add meeting
+57e12af4fd77cb6de43dc6c76e368f6d7fdb0d0f Switched datepicker to datetimepicker
+d7cd0fe69f8abc5db7b51bb098eb9d6e8f395fcd Merge branch 'meeting'
+c84450f5dfb653b3775add20c3cc90cd07520c18 Front-end for meeting
+60635db51a27847ffc62798855f90d6c8559c919 Fix error params when search proejct
+fc7d3c6acf376b124a4b99f431a90f16e553892e Finish process of issue bonus
+0dae4d84264384a486637ed3726947eadb323b91 add bonus issue page
+30c8a5bd99e5aaf5c8e302d2ddc933ddec8d6ff0 bonuse detail in performance approvl page
+3e6351c361be110045e46aad07d2f52a59c807bf release
+be646280e3231b9699961140bc693ecf4e2a9bc2 Finish approval process for performance mangement
+d13de789095890f0dc19926f3ee49f7a66e45093 Enable submit performance bonus approval
+7aaac2471859d684be208a44eae9be86d16eb36b Finish edit project performance approval request
+36fc56ceded15e4194b5fc202978cef891a11ed3 Basic front-end UI fro performance mangement
+aecc4920b89ea583fcd6c3e339ce242fbaddae3e fs
+a9861fa658bbf7d9c8934067b34e660193796ab9 Distinguash projectate request/approval in workstation
+6bf322534461e7bda11f8e9e4de77a791c23e77d Cache dictionaries
+ea5162dbc6eccb5b9c246f37cee8ef09ed1e01a1 Use resource prefix for images api
+29565f9e6b0aba6209ca45e5e1ae98bc594611ec Fix build error after involved meeting/contract dto
+af09474d5baeeb8223741148baa135e276cf6cbf Merge branch 'master_up'
+75f1f38dfe76ec69a72715a9ac17c269f9d5cd8d Fix auth problem of getting dictionries
+45f5dedee77e1eb97bca5670eb7ce40000684a99 Cache images and dictionaries
+685a2b69ed2578260998c8933d21fd9d70bb07f3 modify domain object for contract
+49edce19d80b82ce727164e7f7103a2d29377149 Add domain objects for meeting
+84dd3a52cdc0e8d2d0461ef1362053797a3a9e47 Refine domain object for  job title
+47ea65fc49c0f713a270104f660adc9b8c91fea9 Only show members who participated rate in page of project audit detail
+f40cc2fc2dfbdbfc244a752d10abd46396c7b8ea finish 2-stage project rate
+cc54743273a764be3f4fcbdd2be79b1ff9867614 fix search error after emp can has mul positions
+f9a70af0cf1ec6d7383b2a2b1373f01d8b5bd483 cut user photo peridically
+7b9df5d7a023aaa7976179ca8496a62c60664f1e disallow search engine to index this site
+25d12989f2117656030d6f451c491018f63ef10c enable final decision for project rate
+5bd51f04ceb4b8e0a93f1d3d8508d6025573dfbf Refine project rate
+6683167567d214b0cc12a3c504cb3dbfa814dc49 Fix employee mangement issue after apply multiple jobtitles to same employee
+45d70a5209ce758e2fa7eb93f3d98ae0368cff2d Let current user as director of project
+0147f6b8630750aef0afbfde8a5d636b321c37ca Keep db connection alive
+0d2ea991e046e505a4b131e5e71f3cab772928ed domain objects for bonus dto
+ba7b3bed12ba321ac361df7be26c4fd2a029011a One employee can have multiple job titles now
+ae863aa3a480c2e0ce5a4fd4325d29b145c6bcb9 Domain objects for approval process
+a86dd25356bba1155aa76ad09c6a2b5938a95978 load staff entity after editing page is shown
+984fc32be3a8686fef432ff6c35ddc23bdf4a736 load equipment entity after editing page is shown
+3d845f4614ce42415e097e17a528d9fc290d9dc9 load actor entity after editing page is shown
+a5c0b648720ce8082ca6cd637aef758954031b10 load project entity after editing page is shown
+186a52c3f2913dc85f23947f61b76447f464bafb add loading overlay for timeline of archived project
+ac8857eddf1a444dc90a02be6310b7eedfc9e29e Load contract after editing page is shown
+7bc8a13656e61f008c83c7d04cfe3bee648b03e6 Load client entity after edit page is shown
+ab651b7aef7e77126e9df3a44f731b04e19343ea Load employee after edit page is shown
+5f386cc8a2f82789051779d0d7da2a97c4797232 Enable front-end cache, load after project-detail page is showing
+db95b53009ddb539b8de638a926a155448772720 add loading overlay for dedut setting
+bcbf55ff3f76d9e24b35b7d28e33b3322edfef12 vertial centralize select2
+314a5492a6c91a2d3fe46151ef4dc7ecc5fd21de fix error while searching project by contract status
+cbd095ad66b3206da0db0fe2c2d1b2e055b823d2 small issue fix, disable edit project after it's archived/closed
+74ae9dfc625d8fc2caf79491b8447fdcf0d31104 Release
+81f4c97e39652af97f9760519f2b8ce051636acc Remove adminlte to solve css build issue
+0b28a4e91c2eeb7db70b0327a61a3b84e273b3ba Connect project and contract
+af32fd992fbb3a5e4a9414c79d61649a5009de83 Basic contract manage ment
+1beb7ac87acd7ac2fd8805c13d0f319dd6279a09 align input for 3d of actor
+75144c839842a62c092d90195534a00721d789ff Involve real job titles and report relationship
+c462e06e1273b70edf5a76854a549249764d4e6b Select2 in project rate/archive
+0741a2c8143ab7294c9c6c0b087cf34ddd69e493 Send rate notification to direct/ae when all member finished rating project
+548f3da56998d5046cc98a34e10af163526342e1 Update project rate list after member rated project
+bb951bf0612ebd86ced9544e6a943ba1191c45cb Fix error in breadcrumb in editing project rate
+609b7056551c5b93c012bc7ee4dce2c63f721330 refine time label style for rating project
+9aa4f4742f8e5011ae0288e2e59f3179ff3ce32c Enable rate project
+8c9519cf713a4364fd515a8837a79d489eb2559d Add project rate event in page workstation
+44e86b792e58a29133d213a298392f766ab54336 !!!!!Use test as default password when create new user!!!!!
+4e977119d02a60b6097ebd1a5f33c696a6df453c Fix error when create user account
+6e43d043e06b7f0d724909f8f3350a537a56bc86 trigger project rating after it's archived
+da9e2fec55dd41573c1126e69540099a4b55ca18 add rate status for project, fix problem of searching by status
+4ba9704795df781faeb682409c0f08acb1bbb316 Fix a parallen issue, which may leads query fail sometimes
+063d17e74db10b0be1bcc788946f5258a1ae7b83 fix build issue
+2d5631a5c09666bf09bfc180c2d306b1c95d7a7f Merge branch 'archive_status'
+ff02df0ca3fb0b1eaf611fd1d4518ba8402efe6b Distinguish archived/closed status of project
+d7b9ef9372c28827c3b8bed152f1a2b9f77b022c Switch NPM repository to taboo
+3c4d7e51968c426c0c3b5bcc87f7db560948b1e7 Fix issue of  project search by status
+4bc11c80d75fd4b89cc665f4bbb19fee56a6ebf5 Different to show status of project in project management
+d1ebe183f2e897fcd8c3ce9623432eeb0a584ad7 Exclude archived/closed project in page ongoing_project
+603b9c386cfbe98cb33d221e31d2b6b5072b82fc User ali mirror for npm modules
+6cfdf91417283e2e8dee6af60631ac7c847d4407 Disable Edit anything of archived project
+e752cbeb84fcb980d7c3a7dc9dc5e4fa1f3f2407 Archive/close project
+14dd5a4777ed682c52c0958c6f43f086646d7558 Remove employee pagination
+3b1310743b59547dd655a249e744d38409f876ac Disable Edit anything of archived project
+43ca107d56d66dd1e5dad8fccf8f7ca6a1dad476 Archive/close project
+0546e5ef7669a74bc864b8a9459aef5b3caf64ab Remove employee pagination
+fffca4815bd50b1c4e0c9be84125bbd8735e3985 Prevent dismiss on click for all modal
+99b220387cd43af0b74f018913f5295c285d1bc6 reformat code in project detail,  exclude newly added member in dropdown of adding new member
+8a752a9a1bf62f75d932d6e28bbae2f86959f7e7 Fix null in tile of deleting project cost
+a3e35a916558db2356f234240d222bd27a68e084 Fix the issue that can't create project cost
+c2a94706ce3264722b3542c9aaa92a33a031a34c Enable archive project
+5a4db158b485df3a5a01d48bdfcd16d00ba27d0a fix tooltip hidden problem in project task list
+173e27473984c9ef29b225a5bc3a2f17d701da18 Fix model z-index problem in production environment
+ed2f2ccd9256091d408b996ce7ff7a844133b11f Enable archive project
+67468073c37874705e9a0f4d83c149844636a9ba Update timeline style for project events base on event type
+60c257362d5df53af6ff1f2e5bc0edae4c5a04cd Fix content of task list over flow problem when shown in mobile device
+ce54576e91c28f683572cc02d53c4039e3b3d48d Fix issue that no task is shown when frst create
+cac91a239f6c4950c910d9c8521f2e6969c09e2b fix problem while add new task to project
+c1ffc5c627a0b4e13ffc740e4a6b676fdaea1e0b recod event of project creation/finishing/archiving
+37680655f0936159db50bc2abb754980abe57536 Remove unnecessary project services
+4f23e79ab9eb8d1f014b133a881faa7b849482e5 Enable searching project in ongoing project list
+30560019bdb9ecc2e87fd6d2ffb3bdb44a2b616e ignore logs in git
+6090a0f030403aca95757885b43fe9344fe06c3d Front-end for timeline of project
+e1b5f497e473e8652c4b0b6ba966d31ed7e271d0 Enable remove members from project
+8c5737e8f7f08f33496e172c4cd3547f7aa3b95e Enable only show tasks of current user
+e0ece5d05c4b443cd754b623d825628e597fd6f0 update ui style for task list
+9a817f78102e952afd912b01e3a4b192852c203b record task status change event into timeline of project
+8677bd9b2b6aaad6cbda11def14e2736c44ccb4b add domain object for project timeline
+5705ef72c1fdc972981f45915082ee255a44d5fd remove unnecessary search2 in dropdown select list
+c31527c05bdc822d4573cefe235731f159fd4325 Apply new strategy to delete employee, mark employee as deleted and deactivate it's login
+a3c28b0737a41ab3237f59328fff545b675b7e0b Enable delete/edit cost, update saving task
+bbc7ff41325ea73a290a44d148d834c720b8476a Enable add new project cost
+1f3e9c36de797686b863d3f576f66eea0cd13134 Sort tasks
+3cbc1866de90d998ea672c9d7d2534bf78f43b4a Sort task, move pagination bar to botton of task list
+538492820cdd898324b593a9d1371690cf6ae6a3 Update project progress based on finished tasks
+63ba212744421f1b5a5c762db68d14282f19fff3 Enable add new task
+7a3471694a5a27d31bb8ef111c726e3e3b71bdc3 Enable add new members into project
+f18b2cc567cc3f38c238bfe521b4aa3a6a64ae5f Find back icon images for lost fex upload , handle encoding issue when upload files
+db144096d66a730fd11c14ff55ada8d8d0521926 ignore upload-files, move model content a litte lower
+0719c52062ceea4517bced6a4a25d55f52b5fa2d Basic style for showing cost in project detail
+a9f3bfb66c8affa5d537f9b8915fbe9882fc7822 bind user image into project detail, add member panel
+38597f7dd1dc8027b99867bc26a3d07ffaccb7e0 Show real user photo  in task list
+c11870e18c03bb5cfa356f06bfc034e2a9c0dc83 Show links in comments
+f221207c2e79fa681c82c8b8ce8d21236e475717 wrap text when comments too long
+abbc8390ec550fb46c778ee7f75900c7fcbecfa9 Add attachment List in comments page
+3a1b04f2e48ea03ee13e97e715036bb2e3feee67 Enable download image in comments list
+851f880ed215f1e473ab0991b9258966ca49a39a Enable send picture and attachment in comments of task
+2b8c16ff464036d78fb616a1abcd67528a41c921 upload file backup
+109ff9fa802b78ca0d64f94775eec6d986d6f308 Sort comments
+236873f04ab06385795668ab08c876ccbd80adda Enable send text comments
+5418de7c294bcad619e5cfd431dfbc445e9e4322 Enable dowloading attachment in comments of task
+7b10c7adc3995098b4366db91eb63f3e51f814e2 Basic style for task comments
+8f2a1c9d68d582ffa895fbf0a595af5087b5b3cd Enable mark task as done/inprogress
+eebefac77d65e0511499e79a166f9fd45ba20ad8 Enable delete task
+595cd24ddd6292cb86b467d4e63dec3095d1b237 Fix issue that nothing shown when view project, center all return button in view details
+c9f2a25cb1292cd413d2d67d5c8d7f420207af6d fix pagination button out of board in image gallery in actor management
+1be48f42939df0402a393c20cd51babffac01555 Unify file and picture storage
+be8f85690e5b2da26666c728c0ac573ff1f63948 Handle pagination events in task list page
+a2d0d2b51dfbaa92f41e86d29420206270abf0f1 Add order in domain objects project/task
+a483500265bd1f1d833ce2894ae731820094810d Add task list into the page which shows project detail
+657da14a54b6f2f473aece4c26ca6a60838d41d6 Finish basic view of ongoing projects
+1f8481df256bd3d0a820f98aeff0faa9efbc1968 Update project edit by setting contract status with has or not enum
+d6f589220217e3c369139187b4bfe79bbcbfb9d2 project list style from inspinia
+a32b8a01fe71effd6483040ccc9c945241a3eb8b Use enum for project status
+b4a13d8d9e29945a5a7f9a95abb885a57d2c4c59 add progress in project domain obj
+6be5ba371c679b03915a17770a0822a12ebf5226 Enable log to file
+8e88509dd6b208e48999f48a91574821fc1496a5 Ignore empty fields in response json
+0af0383a29000fdb9bff79a679016c1fa7f68a05 Can add simple task (only name and desc) for project now
+dbd5b9c54635d7143643e0880344ddc57d4c1782 Update task schema
+fb57a0122b25856a21424723bbee7a763e4dbed8 Domain object for managing ongoing project
+b3a387339a9b9679ed9b801554ee36b6232760cf Add front-end page for ongoing project
+7ad22640c1fc5df4cb082cf035a36dd832112202 Enable seaching project
+80e17da183591406fda37346d0a8c961fdd464a8 Finish save/view/edit of project
+fffe436ee9df1890401604b6cab1b1732d944f6c Enable create project
+4c7f700b4beb027b689fa3b4cedb66858e99a71e the api which get employees returns pagable result now
+f2f014e24f4b5d32c33d7e2bb3712c44eabbf933 Fix error while saving employees
+e29ed674aec78c87e9dd436b112668ee1f6810cc update view/edit/delete button for uer/employee management
+94788a648eff5c6004db29a8a89f609121fcd587 recover image
+9a1f20ea1862f500722461b2af15f1d2bbd3539f Fix error shared table params
+287890783960c242322b2099ff1615024c3b336e update mysql connection string to utf-8
+4c2cfb68e085430a5e88530adbb1d16ed399ea17 update ui of button view/edit/delete in table
+4939c05e9e21782550dcdab085c935a6ec5d8375 Updata UI for all tables
+55429038e8eff2922f86dedd3651ccd1c4662bb1 adjust UI for table in client management
+606aa2e99ace6d573721bbcfa3454e5ff52abb56 remove used images
+215b6bfd28fd17bd6c96f25b122e0df965abf2e4 involve css tooltip
+a25b59247dd0b388dca072a2e1a11c320c835275 adjust UI for table in client management
+34f58642d5814c751b8afb9cc26ca78d930d25d0 Align page header with table header
+f1aad0e286f9df4cbb124938bfca8ea78e61d676 font size of h1 changes to 20px
+2741ffb18d8899dce7419725383d17f19806b679 Add header for tables
+d3fea72e639967d05ed018a2a796e3c1895e1090 ui adjustment for nav bar
+b34049bd42d7892dbcfbae5f1d0fdf71990ce01f back up, modify table style
+9f4746c281b992a3745598e9dcb601674025c915 bootstrap theme for select2
+873c210b7bc55d4eef2ef25ead949cde7d60d189 Disable access from mobile device
+7d95ad1cdac537936a81fdc853d5cf3474ef6fba enable logout
+9fa891d8be6e3412198b391aecc11d7aa48554da Add login and lockscreen page
+85252a1f739d11d9ea516570779b612517bfe55e Only show employees who doesn't have account when create new login
+096541edf4ea98d8f1f28b4e1f7c1c6fbb09348c Enable user management
+09409b24324b0f25c5003d41c4fff10cd9321320 Refact PNotify
+b9b15fafed332170645a5d48b05f02e1ae8d56e5 front-end page for add user
+bb0a03fb3d13462bac505b57725239f45d652d54 Adjust padding style in all edit pages
+53faeaa329373d4221a92a3db5b2fc4bf6b296dc switch to home icon in breadcrumb navi bar
+6495bcbf88693278c59ad8a456ca857a52b90c9e Fix error shown pnotify
+27ee3ac4eb220fa6ae5797690dd997d9089d9f5d Need contract number when chose option 'has contract'
+7a1004c10899de5eae98b8076a47f8079807f239 update project domain object
+c544296ac3b4c1f5bef6c4539a453d414b2dcef4 Add project and contract status dictionary for project management, add i18N auto gen id tip
+b6d8bfdab03cdf8daebf19c0df105ec1421dca8c Fix some link errors
+0201077427bf53afb63c315a7658621db16c704e Add cutomized date filter
+f3dfd8e9a4882c8b3db4879db7d935086be83060 Only show employee whose deduction has been set in deductmanagement
+dbcd3eff74df2b6e84d449a22e2321cd4aaaaf7e enable delete deduction information
+71f44581c3871cbd2b2ecf9795aa3bdc1f344d16 Edit performance deduct
+63be96106fd534bfaef7bc80209606f817729575 both front-end and back-end for staff management, unified table setting
+eb26d016ae871a1c56ae24043b6c9fdaed5b1812 change default page size to 10
+0ff614cb7a28a3bcdfb361c30183ef7fe028a39a pagination for actor management
+e8fbfc261e123ef60e7a8317cfba612238e77c6f handle photo lost for actor management
+c7c9ac0c046ba291eb73008cb2f8c11e0496a282 Enable search actor by country
+f1b1b3409182a30f11053cd1e8ae6f0823ab5c6c Enable actor search
+adbd131002a8bc376b50f61ea928372b749dcb22 show all image of actor in actor management
+b039757868250c94b6725fb9ee916bd43793f876 Show actor picture in actor list page
+55349025c758acc6b6148808912e0b660ed7c3bb validate equipment and staff edit form
+f67a6f6f3998b3265298702b86e4a3e055eca3c6 gender is required when edit actor
+236019cae950f40cfd6af9af507bc29c6ede4519 show pointer cursor in side bar menu
+234aa09635c85c5aa6f9ba9067e0271eb78ed125 Add source for actor
+8bd06474360cb1828bd9f520d1097a3e08981747 validate for actor edit  form
+24e3c60eb9aed86dc9eeae24e4ff509eaedff9a2 add thumbnail for uploading image
+3e845d3bc40ff0dd6b17b102bcf158116188b0cd Add thumbnail for Image,
+0f64a518fa471715504d73cde26607c09cd1a22d front end for image uploader works
+4c17152689f070e0b83d3ce81df706f5baf38b82 few file uploader for image upload
+3081819d7d40d484edc19137fb166193a8101090 actor management page, refine enum to remove option all
+ee22206ce7fe581ce3a2447a1e93c17c29a811eb select2 for dropdowns in client management
+dd6d1783cd93174800edb3f7189ff3ba7c4e41bb parsley i18n zh-CN
+48453ee8ac61de5082567892ed73bdef11e12f7f select2 for dropdown in edit employee
+4bac8829f207b4907376891425b24a83eaf5b769 customized mapper for mapping dictionary DTO
+3cc9fcced93da0943401212862dc3c7f19c199b6 use select2 in dropdown of employee management
+23fa82412f791d34f46935b99ca8aa1853ff2c28 update  actor shchema
+990cde82ba3526eda2407f40e0e8abab3a377dbc fix country dictionary issue
+070959e50b1724ee90313303bb058e41df8ebbe3 Update actor's schema, add country dictionary
+627d3f3064095ba288896165ced73e66f05b03d2 Add actor and picture domain objects
+828785ee586720d71e38d8e617d91d24b78a1e21 switch back to mysql for dev
+24b142167fc12d5b794223770718dd9ab437c965 remove user name in home page
+4478880ea86ada77937d84c98e72c3e1d3c092c9 avoid navi to home page when click items on header
+b6e4273c851ca49a9d577a5fe0407ea9e1128e8f update navi header
+46cef06c4c109199c68ddf4467bf4effa7f20ec1 Enable i18N and sass
+42be8665c3c793ff97bc99777f153d84458928a9 tag v0.10
+ec8796171c08f98d8f8feb6cd6f51f3302a7d836 update font-awesome
+779df10be4f72ae4f5f3b7bf6a97fe00f3fafce3 deploy to heroku
+e0c1d0bb032441c1896d47c613036aa9089825d2 fix all gulp production problems
+a9240c4b5f352b449cbf8807a335cacefd839d2d gulp build for production, image and font still lost
+2a229a4a2c841d030684abfb978728eef4c4cce0 remove unused gentelella
+79fac07fd8855d7a4ccfa928e542c0363a30dcd1 update front-end dependencies
+311111818a1df7e435a106d1fe02789c2e1be33c update schema relationship for project manament
+377f5f6eb79f20cb1226783be507780758cc7687 fix dictionary chema map issue
+cbb485981aaf107a105b01eed1f596894cb7e350 search for equipment
+49154c4dfca744b646c9a091be940704c52ec416 Backend and frontend for equipment management
+cc3d445dbcfe38530c654d334b256d12536221a8 add loading mask for employee and client management
+1ae61977fe899b18155c324e4cd5a8321a304fef add logo, fix error link at top level side bar menu
+09109ac1999b901e87543413b1df9b7dd7eedc14 mock workstation page
+5a562b90786cc17815143603cc633ca392041468 Front page for staff, fix issue in front page for equipment
+932da1ff3c00e7bf8cda83f4aac791dfbbdc670f front-end page for equipment
+28de4f297489962e0f9794af91a60e6e5b601cda Add basic info page for contract management, all input field to col-sm/md-8
+4fee5487699c5f1617194635358cea7012b2b8cd change basic font to Microsoft Yahei
+e048c10f8dc04d94d88c5dd7cd993dc483aa8013 Add front-end page for performance management
+52c7de313b7c54d2744b3f320ca4fb59e985e775 Add front-end page for deduct setting
+e16af8b44440d4f6ec2746b0504e89c239486f22 edit page for project management
+0e1c261389139ee0d90f1902cd140ff159989f15 add project management components
+2e6ba562ac7e1d15044c38b226cf0c5eeec636cc Add more more fields like lastModifier into dictionary and client
+2c8ae82eea5857dc9dcea8891f478b289294f57b integrate industry and client source into client mangement
+54ba359799bc424ea76917a8c47b75694e204936 Add more field in dictionary
+7b035db6d74bf04fd338fb8fc4ac117a8f90fc3d Fix dic stack overflow while mapping
+0f68f168154be3b8ee18410308f4e6de6ec51aac Update dictionary API to integrate enum dics into common dies
+9f88e12ccbdc5f8f04683c5bfcd6093e92b745c7 Add API for search client
+1da1b449bb3b6aa3fe25c1231a9c1ba4333f6171 Front-end web page for client management
+97670d5835657b169ec899835fd67441301eb667 Add content for client management page
+7bbb3cce5e25aa79317b5bfae723536a389898a2 add more detailed fields for client
+3434f0a87894ce04d0e272f69e9d877249aaf219 Add dictionary into API page
+3813a491142644e5a91bc33884cd36fab6a86055 fix build error
+55a1b6f77e12e35e3f0cc14f4b3d43a5dcd999cd upgrade dictionary to tree model
+515e515f3eaaf17832fea0029e5cddc5c00fd4b8 Add more client fields and dictionary
+256cfe95975ac0290e9a7028a6bbd3a225731e01 begin client management
+546f25d5b2f7aea6f28fcb296028d7709f7edd8e remove used states in employee management
+4ca956aa580c4147dbac48ff50d53aaef9a9fce2 exclude option "all" in some dropdown of edit employee
+35dfb5b90587ff06ea192f61a0e7c36d20520acc show hire date in employee editor
+9aeb3b317c84c26413064389fd562e9ab219acb2 Add input validations for edit employeement
+cd81eec772ac6f2c3c29a70879b23c0b66969835 Finish delete dialog
+8dcd8ddaf1d5fcef16b5dae3c80fc7656ad5cfee Add view employee info
+5fa0b260fcc918adbd05bf9f533a4411d8340054 Switch add time to long
+8da0327139fec246e390cd29b8c8d2c656db2b09 Milestone for editing employee
+b8832c152bb808b3bfbc2e035e9376aa02569b3c Fix compile error
+f17020ef78569d72b763ea9beb604ef15c52dc70 Add boolean enum for yes/no options
+8d7d351fdb9998f6c56932973d2ccbd5bcc48f9d update API for get employee management
+cae7171adbff70ed4c8ca05ad71ebbaa22f1612e Finished search employees without page
+d48a3c7566e83b7da38be9334c477a681fae4ced recover table style in employee management
+79481a1a36fc8db19e8b68cb7dc322fe6b0e8af7 form validation in employee management with ParsleyJS
+1e54e5f247b064781e2f23f07d55682a67a6d2d8 Add operation button and notification in employee management
+987dc18f2dc7f6803d536f3915b0fd34947c700a data for employee table
+cfd445e4f0848ad625ebeec2f29b621de06d32b8 liquibase, create table if not exists
+37d8f935088570da1778df3edb138ffb45f1e744 involve ngTable
+9d53f490b3828e57af07e5008bee165359f75b35 update ui in add new employee
+ec7a03d0c6591f2b37b737d0a5ee0bb353e68c41 Init AdminLTE in angular js to avoid init problems such as error calculated side bar height
+d37948a2d2b9309941bd430d89859d4498179fc0 enable data range picker, refine ui in employee management, a
+c369d767b490aa038328a36bddf03d821b464da7 switch to postgres
+b8e92bc2ec6ff9611b44cd83766ead9aa97997f1 Add emp edit page
+261963c6f6b3ccbbb3ccad85fe14b6c30d53deca Add table into employee management
+bc14465ad79a13e47d6f618bc023a92a1f522e32 don't go home when click parent in side bar
+45be9e29438817c45cd5e6c2b2335d391e620a11 Use Microsoft Yahei
+bdf3e046c85044255bdd93142039b5eb8a08f43a Add all side bar menu
+6caa99ac97f0b179ecfe6ef6f26dbf7d8d9b0865 Put navbar into side bar controller
+34a0c29cee8848fde439a5634795197b9e0acf56 admin lte as home page
+3b8c215d609917c5092e02c57a2881ee29a8e0e4 Involve AdminLTE
+ddceb78051e2990e446d11f7fddf26756c74c409 Enum converter and mapper
+1fab3395e8668a8ff4467a249fffed09ae3a4001 adjust employee management date input, load dept data correctly
+a4c114ecb5c4a1da727fe8bdc5ccb6ea97a3bfda Load job titles and debts
+c9414cabcd122499ffb54491e7e17d25e56ebf70 Refine bower son
+f0edc66f065b9e40ed4a0c499712fcbb44c473cc Add selection items in employee management
+5e04310697315e6734fbae45d6f9407b8a3044bb Extract db initializer
+d3fae2032e180adf6d544ec954d8eae2b4223437 rollback html title and log
+13672b8878dee07bc5c826b7e6a1beec5feefe04 Roll back if load city data fails
+cde73379a2b65fbbfcbaf3498ed7b276e806558e Add cities data into db
+1ac06c2e2c16a34fc18616c2470b307f6706787c Add other fields into employee
+22eadc79e8fb814587741533c9cbaa458dc84206 Add dev apis
+ed7161fdc82ad61b3ffceebc437b35beb61e38d9 Ajust input on small device for employee management
+0e023f3c589691e85b5649ea332f9afe21e1ebe0 Add search form for employee management
+c91f39c87fa246ef1694f8f627b7a68ef15fa2d7 Refine employee ui
+ab2a1d77e708aac8713b9f56f881c542617467a9 Remove error liquidbase xml
+85a5767b9e384e377c6ed4f44395bb333eac6ca6 add input in project management
+902ba36a88c93afc19de0563c67933eae054fa88 Update Entities
+675af9a0d411c7ac0b5a5d881a1e6d44704be1ed Add more entities
+b5e28dbd184755a61e98df08f0d0553151db5409 Employee management
+ad21f805e3416592bd0982199450686302ab99b0 Add Contract Management Module
+9e36db77459caa59e5d91d227ea1f3a9b2e1b469 refine login
+9759ac5e7532b3660b8a4939a12170f57e00bf34 refine home and login page
+da9a2fdc60b1ae2c26d0c92e6f76d2590a7229c6 Add navi bar, replace logo
+86387141624869a3129e14964c118230adcaf8bc involve all gentellea elements
+6ddf782101407bd3cfd1384b2ef27d0c536fa445 adjust side bar
+790a6dda231f6edf208708199aa465efb716e618 use gentellela
+d12e51f673611ec2fcd91738072073b4514e4fa6 Add workstation into side navi bar
+bec9fada36006ea33acc54d87ab8759d89ddf56d Add shoot cost management into side navi bar
+0594daac55f70b970fcb1c4b0f6ad7f183d622d4 add resource management in side navi bar
+47a4835a929cdf844e60bef0bb184a3fe8f428cb add project management in side navi bar
+450190c92c4a77b4f86574d75c2b48095abb8fc7 add performance management in side navi bar
+e4a4a6fad1719c31651feb43541ef6f1ae96ef77 Add employee management
+eecfc5c3704a003656bf4b101ad61cbce066b6a7 Finish client navi
+e12c4b228b8c62c3b878f7de592294f7c728a888 backup
+7f4f7357269a59ea11142a0ec1a866411a9d29d6 collapse side navi bar
+4fb898530d42bc1d55670518dac2881232eac1c6 add project related entities
+e20629886d9a515ae4d6c53f738423900dba5ca6 add project management module
+10f5dea765cc3801c21cab262b6143a37971f9a5 Add icons fo all side bar menu
+5470bca06e5c8f420efa72db7b1f92a6843fae7d include bootstrap.js to enable collapse on side bar
+e8e731df877a1b8df08e9d4c76bbc191d9df7d12 add navi bar
+2867d66ba954412f085101ef4b5842aa294f8d58 code base

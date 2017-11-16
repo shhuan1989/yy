@@ -1,0 +1,26 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "employee",
+            "otherEntityName": "employee",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "content",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createTime",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20170107052000",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "director_needs_comment",
+    "pagination": "no"
+}

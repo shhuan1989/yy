@@ -1,0 +1,443 @@
+<section class="content-header">
+    <h1>
+        项目详情
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li ng-if="vm.project.status.id == 0"><a ui-sref="yy_project_ongoing">进行中的项目</a></li>
+        <li ng-if="vm.project.status.id != 0"><a ui-sref="yy_project_archived">已归档的项目</a></li>
+        <li class="active">项目详情</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content project-content">
+    <div class="row">
+        <div class="col-sm-7 col-md-9">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="p-r-xl">
+                                <h3>{{vm.project.name}}<a class="pull-right" ui-sref="yy_project_ongoing.timeline({id: vm.project.id})">查看项目日志</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <dl class="dl-horizontal">
+
+                                <dt>创建人:</dt> <dd>{{vm.project.creatorName}}</dd>
+                                <dt>创建时间:</dt> <dd> {{vm.project.createTime | yytime}}</dd>
+                                <!--<dt>Client:</dt> <dd><a href="#" class="text-navy"> Zender Company</a> </dd>-->
+                                <!--<dt>Version:</dt> <dd> 	v1.4.2 </dd>-->
+                            </dl>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table class="table table-bordered table-hover ng-scope ng-table" data-parsley-validate>
+                                <thead>
+                                <tr>
+                                    <th>项目进度名称</th>
+                                    <th>负责人</th>
+                                    <th>计划完成时间</th>
+                                    <th>实际完成时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in vm.projectProgressTable.items">
+                                        <td>{{item.name}}</td>
+                                        <td>{{item.ownerName}}</td>
+                                        <td>{{item.eta | yydate}}</td>
+                                        <td>{{item.finishTime | yydate}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="box no-border task-box">
+                        <div class="box-header">
+                            <h3 class="box-title">任务列表</h3>
+                            <input type="checkbox" ng-model="vm.showOwnedTasks"/>
+                            <small>只显示自己的任务</small>
+                            <input type="checkbox" ng-model="vm.showCreatedTasks"/>
+                            <small>只显示我发起的任务</small>
+                            <div class="box-tools pull-right" ng-if="vm.project.status.id == 0">
+                                <button type="button" class="btn btn-default pull-right" ng-click="vm.editTask()">
+                                    <i class="fa fa-plus"></i> 新建任务
+                                </button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <ul class="task-list">
+                                <li ng-repeat="task in vm.tasks" class="item">
+                                    <div class="task-check-box">
+                                        <input type="checkbox" ng-model="task.status.id" ng-true-value="1"
+                                               ng-false-value="0" ng-change="vm.updateTaskStatus(task)"
+                                               ng-disabled="vm.project.status.id != 0"
+                                        >
+                                    </div>
+                                    <!-- General tools such as edit or delete-->
+                                    <div class="tools">
+                                        <a ui-sref="yy_project_task_view({projectId:vm.project.id, id:task.id})" data-tootik="查看" data-tootik-conf="bottom">
+                                            <i class="icon glyphicon glyphicon-search" ></i>
+                                        </a>
+                                        <a ng-if="vm.project.status.id == 0" ng-click="vm.editTask(task)" data-tootik="编辑" data-tootik-conf="bottom">
+                                            <i class="icon glyphicon glyphicon-pencil" ></i>
+                                        </a>
+                                        <a ng-if="vm.project.status.id == 0" ng-click="vm.deleteTask(task)" data-tootik="删除" data-tootik-conf="bottom">
+                                            <i class="icon glyphicon glyphicon-trash" ></i>
+                                        </a>
+                                    </div>
+                                    <div class="task-info">
+                                        <!-- checkbox -->
+                                        <div class="user-img">
+                                            <a>
+                                                <img http-src="resource/pictures/{{task.owner.photo.id}}" alt="{{task.owner.name}}" class="img-circle" >
+                                            </a>
+                                        </div>
+                                        <div class="task-detail">
+                                            <span ng-class="{strike: task.status.id == 1}">{{task.name}}</span>
+                                            <div class="task-footer">
+                                                <small>由{{task.creator.name}}创建于{{task.createTime | yytime}}</small>
+                                                <div class="pull-right">
+                                                    <small>负责人：{{task.owner.name}}</small>
+                                                    <span data-ng-switch="task.status.id" class="time-label">
+                                                        <small class="label pull-right" ng-class="vm.taskLabelClass(task)" ng-switch-when="1">
+                                                            <i class="fa fa-check-circle"></i>{{task.lastUpdateTime | yytime}}
+                                                        </small>
+                                                        <small class="label pull-right" ng-class="vm.taskLabelClass(task)" ng-switch-default>
+                                                            <i class="fa fa-clock-o"></i>{{task.timeLeft}}
+                                                        </small>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="box-footer clearfix no-border">
+                            <div class="box-tools pull-left" ng-if="vm.pageCount > 1">
+                                <nav aria-label="">
+                                    <ul class="pagination pagination-sm inline">
+                                        <li class="page-item" ng-class="{'disabled': vm.pageIndex <= 0}">
+                                            <a class="page-link" ng-click="vm.gotoPreviousPage()" tabindex="-1" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">上一页</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item" ng-repeat="n in [] | range:vm.pageCount" ng-class="{'active': vm.pageIndex == n}">
+                                            <a class="page-link" ng-click="vm.gotoPage(n)">{{n+1}}</a>
+                                        </li>
+                                        <li class="page-item" ng-class="{'disabled': vm.pageIndex >= vm.pageCount - 1}">
+                                            <a class="page-link" ng-click="vm.gotoNextPage()" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">下一页</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <button type="button" class="btn btn-default pull-right" ng-click="vm.editTask()" ng-if="vm.project.status.id == 0">
+                                <i class="fa fa-plus"></i> 新建任务
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading || vm.isLoadingMembers">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-5 col-md-3 panel-right">
+            <!-- USERS LIST -->
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">项目经理</h3>
+
+                    <div class="box-tools pull-right">
+                        <!--<span class="label label-danger">8 New Members</span>-->
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <!--<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>-->
+                        <!--</button>-->
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body no-padding">
+                    <ul class="users-list clearfix">
+                        <li ng-repeat="member in vm.project.aes">
+                            <img http-src="resource/pictures/{{member.photo.id}}" alt="{{member.name}}" class="img-circle" >
+                            <a class="users-list-name">{{member.name}}</a>
+                            <!--<span class="users-list-date">最后登陆时间</span>-->
+                        </li>
+                    </ul>
+                    <!-- /.users-list -->
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!--/.box -->
+
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">项目成员</h3>
+
+                    <div class="box-tools pull-right">
+                        <!--<span class="label label-danger">8 New Members</span>-->
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <!--<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>-->
+                        <!--</button>-->
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body no-padding">
+                    <ul class="users-list clearfix">
+                        <li ng-repeat="member in vm.project.members">
+                            <img http-src="resource/pictures/{{member.photo.id}}" alt="{{member.name}}" class="img-circle" >
+                            <a ng-if="vm.project.status.id == 0" ng-click="vm.deleteMember(member)" data-tootik="删除" class="image-tool" has-any-authority="ROLE_ADMIN,EDIT_PROJECT_MEMBER">
+                                <i class="icon glyphicon glyphicon-trash" ></i>
+                            </a>
+                            <a class="users-list-name">{{member.name}}</a>
+                            <!--<span class="users-list-date">最后登陆时间</span>-->
+                        </li>
+                    </ul>
+                    <!-- /.users-list -->
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer text-center" has-any-authority="ROLE_ADMIN,EDIT_PROJECT_MEMBER">
+                    <button type="button" class="btn btn-box-tool" ng-click="vm.addNewMember()" ng-if="vm.project.status.id == 0">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        添加新成员
+                    </button>
+                </div>
+                <!-- /.box-footer -->
+            </div>
+            <!--/.box -->
+
+            <!-- COST LIST -->
+            <!--<div class="box box-danger">-->
+                <!--<div class="box-header with-border">-->
+                    <!--<h3 class="box-title">成本管理</h3>-->
+
+                    <!--<div class="box-tools pull-right" ng-if="vm.project.status.id == 0">-->
+                        <!--&lt;!&ndash;<span class="label label-danger">8 New Members</span>&ndash;&gt;-->
+                        <!--<a class="label-danger" ng-click="vm.editCost()"><i class="fa fa-plus"></i> 新增支出</a>-->
+                        <!--&lt;!&ndash;<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</button>&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--&lt;!&ndash; /.box-header &ndash;&gt;-->
+                <!--<div class="box-body">-->
+                    <!--<ul class="products-list product-list-in-box">-->
+                        <!--<li class="item" ng-repeat="cost in vm.costList">-->
+                            <!--<div class="product-img">-->
+                                <!--<img http-src="resource/pictures/{{cost.creator.photo.id}}" alt="{{member.name}}" class="img-circle" >-->
+                            <!--</div>-->
+                            <!--<div class="product-info">-->
+                                <!--<a class="product-title" ng-if="cost.category.id != vm.costIdOfUnknownCategory">-->
+                                    <!--{{cost.category.name}}-->
+                                    <!--<span class="label label-warning pull-right">{{cost.amount}}</span>-->
+                                <!--</a>-->
+                                <!--<a class="product-title" ng-if="cost.category.id == vm.costIdOfUnknownCategory">-->
+                                    <!--{{cost.info}}-->
+                                    <!--<span class="label label-warning pull-right">{{cost.amount}}</span>-->
+                                <!--</a>-->
+                                <!--<span class="product-description">-->
+                                    <!--{{cost.createTime | yytime}}-->
+                                <!--</span>-->
+
+                                <!--<div class="tools pull-right" ng-if="vm.project.status.id == 0">-->
+                                    <!--<a ng-click="vm.editCost(cost)" data-tootik="编辑">-->
+                                        <!--<i class="icon glyphicon glyphicon-pencil" ></i>-->
+                                    <!--</a>-->
+                                    <!--<a ng-click="vm.deleteCost(cost)" data-tootik="删除">-->
+                                        <!--<i class="icon glyphicon glyphicon-trash" ></i>-->
+                                    <!--</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                <!--&lt;!&ndash; /.box-body &ndash;&gt;-->
+            <!--</div>-->
+            <!--/.box -->
+        </div>
+        <!--</div>-->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
+
+<!-- add member modal-->
+<div class="modal" data-backdrop="static" id="modal-add-member">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加项目成员</h4>
+            </div>
+            <div class="modal-body">
+                <select class="form-control select2" multiple="multiple" name="aes" ng-model="vm.newMembers"
+                        ng-options="emp.id as emp.name for emp in vm.employeesNotIncluded"
+                        id="field_new_member" required="required"
+                >
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" ng-click="vm.saveNewMember()">保存</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+<!-- add task modal-->
+<div class="modal" data-backdrop="static" id="modal-add-task">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加任务</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <form class="form-horizontal" novalidate data-parsley-validate>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-3 col-xs-12" for="field_name">任务名称：</label>
+                                <div class="col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" name="name" id="field_name"
+                                           ng-model="vm.editingTask.name" required="required"
+                                           data-parsley-trigger="blur"
+                                    />
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-3 col-xs-12" for="field_new_task_owner">负责人：</label>
+                                <div class="col-sm-8 col-xs-12">
+                                    <select class="form-control" name="new_task_owner" ng-model="vm.editingTask.owner.id"
+                                            ng-options="emp.id as emp.name for emp in vm.allMembers"
+                                            id="field_new_task_owner"  required="required"
+                                            data-parsley-trigger="blur"
+                                    >
+                                        <option value="" disabled selected>请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-3 col-xs-12" for="field_new_task_eta">预计完成时间：</label>
+                                <div class="col-sm-8 col-xs-12">
+                                    <div class='input-group date' id='field_new_task_eta'>
+                                        <input type='text' class="form-control"/>
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-clock-o"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-3 col-xs-12" for="field_basic_info">任务说明：</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="form-control" name="basicInfo" id="field_basic_info"
+                                          ng-model="vm.editingTask.info" ></textarea>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" ng-click="vm.saveEditedTask()">保存</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<!-- add cost modal-->
+<div class="modal" data-backdrop="static" id="modal-add-cost">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">新增支出</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <form class="form-horizontal" novalidate data-parsley-validate>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-3 col-xs-12" for="fiel_new_cost_category">支出项目：</label>
+                                <div class="col-sm-8 col-xs-12">
+                                    <select class="form-control" name="new_task_owner" ng-model="vm.editingCost.category.id"
+                                            ng-options="cost.id as cost.name for cost in vm.costOptions"
+                                            id="fiel_new_cost_category"  required="required"
+                                            data-parsley-trigger="blur"
+                                    >
+                                        <option value="" disabled selected>请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-3 col-xs-12" for="fiel_new_cost_info"></label>
+                                <div class="col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" name="newCostName" id="fiel_new_cost_info"
+                                           ng-model="vm.editingCost.info" ng-required="vm.editingCost.category.id == vm.costIdOfUnknownCategory"
+                                           data-parsley-trigger="blur" placeholder="支出项目选择其他时必须填写"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-3 col-xs-12" for="field_new_cost_amount">费用：</label>
+                                <div class="col-sm-8 col-xs-12">
+                                    <input type="number" step="any" class="form-control" name="newCostCount" id="field_new_cost_amount"
+                                           ng-model="vm.editingCost.amount" required="required"
+                                           data-parsley-trigger="blur" data-parsley-type="number" data-parsley-min="0.01"
+                                    />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" ng-click="vm.saveEditedCost()">保存</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div ng-init="vm.initJsComponents()"></div>

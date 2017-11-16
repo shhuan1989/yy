@@ -1,0 +1,96 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-to",
+            "relationshipName": "client",
+            "otherEntityName": "client",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "project"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "contract",
+            "otherEntityName": "contract",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "project"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "director",
+            "otherEntityName": "employee",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "project"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "aedProjects",
+            "relationshipName": "aes",
+            "otherEntityName": "employee",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "participatedProjects",
+            "relationshipName": "members",
+            "otherEntityName": "employee",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "no",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hasContract",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "isNewClient",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "budget",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "negotiator",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telNegotiator",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "qqNegotiator",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "wechartNegotiator",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mailNegotiator",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161002130237",
+    "entityTableName": "project",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceImpl"
+}

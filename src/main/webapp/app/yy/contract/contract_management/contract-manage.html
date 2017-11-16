@@ -1,0 +1,146 @@
+<section class="content-header">
+    <h1>
+        合同管理
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li class="active">合同管理</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">合同查询</h3>
+                </div>
+
+                <div class="box-body">
+                    <form class="form-horizontal" ng-submit="vm.search()">
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_project_number">项目编号：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="idNumber" id="field_project_number"
+                                       ng-model="vm.searchParams.projectIdNumber"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_contract_number">合同/PO编号：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="contractNumber" id="field_contract_number"
+                                       ng-model="vm.searchParams.idNumber"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_project_name">项目名称：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="projectName" id="field_project_name"
+                                       ng-model="vm.searchParams.projectName"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_client_name">客户名称：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="clientName" id="field_client_name"
+                                       ng-model="vm.searchParams.clientName"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_sign_date">签约时间：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                    <input type="text" class="form-control pull-right" ng-focus="vm.initSearchDateRangePicker()" \
+                                           id="field_sign_date">
+                                </div>
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+
+
+
+                        <div class="form-group col-sm-12">
+                            <div class="col-sm-offset-5 col-sm-2 col-md-offset-5 col-md-2 col-xs-offset-4 col-xs-4">
+                                <button type="submit" class="btn btn-primary btn-full">查询</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <div has-any-authority="ROLE_ADMIN,EDIT_CONTRACT_MANAGE">
+                        <button class="btn btn-primary" ui-sref="yy_contract_mgt.new" >
+                            <span class="glyphicon glyphicon-plus"></span>
+                            <span >
+                                新增合同
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="dataTables_length" id="example1_length">
+                                <label>每页显示
+                                    <select class="form-control input-sm" ng-options="count for count in vm.contractsTableParams.settings().counts" ng-model="vm.pageSize">
+
+                                    </select> 条, 共 {{vm.contracts.length}}条
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <table ng-table="vm.contractsTableParams" class="table table-bordered table-hover">
+                        <tr ng-repeat="contract in $data">
+                            <td data-title="'合同/PO编号'">{{contract.idNumber}}</td>
+                            <td data-title="'项目编号'">{{contract.project.idNumber}}</td>
+                            <td data-title="'项目名称'">{{contract.project.name}}</td>
+                            <td data-title="'客户名称'">{{contract.project.client.name}}</td>
+                            <td data-title="'签约时间'">{{contract.signTime | yydate}}</td>
+                            <td data-title="'合同金额'">{{contract.moneyAmount}}</td>
+                            <td data-title="'税金'">{{contract.tax}}</td>
+                            <td data-title="'合同级别'">{{contract.level.name}}</td>
+                            <td data-title="'回款状态'" ng-class="{'text-red': contract.paymentStatus.id == 0, 'text-green': contract.paymentStatus.id == 2}">{{contract.paymentStatus.name}}</td>
+                            <td data-title="'操作'">
+                                <div class="btn-group flex-btn-group-container">
+                                    <a ui-sref="yy_contract_mgt.view({id:contract.id})" data-tootik="查看" has-any-authority="ROLE_ADMIN,VIEW_CONTRACT_MANAGE,EDIT_CONTRACT_MANAGE"><i class="icon glyphicon glyphicon-search" ></i></a>
+                                    <a ui-sref="yy_contract_mgt.edit({id:contract.id})" data-tootik="编辑" has-any-authority="ROLE_ADMIN,EDIT_CONTRACT_MANAGE" ng-if="contract.paymentStatus.id != 2"><i class="icon glyphicon glyphicon-pencil" ></i></a>
+                                    <!--<a ng-click="vm.deleteEmp(contract.id)" data-tootik="删除"><i class="icon glyphicon glyphicon-trash" ></i></a>-->
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+                <!-- /.box-body -->
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->

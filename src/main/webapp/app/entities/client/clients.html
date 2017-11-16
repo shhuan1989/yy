@@ -1,0 +1,102 @@
+<div>
+    <h2>Clients</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="client.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Client
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span>Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="contact"><span>Contact</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="contactTel"><span>Contact Tel</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createTime"><span>Create Time</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="telCorp"><span>Tel Corp</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="websiteCorp"><span>Website Corp</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="addressCorp"><span>Address Corp</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="qq"><span>Qq</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="wechat"><span>Wechat</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="email"><span>Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="owner"><span>Owner</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="contactJobTitle"><span>Contact Job Title</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="contactBirthDate"><span>Contact Birth Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="contactHobby"><span>Contact Hobby</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="comment"><span>Comment</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="lastModifiedTime"><span>Last Modified Time</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="inputOperator"><span>Input Operator</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="lastModifier"><span>Last Modifier</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="industryId"><span>Industry</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="sourceId"><span>Source</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="client in vm.clients track by client.id">
+                    <td><a ui-sref="client-detail({id:client.id})">{{client.id}}</a></td>
+                    <td>{{client.name}}</td>
+                    <td>{{client.contact}}</td>
+                    <td>{{client.contactTel}}</td>
+                    <td>{{client.createTime}}</td>
+                    <td>{{client.telCorp}}</td>
+                    <td>{{client.websiteCorp}}</td>
+                    <td>{{client.addressCorp}}</td>
+                    <td>{{client.qq}}</td>
+                    <td>{{client.wechat}}</td>
+                    <td>{{client.email}}</td>
+                    <td>{{client.owner}}</td>
+                    <td>{{client.contactJobTitle}}</td>
+                    <td>{{client.contactBirthDate}}</td>
+                    <td>{{client.contactHobby}}</td>
+                    <td>{{client.comment}}</td>
+                    <td>{{client.lastModifiedTime}}</td>
+                    <td>{{client.inputOperator}}</td>
+                    <td>{{client.lastModifier}}</td>
+                    <td>
+                        <a ui-sref="dictionary-detail({id:client.industryId})">{{client.industryId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="dictionary-detail({id:client.sourceId})">{{client.sourceId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="client-detail({id:client.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="client.edit({id:client.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="client.delete({id:client.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+    </div>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+</div>

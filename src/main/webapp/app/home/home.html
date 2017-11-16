@@ -1,0 +1,41 @@
+
+<!--<section class="content-header">-->
+    <!--<h1 data-translate="home.title">Welcome!</h1>-->
+<!--</section>-->
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <form class="form-horizontal" ng-submit="vm.search()">
+                    <div class="box-body">
+                        <div class="col-md-12">
+
+                            <p class="lead">欢迎使用YY自动化办公系统</p>
+
+                            <div ng-switch="vm.isAuthenticated()">
+                                <div class="alert alert-success" ng-switch-when="true">
+                                    您目前是以 "{{vm.account.login}}" 账号登录.
+                                </div>
+
+                                <div class="alert alert-warning" ng-switch-when="false">
+                                    请<a class="alert-link" href="" ng-click="vm.login()">登录</a>
+                                </div>
+
+                                <!--<div class="alert alert-warning" ng-switch-when="false" data-translate="global.messages.info.register" translate-compile>-->
+                                    <!--You don't have an account yet? <a class="alert-link" ui-sref="register">Register a new account</a>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
+
+<div ng-init="vm.initChart()"></div>
+

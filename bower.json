@@ -1,0 +1,188 @@
+{
+  "version": "0.0.0",
+  "name": "yiying-oa",
+  "appPath": "src/main/webapp/",
+  "testPath": "src/test/javascript/spec",
+  "dependencies": {
+    "angular": "1.5.8",
+    "angular-aria": "1.5.8",
+    "angular-bootstrap": "1.3.3",
+    "angular-cache-buster": "0.4.3",
+    "angular-cookies": "1.5.8",
+    "angular-dynamic-locale": "0.1.32",
+    "angular-i18n": "1.5.8",
+    "ngstorage": "0.3.10",
+    "angular-loading-bar": "0.9.0",
+    "angular-resource": "1.5.8",
+    "angular-sanitize": "1.5.8",
+    "angular-translate": "2.11.1",
+    "angular-translate-interpolation-messageformat": "2.11.1",
+    "angular-translate-loader-partial": "2.11.1",
+    "angular-translate-storage-cookie": "2.11.1",
+    "angular-ui-router": "0.3.1",
+    "bootstrap": "~3.3.7",
+    "bootstrap-sass": "3.3.7",
+    "bootstrap-ui-datetime-picker": "2.4.3",
+    "jquery": "3.1.0",
+    "json3": "3.3.2",
+    "messageformat": "0.3.1",
+    "modernizr": "3.3.1",
+    "ng-file-upload": "12.0.4",
+    "ngInfiniteScroll": "1.3.0",
+    "sockjs-client": "1.1.1",
+    "stomp-websocket": "2.3.4",
+    "swagger-ui": "2.1.5",
+    "flot": "~0.8.3",
+    "font-awesome": "#~4.6.2",
+    "holderjs": "~2.4.1",
+    "metisMenu": "~1.1.3",
+    "morrisjs": "~0.5.1",
+    "flot.tooltip": "~0.8.4",
+    "restangular": "https://github.com/mgonto/restangular.git#master",
+    "bootstrap3-wysihtml5": "https://github.com/schnawel007/bootstrap3-wysihtml5.git",
+    "ng-table": "^1.0.0",
+    "lodash": "^4.16.2",
+    "bootbox.js": "bootbox#^4.4.0",
+    "ionicons": "ionicons#^2.0.1",
+    "respond": "^1.4.2",
+    "bootstrap-wysihtml5": "*",
+    "jquery-ui": "^1.12.1",
+    "nprogress": "^0.2.0",
+    "moment": "#~2.10.3",
+    "daterangepicker": "^1.5.2",
+    "iCheck": "^1.0.2",
+    "validator": "^0.0.5",
+    "parsleyjs": "^2.4.4",
+    "select2": "select2-ng#^4.0.3",
+    "fex-webuploader": "^0.1.5",
+    "jquery.inputmask": "^3.3.3",
+    "numeral": "^1.5.3",
+    "pnotify": "^3.0.0",
+    "select2-bootstrap-theme": "^0.1.0-beta.9",
+    "tootik": "^1.0.2",
+    "file-saver": "filesaver#^1.3.3",
+    "autolink": "^1.0.2",
+    "angular-cache": "^4.6.0",
+    "eonasdan-bootstrap-datetimepicker": "^4.1",
+    "fullcalendar": "^3.0.1",
+    "bootstrap-waitingfor": "^1.2.4",
+    "cropperjs": "^0.8.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.5.8"
+  },
+  "overrides": {
+    "angular": {
+      "dependencies": {
+        "jquery": "3.1.0"
+      }
+    },
+    "angular-cache-buster": {
+      "dependencies": {
+        "angular": "1.5.8"
+      }
+    },
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    },
+    "jquery": {
+      "main": [
+        "dist/jquery.js"
+      ]
+    },
+    "angular-dynamic-locale": {
+      "dependencies": {
+        "angular": "1.5.8"
+      },
+      "main": [
+        "dist/tmhDynamicLocale.js"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css"
+      ]
+    },
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss"
+      ]
+    },
+    "select2": {
+      "main": [
+        "dist/js/select2.js",
+        "dist/js/i18n/zh-CN.js",
+        "dist/js/i18n/es.js",
+        "dist/css/select2.css"
+      ]
+    },
+    "parsleyjs": {
+      "main": [
+        "dist/parsley.js",
+        "dist/i18n/zh_cn.extra.js",
+        "dist/i18n/zh_cn.js"
+      ]
+    },
+    "fex-webuploader": {
+      "main": [
+        "dist/webuploader.js",
+        "dist/webuploader.css"
+      ]
+    },
+    "jquery.inputmask": {
+      "main": [
+        "dist/inputmask/inputmask.js",
+        "dist/inputmask/jquery.inputmask.js"
+      ]
+    },
+    "pnotify": {
+      "main": [
+        "dist/pnotify.js",
+        "dist/pnotify.animate.js",
+        "dist/pnotify.brighttheme.css",
+        "dist/pnotify.buttons.css",
+        "dist/pnotify.buttons.js",
+        "dist/pnotify.callbacks.js",
+        "dist/pnotify.confirm.js",
+        "dist/pnotify.css",
+        "dist/pnotify.desktop.js",
+        "dist/pnotify.history.css",
+        "dist/pnotify.history.js",
+        "dist/pnotify.mobile.css",
+        "dist/pnotify.mobile.js",
+        "dist/pnotify.nonblock.js"
+      ]
+    },
+    "select2-bootstrap-theme": {
+      "main": [
+        "dist/select2-bootstrap.min.css"
+      ]
+    },
+    "fullcalendar": {
+      "main": [
+        "dist/fullcalendar.js",
+        "dist/locale-all.js",
+        "dist/fullcalendar.css"
+      ]
+    },
+    "flot": {
+      "main": [
+        "jquery.flot.js",
+        "jquery.flot.pie.js"
+      ]
+    },
+    "bootstrap-waitingfor": {
+      "main": [
+        "build/bootstrap-waitingfor.min.js"
+      ]
+    }
+  },
+  "resolutions": {
+    "angular": "1.5.8",
+    "angular-bootstrap": "2.0.0",
+    "jquery": "3.1.0"
+  }
+}

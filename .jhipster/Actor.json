@@ -1,0 +1,86 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "photos",
+            "otherEntityName": "pictureInfo",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "actor"
+        },
+        {
+            "relationshipName": "source",
+            "otherEntityName": "dictionary",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "country",
+            "otherEntityName": "dictionary",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "gender",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "birthDate",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "height",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "bust",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "waist",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "hip",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "tel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "inputOperator",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "inputTime",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "lastModifier",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastModifiedTime",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "age",
+            "fieldType": "Integer",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20161005140019",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "actor",
+    "pagination": "pagination"
+}

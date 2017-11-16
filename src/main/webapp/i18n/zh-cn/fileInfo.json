@@ -1,0 +1,27 @@
+{
+    "yiyingOaApp": {
+        "fileInfo" : {
+            "home": {
+                "title": "File Infos",
+                "createLabel": "Create a new File Info",
+                "createOrEditLabel": "Create or edit a File Info",
+                "search": "Search for File Info"
+            },
+            "created": "A new File Info is created with identifier {{ param }}",
+            "updated": "A File Info is updated with identifier {{ param }}",
+            "deleted": "A File Info is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete File Info {{ id }}?"
+            },
+            "detail": {
+                "title": "File Info"
+            },
+            "originName": "Origin Name",
+            "name": "Name",
+            "createTime": "Create Time",
+            "creator": "Creator",
+            "lastModifier": "Last Modifier",
+            "lastModifiedTime": "Last Modified Time"
+        }
+    }
+}

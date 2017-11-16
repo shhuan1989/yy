@@ -1,0 +1,42 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "project",
+            "otherEntityName": "project",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "cat1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cat2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "days",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "unitPrice",
+            "fieldType": "Float"
+        }
+    ],
+    "changelogDate": "20161118045831",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "shoot_config",
+    "pagination": "no"
+}

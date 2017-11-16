@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span data-translate="yiyingOaApp.staff.detail.title">Staff</span> {{vm.staff.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="yiyingOaApp.staff.name">Name</span></dt>
+        <dd>
+            <span>{{vm.staff.name}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.staff.tel">Tel</span></dt>
+        <dd>
+            <span>{{vm.staff.tel}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.staff.price">Price</span></dt>
+        <dd>
+            <span>{{vm.staff.price}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.staff.inputOperator">Input Operator</span></dt>
+        <dd>
+            <span>{{vm.staff.inputOperator}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.staff.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{vm.staff.createTime}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.staff.lastModifier">Last Modifier</span></dt>
+        <dd>
+            <span>{{vm.staff.lastModifier}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.staff.lastModifiedTime">Last Modified Time</span></dt>
+        <dd>
+            <span>{{vm.staff.lastModifiedTime}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.staff.type">Type</span></dt>
+        <dd>
+            <a ui-sref="dictionary-detail({id:vm.staff.typeId})">{{vm.staff.typeName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="staff-detail.edit({id:vm.staff.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

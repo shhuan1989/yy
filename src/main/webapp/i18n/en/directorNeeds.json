@@ -1,0 +1,22 @@
+{
+    "yiyingOaApp": {
+        "directorNeeds" : {
+            "home": {
+                "title": "Director Needs",
+                "createLabel": "Create a new Director Needs",
+                "createOrEditLabel": "Create or edit a Director Needs",
+                "search": "Search for Director Needs"
+            },
+            "created": "A new Director Needs is created with identifier {{ param }}",
+            "updated": "A Director Needs is updated with identifier {{ param }}",
+            "deleted": "A Director Needs is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Director Needs {{ id }}?"
+            },
+            "detail": {
+                "title": "Director Needs"
+            },
+            "project": "Project"
+        }
+    }
+}

@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="yiyingOaApp.projectPayment.detail.title">Project Payment</span> {{vm.projectPayment.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="yiyingOaApp.projectPayment.appointedTime">Appointed Time</span></dt>
+        <dd>
+            <span>{{vm.projectPayment.appointedTime}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.projectPayment.amount">Amount</span></dt>
+        <dd>
+            <span>{{vm.projectPayment.amount}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.projectPayment.payTime">Pay Time</span></dt>
+        <dd>
+            <span>{{vm.projectPayment.payTime}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.projectPayment.project">Project</span></dt>
+        <dd>
+            <a ui-sref="project-detail({id:vm.projectPayment.projectId})">{{vm.projectPayment.projectId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="project-payment-detail.edit({id:vm.projectPayment.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

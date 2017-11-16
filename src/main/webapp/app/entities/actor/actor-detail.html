@@ -1,0 +1,79 @@
+
+<div>
+    <h2><span data-translate="yiyingOaApp.actor.detail.title">Actor</span> {{vm.actor.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="yiyingOaApp.actor.name">Name</span></dt>
+        <dd>
+            <span>{{vm.actor.name}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.actor.gender">Gender</span></dt>
+        <dd>
+            <span>{{vm.actor.gender}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.actor.birthDate">Birth Date</span></dt>
+        <dd>
+            <span>{{vm.actor.birthDate}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.actor.height">Height</span></dt>
+        <dd>
+            <span>{{vm.actor.height}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.actor.bust">Bust</span></dt>
+        <dd>
+            <span>{{vm.actor.bust}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.actor.waist">Waist</span></dt>
+        <dd>
+            <span>{{vm.actor.waist}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.actor.hip">Hip</span></dt>
+        <dd>
+            <span>{{vm.actor.hip}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.actor.tel">Tel</span></dt>
+        <dd>
+            <span>{{vm.actor.tel}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.actor.inputOperator">Input Operator</span></dt>
+        <dd>
+            <span>{{vm.actor.inputOperator}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.actor.inputTime">Input Time</span></dt>
+        <dd>
+            <span>{{vm.actor.inputTime}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.actor.lastModifier">Last Modifier</span></dt>
+        <dd>
+            <span>{{vm.actor.lastModifier}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.actor.lastModifiedTime">Last Modified Time</span></dt>
+        <dd>
+            <span>{{vm.actor.lastModifiedTime}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.actor.age">Age</span></dt>
+        <dd>
+            <span>{{vm.actor.age}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.actor.source">Source</span></dt>
+        <dd>
+            <a ui-sref="dictionary-detail({id:vm.actor.sourceId})">{{vm.actor.sourceName}}</a>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.actor.country">Country</span></dt>
+        <dd>
+            <a ui-sref="dictionary-detail({id:vm.actor.countryId})">{{vm.actor.countryName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="actor-detail.edit({id:vm.actor.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

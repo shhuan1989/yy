@@ -1,0 +1,46 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "creator",
+            "otherEntityName": "employee",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "pictureInfo",
+            "otherEntityName": "pictureInfo",
+            "relationshipType": "one-to-one",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "noticeChat"
+        },
+        {
+            "relationshipName": "fileInfo",
+            "otherEntityName": "fileInfo",
+            "relationshipType": "one-to-one",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "noticeChat"
+        },
+        {
+            "relationshipName": "notice",
+            "otherEntityName": "notice",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "text",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createTime",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20170116135740",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "notice_chat",
+    "pagination": "no"
+}

@@ -1,0 +1,11 @@
+{
+    "yiyingOaApp": {
+        "JobPositionStatus" : {
+            "null": "",
+            "PROBATION": "PROBATION",
+            "STAFF": "STAFF",
+            "RESIGNED": "RESIGNED",
+            "FIRED": "FIRED"
+        }
+    }
+}

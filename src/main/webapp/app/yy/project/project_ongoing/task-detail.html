@@ -1,0 +1,89 @@
+<section class="content-header">
+    <h1>
+        任务详情
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li><a ui-sref="yy_project_ongoing"><i class="fa fa-tasks"></i> 进行中的项目</a></li>
+        <li><a ui-sref="yy_project_ongoing.view({id:vm.projectId})">项目详情</a></li>
+        <li class="active">任务详情</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content comment-content">
+
+    <div class="row">
+        <div class="col-md-9">
+
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">{{vm.task.name}}</h3>
+                    <blockquote>
+                        <p>
+                            <small>{{vm.task.info}}</small>
+                        </p>
+                    </blockquote>
+                </div>
+                <div class="box-body chat" id="chat-box">
+                    <!-- chat item -->
+                    <div class="item" ng-repeat="comment in vm.comments">
+                        <img http-src="resource/pictures/{{comment.creator.photo.id}}" alt="comment.creator.name" class="online">
+                        <p class="message">
+                            <a href="#" class="name">
+                                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> {{comment.createTime | yytime}}</small>
+                                {{comment.creator.name}}
+                            </a>
+                            <span data-ng-bind-html="comment.formattedText"></span>
+                        </p>
+                        <div ng-if="comment.pictureInfo" class="image-container">
+                            <div>
+                                <img class="content-img" http-src="resource/pictures/{{comment.pictureInfo.id}}"/>
+                            </div>
+                            <div class="image-button-wrapper">
+                                <button type="button" class="btn btn-primary btn-sm btn-flat pull-right" ng-click="vm.download(comment.pictureInfo)">下载</button>
+                            </div>
+                        </div>
+
+                        <div class="attachment" ng-if="comment.fileInfo">
+                            <h4>附件:</h4>
+
+                            <p class="filename">
+                                <a ng-click="vm.download(comment.fileInfo)"><i class="fa fa-file-archive-o"></i>{{comment.fileInfo.originName}}</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.chat -->
+                <div class="box-footer">
+                    <div class="input-group" ng-if="vm.editable">
+                        <input class="form-control" placeholder="点击发表评论" ng-model="vm.newCommentText">
+                        <div class="input-group-btn">
+                            <label type="button" class="btn btn-success"><i class="fa fa-upload"></i><input type="file" yy-file-change="vm.newFileSelected"/></label>
+                            <!--<label type="button" class="btn btn-success"><i class="fa fa-picture-o"></i><input type="file" ng-model="vm.newPicture"/></label>-->
+                            <button type="button" class="btn btn-success" ng-click="vm.sendComment()"><i class="fa fa-paper-plane-o"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <h4>
+                附件列表
+            </h4>
+            <ul class="list-unstyled">
+                <li ng-repeat="info in vm.attachments">
+                    <div data-ng-switch="info.type">
+                        <a ng-switch-when="IMAGE" ng-click="vm.download(info)"><i class="fa fa-file-image-o"></i>{{info.originName}}</a>
+                        <a ng-switch-default ng-click="vm.download(info)"><i class="fa fa-file-archive-o"></i>{{info.originName}}</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!--<div ng-init="vm.initJsComponents()"></div>-->

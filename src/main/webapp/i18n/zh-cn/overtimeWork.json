@@ -1,0 +1,28 @@
+{
+    "yiyingOaApp": {
+        "overtimeWork" : {
+            "home": {
+                "title": "Overtime Works",
+                "createLabel": "Create a new Overtime Work",
+                "createOrEditLabel": "Create or edit a Overtime Work",
+                "search": "Search for Overtime Work"
+            },
+            "created": "A new Overtime Work is created with identifier {{ param }}",
+            "updated": "A Overtime Work is updated with identifier {{ param }}",
+            "deleted": "A Overtime Work is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Overtime Work {{ id }}?"
+            },
+            "detail": {
+                "title": "Overtime Work"
+            },
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "hours": "Hours",
+            "info": "Info",
+            "createTime": "Create Time",
+            "owner": "Owner",
+            "approvalRequest": "Approval Request"
+        }
+    }
+}

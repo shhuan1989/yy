@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span>Dictionary</span> {{vm.dictionary.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{vm.dictionary.name}}</span>
+        </dd>
+        <dt><span>Creator</span></dt>
+        <dd>
+            <span>{{vm.dictionary.creator}}</span>
+        </dd>
+        <dt><span>Create Time</span></dt>
+        <dd>
+            <span>{{vm.dictionary.createTime}}</span>
+        </dd>
+        <dt><span>Comment</span></dt>
+        <dd>
+            <span>{{vm.dictionary.comment}}</span>
+        </dd>
+        <dt><span>Is System</span></dt>
+        <dd>
+            <span>{{vm.dictionary.isSystem}}</span>
+        </dd>
+        <dt><span>Last Modified Time</span></dt>
+        <dd>
+            <span>{{vm.dictionary.lastModifiedTime}}</span>
+        </dd>
+        <dt><span>Last Modifier</span></dt>
+        <dd>
+            <span>{{vm.dictionary.lastModifier}}</span>
+        </dd>
+        <dt><span>Parent</span></dt>
+        <dd>
+            <a ui-sref="dictionary-detail({id:vm.dictionary.parentId})">{{vm.dictionary.parentId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="dictionary-detail.edit({id:vm.dictionary.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

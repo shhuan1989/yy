@@ -1,0 +1,99 @@
+
+<div>
+    <h2><span>Client</span> {{vm.client.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{vm.client.name}}</span>
+        </dd>
+        <dt><span>Contact</span></dt>
+        <dd>
+            <span>{{vm.client.contact}}</span>
+        </dd>
+        <dt><span>Contact Tel</span></dt>
+        <dd>
+            <span>{{vm.client.contactTel}}</span>
+        </dd>
+        <dt><span>Create Time</span></dt>
+        <dd>
+            <span>{{vm.client.createTime}}</span>
+        </dd>
+        <dt><span>Tel Corp</span></dt>
+        <dd>
+            <span>{{vm.client.telCorp}}</span>
+        </dd>
+        <dt><span>Website Corp</span></dt>
+        <dd>
+            <span>{{vm.client.websiteCorp}}</span>
+        </dd>
+        <dt><span>Address Corp</span></dt>
+        <dd>
+            <span>{{vm.client.addressCorp}}</span>
+        </dd>
+        <dt><span>Qq</span></dt>
+        <dd>
+            <span>{{vm.client.qq}}</span>
+        </dd>
+        <dt><span>Wechat</span></dt>
+        <dd>
+            <span>{{vm.client.wechat}}</span>
+        </dd>
+        <dt><span>Email</span></dt>
+        <dd>
+            <span>{{vm.client.email}}</span>
+        </dd>
+        <dt><span>Owner</span></dt>
+        <dd>
+            <span>{{vm.client.owner}}</span>
+        </dd>
+        <dt><span>Contact Job Title</span></dt>
+        <dd>
+            <span>{{vm.client.contactJobTitle}}</span>
+        </dd>
+        <dt><span>Contact Birth Date</span></dt>
+        <dd>
+            <span>{{vm.client.contactBirthDate}}</span>
+        </dd>
+        <dt><span>Contact Hobby</span></dt>
+        <dd>
+            <span>{{vm.client.contactHobby}}</span>
+        </dd>
+        <dt><span>Comment</span></dt>
+        <dd>
+            <span>{{vm.client.comment}}</span>
+        </dd>
+        <dt><span>Last Modified Time</span></dt>
+        <dd>
+            <span>{{vm.client.lastModifiedTime}}</span>
+        </dd>
+        <dt><span>Input Operator</span></dt>
+        <dd>
+            <span>{{vm.client.inputOperator}}</span>
+        </dd>
+        <dt><span>Last Modifier</span></dt>
+        <dd>
+            <span>{{vm.client.lastModifier}}</span>
+        </dd>
+        <dt><span>Industry</span></dt>
+        <dd>
+            <a ui-sref="dictionary-detail({id:vm.client.industryId})">{{vm.client.industryId}}</a>
+        </dd>
+        <dt><span>Source</span></dt>
+        <dd>
+            <a ui-sref="dictionary-detail({id:vm.client.sourceId})">{{vm.client.sourceId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="client-detail.edit({id:vm.client.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

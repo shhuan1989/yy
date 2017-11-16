@@ -1,0 +1,25 @@
+{
+    "yiyingOaApp": {
+        "directorNeedsItem" : {
+            "home": {
+                "title": "Director Needs Items",
+                "createLabel": "Create a new Director Needs Item",
+                "createOrEditLabel": "Create or edit a Director Needs Item",
+                "search": "Search for Director Needs Item"
+            },
+            "created": "A new Director Needs Item is created with identifier {{ param }}",
+            "updated": "A Director Needs Item is updated with identifier {{ param }}",
+            "deleted": "A Director Needs Item is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Director Needs Item {{ id }}?"
+            },
+            "detail": {
+                "title": "Director Needs Item"
+            },
+            "name": "Name",
+            "amount": "Amount",
+            "memo": "Memo",
+            "directorNeeds": "Director Needs"
+        }
+    }
+}

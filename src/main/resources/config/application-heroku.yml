@@ -1,0 +1,28 @@
+# ===================================================================
+# Spring Boot configuration for the "heroku" profile.
+#
+# This configuration overrides the application.yml file.
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+eureka:
+    instance:
+        hostname: yiying-oa.herokuapp.com
+        non-secure-port: 80
+        prefer-ip-address: false
+    client:
+        serviceUrl:
+            defaultZone: http://466272392@qq.com:s1mplePW2hr@yiying-oa.herokuapp.com/eureka/
+
+spring:
+    datasource:
+        type: com.zaxxer.hikari.HikariDataSource
+        maximumPoolSize: 10
+        url: jdbc:postgresql://ec2-54-243-249-144.compute-1.amazonaws.com:5432/d9mbj33tdj3kng?sslmode=require
+        username: aeyrtgnjippeoi
+        password: UAz8OHpsocYaCgQw9IS3nY3ffd

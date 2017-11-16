@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span data-translate="yiyingOaApp.fileInfo.detail.title">File Info</span> {{vm.fileInfo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="yiyingOaApp.fileInfo.originName">Origin Name</span></dt>
+        <dd>
+            <span>{{vm.fileInfo.originName}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.fileInfo.name">Name</span></dt>
+        <dd>
+            <span>{{vm.fileInfo.name}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.fileInfo.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{vm.fileInfo.createTime}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.fileInfo.creator">Creator</span></dt>
+        <dd>
+            <span>{{vm.fileInfo.creator}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.fileInfo.lastModifier">Last Modifier</span></dt>
+        <dd>
+            <span>{{vm.fileInfo.lastModifier}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.fileInfo.lastModifiedTime">Last Modified Time</span></dt>
+        <dd>
+            <span>{{vm.fileInfo.lastModifiedTime}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="file-info-detail.edit({id:vm.fileInfo.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,203 @@
+<section class="content-header">
+    <h1>
+        {{vm.pageTitle}}
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li><a ui-sref="yy_resource_actor">演员库</a></li>
+        <li class="active">{{vm.pageTitle}}</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content actor-edit-content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">演员概况</h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" novalidate data-parsley-validate>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_actor_no">演员编号：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input disabled type="text" class="form-control" name="actorNo" id="field_actor_no"
+                                       ng-model="vm.actor.actorNumber" placeholder="{{'global.autoGenId' | translate}}"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_name">姓名：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_name"
+                                       ng-model="vm.actor.name" required="required"
+                                       data-parsley-trigger="blur"
+                                       ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_countryId">国籍：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control select2" id="field_countryId" name="countryId"\
+                                        ng-model="vm.actor.countryId" \
+                                        ng-options="country.id as country.name for country in vm.countryOptions">
+                                    <!--<option value="" disabled selected>请选择</option>-->
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_gender">性别：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control" id="field_gender" name="gender"\
+                                        ng-model="vm.actor.gender" ng-disabled="vm.disableEdit" \
+                                        ng-options="gender as gender.name for gender in vm.genderOptions track by gender.id"\
+                                        required="required" data-parsley-trigger="blur"
+                                >
+                                    <option value="" disabled selected>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_birth_date">生日：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class="input-group">
+                                    <div class='input-group date'>
+                                        <input type='text' ng-disabled="vm.disableEdit" class="form-control" id="field_birth_date"/>
+                                        <span class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_height">身高：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="number" step="any" class="form-control" name="height" id="field_height" required="required"
+                                       ng-model="vm.actor.height" data-parsley-trigger="blur"
+                                       placeholder="CM" data-parsley-type="number" data-parsley-min="0.01"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_3d">三维：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class="col-md-3 col-sm-3 col-xs-3 inner-form-input">
+                                    <input type="number" step="any" class="form-control" name="bust" id="field_3d"
+                                           ng-model="vm.actor.bust" data-parsley-trigger="blur"
+                                           placeholder="CM" data-parsley-type="number" data-parsley-min="0.01"
+                                    />
+                                </div>
+                                <label class="col-md-1 col-sm-1 col-xs-1 inner-control-label" for="field_waist">*</label>
+                                <div class="col-md-3 col-sm-3 col-xs-3 inner-form-input">
+                                    <input type="number" step="any" class="form-control" name="waist" id="field_waist"
+                                           ng-model="vm.actor.waist" data-parsley-trigger="blur"
+                                           placeholder="CM" data-parsley-type="number" data-parsley-min="0.01"
+                                    />
+                                </div>
+                                <label class="col-md-1 col-sm-1 col-xs-1 inner-control-label" for="field_hip">*</label>
+                                <div class="col-md-3 col-sm-3 col-xs-3 inner-form-input">
+                                    <input type="number" step="any" class="form-control" name="hip" id="field_hip"
+                                           ng-model="vm.actor.hip" data-parsley-trigger="blur"
+                                           placeholder="CM" data-parsley-type="number" data-parsley-min="0.01"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_tel">联系电话：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input  type="text" class="form-control" name="tel" id="field_tel"
+                                        ng-model="vm.actor.tel" data-parsley-trigger="blur" required="required"
+                                        ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_info">备注：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input  type="text" class="form-control" name="info" id="field_info"
+                                        ng-model="vm.actor.info"
+                                        ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">上传照片</h3>
+                </div>
+                <div class="box-body">
+
+                    <div class="row">
+                        <div class="img-gallery-container">
+                            <div ng-repeat="photo in vm.actor.photos" class="img-gallery-item-container">
+                                <img http-src="resource/pictures/{{photo.thumbnail.id}}" class="img-gallery-item">
+                                <a ng-click="vm.deletePhoto($index)" data-tootik="删除" class="image-tool">
+                                    <i class="icon glyphicon glyphicon-trash" ></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="uploader" class="row">
+                        <div class="queueList">
+                            <div id="dndArea" class="placeholder">
+                                <div id="filePicker"></div>
+                                <p>或将照片拖到这里，单次最多可选100张</p>
+                            </div>
+                        </div>
+                        <div class="statusBar" style="display:none;">
+                            <div class="progress">
+                                <span class="text">0%</span>
+                                <span class="percentage"></span>
+                            </div><div class="info"></div>
+                            <div class="btns">
+                                <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12" data-ng-switch="vm.disableEdit">
+                <div ng-switch-when="false">
+                    <div class="col-sm-offset-4 col-sm-2 col-md-offset-4 col-md-2 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.save()">保存</button>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">取消</button>
+                    </div>
+                </div>
+                <div ng-switch-default>
+                    <div class="col-sm-offset-5 col-sm-2 col-md-offset-5 col-md-2 col-xs-offset-3 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">返回</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div ng-init="vm.initJsComponents()"></div>

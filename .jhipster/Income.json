@@ -1,0 +1,34 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "incomeMethod",
+            "otherEntityName": "dictionary",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "incomeTime",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "incomeDesc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "memo",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170120072524",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "income",
+    "pagination": "no"
+}

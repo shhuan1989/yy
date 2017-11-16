@@ -1,0 +1,27 @@
+{
+  "name": "autolink",
+  "version": "1.0.2",
+  "authors": [
+    "Bryan Woods <bryanwoods4e+NO_RECRUITERS_PLEASE@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "*",
+    "example",
+    "test"
+  ],
+  "main": [
+    "./autolink-min.js"
+  ],
+  "homepage": "https://github.com/bryanwoods/autolink-js",
+  "_release": "1.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.2",
+    "commit": "c8c0eb393169ff57ac7649d78a4b46be4ac74f2e"
+  },
+  "_source": "https://github.com/bryanwoods/autolink-js.git",
+  "_target": "^1.0.2",
+  "_originalSource": "autolink",
+  "_direct": true
+}

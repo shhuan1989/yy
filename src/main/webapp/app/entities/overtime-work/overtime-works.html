@@ -1,0 +1,72 @@
+<div>
+    <h2 data-translate="yiyingOaApp.overtimeWork.home.title">Overtime Works</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="overtime-work.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="yiyingOaApp.overtimeWork.home.createLabel">
+                        Create new Overtime Work
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="yiyingOaApp.overtimeWork.startTime">Start Time</span></th>
+                    <th><span data-translate="yiyingOaApp.overtimeWork.endTime">End Time</span></th>
+                    <th><span data-translate="yiyingOaApp.overtimeWork.hours">Hours</span></th>
+                    <th><span data-translate="yiyingOaApp.overtimeWork.info">Info</span></th>
+                    <th><span data-translate="yiyingOaApp.overtimeWork.createTime">Create Time</span></th>
+                    <th><span data-translate="yiyingOaApp.overtimeWork.owner">Owner</span></th>
+                    <th><span data-translate="yiyingOaApp.overtimeWork.approvalRequest">Approval Request</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="overtimeWork in vm.overtimeWorks track by overtimeWork.id">
+                    <td><a ui-sref="overtime-work-detail({id:overtimeWork.id})">{{overtimeWork.id}}</a></td>
+                    <td>{{overtimeWork.startTime}}</td>
+                    <td>{{overtimeWork.endTime}}</td>
+                    <td>{{overtimeWork.hours}}</td>
+                    <td>{{overtimeWork.info}}</td>
+                    <td>{{overtimeWork.createTime}}</td>
+                    <td>
+                        <a ui-sref="employee-detail({id:overtimeWork.ownerId})">{{overtimeWork.ownerId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="approval-request-detail({id:overtimeWork.approvalRequestId})">{{overtimeWork.approvalRequestId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="overtime-work-detail({id:overtimeWork.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="overtime-work.edit({id:overtimeWork.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="overtime-work.delete({id:overtimeWork.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

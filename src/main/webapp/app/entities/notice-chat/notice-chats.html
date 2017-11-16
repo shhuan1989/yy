@@ -1,0 +1,66 @@
+<div>
+    <h2 data-translate="yiyingOaApp.noticeChat.home.title">Notice Chats</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="notice-chat.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="yiyingOaApp.noticeChat.home.createLabel">
+                        Create new Notice Chat
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="yiyingOaApp.noticeChat.text">Text</span></th>
+                    <th><span data-translate="yiyingOaApp.noticeChat.createTime">Create Time</span></th>
+                    <th><span data-translate="yiyingOaApp.noticeChat.creator">Creator</span></th>
+                    <th><span data-translate="yiyingOaApp.noticeChat.notice">Notice</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="noticeChat in vm.noticeChats track by noticeChat.id">
+                    <td><a ui-sref="notice-chat-detail({id:noticeChat.id})">{{noticeChat.id}}</a></td>
+                    <td>{{noticeChat.text}}</td>
+                    <td>{{noticeChat.createTime}}</td>
+                    <td>
+                        <a ui-sref="employee-detail({id:noticeChat.creatorId})">{{noticeChat.creatorId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="notice-detail({id:noticeChat.noticeId})">{{noticeChat.noticeId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="notice-chat-detail({id:noticeChat.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="notice-chat.edit({id:noticeChat.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="notice-chat.delete({id:noticeChat.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

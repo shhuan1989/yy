@@ -1,0 +1,74 @@
+<div>
+    <h2 data-translate="yiyingOaApp.pictureInfo.home.title">Picture Infos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="picture-info.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="yiyingOaApp.pictureInfo.home.createLabel">
+                        Create new Picture Info
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="originName"><span data-translate="yiyingOaApp.pictureInfo.originName">Origin Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span data-translate="yiyingOaApp.pictureInfo.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createTime"><span data-translate="yiyingOaApp.pictureInfo.createTime">Create Time</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="creator"><span data-translate="yiyingOaApp.pictureInfo.creator">Creator</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="lastModifier"><span data-translate="yiyingOaApp.pictureInfo.lastModifier">Last Modifier</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="lastModifiedTime"><span data-translate="yiyingOaApp.pictureInfo.lastModifiedTime">Last Modified Time</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="thumbnail.id"><span data-translate="yiyingOaApp.pictureInfo.thumbnail">Thumbnail</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="pictureInfo in vm.pictureInfos track by pictureInfo.id">
+                    <td><a ui-sref="picture-info-detail({id:pictureInfo.id})">{{pictureInfo.id}}</a></td>
+                    <td>{{pictureInfo.originName}}</td>
+                    <td>{{pictureInfo.name}}</td>
+                    <td>{{pictureInfo.createTime}}</td>
+                    <td>{{pictureInfo.creator}}</td>
+                    <td>{{pictureInfo.lastModifier}}</td>
+                    <td>{{pictureInfo.lastModifiedTime}}</td>
+                    <td>
+                        <a ui-sref="picture-info-detail({id:pictureInfo.thumbnail.id})">{{pictureInfo.thumbnail.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="picture-info-detail({id:pictureInfo.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="picture-info.edit({id:pictureInfo.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="picture-info.delete({id:pictureInfo.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

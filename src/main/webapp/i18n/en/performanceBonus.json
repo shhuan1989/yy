@@ -1,0 +1,31 @@
+{
+    "yiyingOaApp": {
+        "performanceBonus" : {
+            "home": {
+                "title": "Performance Bonuses",
+                "createLabel": "Create a new Performance Bonus",
+                "createOrEditLabel": "Create or edit a Performance Bonus",
+                "search": "Search for Performance Bonus"
+            },
+            "created": "A new Performance Bonus is created with identifier {{ param }}",
+            "updated": "A Performance Bonus is updated with identifier {{ param }}",
+            "deleted": "A Performance Bonus is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Performance Bonus {{ id }}?"
+            },
+            "detail": {
+                "title": "Performance Bonus"
+            },
+            "amount": "Amount",
+            "issued": "Issued",
+            "createTime": "Create Time",
+            "issueTime": "Issue Time",
+            "lastModifiedTime": "Last Modified Time",
+            "creator": "Creator",
+            "lastModifier": "Last Modifier",
+            "issuer": "Issuer",
+            "project": "Project",
+            "owner": "Owner"
+        }
+    }
+}

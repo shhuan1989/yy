@@ -1,0 +1,42 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "nextApprovals",
+            "otherEntityName": "approval",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "previousApproval"
+        },
+        {
+            "relationshipName": "previousApproval",
+            "otherEntityName": "approval",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "createTime",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastModifiedTime",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20161025033721",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "approval",
+    "pagination": "no"
+}

@@ -1,0 +1,196 @@
+<section class="content-header">
+    <h1>
+        员工管理
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li class="active">员工管理</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">员工查询</h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" ng-submit="vm.search()">
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_name">姓名：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_name"
+                                       ng-model="vm.searchParams.name"
+                                />
+                            </div>
+
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_gender">性别：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control" id="field_gender" name="genderId"
+                                        ng-model="vm.searchParams.genderId"
+                                        ng-options="gender.id as gender.name for gender in vm.genderOptions">
+                                    <option value="">全部</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_age_from">年龄：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class="col-md-5 col-sm-5 col-xs-12 input-partial">
+                                    <input type="number" class="form-control" name="age_from" id="field_age_from"
+                                           ng-model="vm.searchParams.ageFrom"
+                                    />
+                                </div>
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12 label-center" for="field_age_to">到</label>
+                                <div class="col-md-5 col-sm-5 col-xs-12 input-partial">
+                                    <input type="number" class="form-control col-md-5 col-sm-5 col-xs-12" name="age_to" id="field_age_to"
+                                           ng-model="vm.searchParams.ageTo"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_native_place">籍贯：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control select2" name="field_native_place" ng-model="vm.searchParams.nativePlaceId"
+                                        ng-options="city.id as city.name for city in vm.nativePlaceOptions track by city.id"
+                                        id="field_native_place">
+                                    <option value="">全部</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_education">学历：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control" id="field_education" name="education"
+                                        ng-model="vm.searchParams.educationId"
+                                        ng-options="education.id as education.name for education in vm.educationOptions">
+                                    <option value="">全部</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_position_status">岗位状态：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control" id="field_position_status" name="jobPositionStatus"
+                                        ng-model="vm.searchParams.jobPositionStatusId"
+                                        ng-options="status.id as status.name for status in vm.jobPositionStatuusOptions">
+                                    <option value="">全部</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_dept">部门：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control" id="field_dept" name="dept" ng-model="vm.searchParams.deptId"
+                                        ng-options="dept.id as dept.name for dept in vm.deptOptions track by dept.id">
+                                    <option value="">全部</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_jobTitle">岗位：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control select2" id="field_jobTitle" name="jobTitle" ng-model="vm.searchParams.jobTitleId"
+                                        ng-options="jobTitle.id as jobTitle.name for jobTitle in vm.jobTitleOptions | orderBy:'id'">
+                                    <option value="">全部</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_hire_date">入职时间：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                    <input type="text" class="form-control pull-right" ng-focus="vm.initSearchDateRangePicker()"
+                                           id="field_hire_date">
+                                </div>
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <div class="col-sm-offset-5 col-sm-2 col-md-offset-5 col-md-2 col-xs-offset-4 col-xs-4">
+                                <button type="submit" class="btn btn-primary btn-full">查询</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <div has-any-authority="ROLE_ADMIN,EDIT_STAFF_MANAGE">
+                        <button class="btn btn-primary" ui-sref="yy_admin_emp.new" >
+                            <span class="glyphicon glyphicon-plus"></span>
+                            <span >
+                                新增员工
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="dataTables_length" id="example1_length">
+                                <label>每页显示
+                                    <select class="form-control input-sm" ng-options="count for count in vm.empoyeesTableParams.settings().counts" ng-model="vm.pageSize">
+
+                                    </select> 条, 共 {{vm.employees.length}}条
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table ng-table="vm.empoyeesTableParams" class="table table-bordered table-hover">
+                        <tr ng-repeat="emp in $data">
+                            <td data-title="'姓名'">{{emp.name}}</td>
+                            <td data-title="'性别'">{{emp.gender.name}}</td>
+                            <td data-title="'出生日期'">{{emp.birthDate | date:'yyyy-MM-dd'}}</td>
+                            <td data-title="'籍贯'">{{emp.nativePlace.name}}</td>
+                            <td data-title="'学历'">{{emp.education.name}}</td>
+                            <td data-title="'所在部门'">{{emp.dept.name}}</td>
+                            <td data-title="'所在岗位'">{{emp.jobTitles | arrprop:'name'}}</td>
+                            <td data-title="'岗位状态'">{{emp.jobPositionStatus.name}}</td>
+                            <td data-title="'入职时间'">{{emp.hireDate | date:'yyyy-MM-dd'}}</td>
+                            <td data-title="'操作'">
+                                <div class="btn-group flex-btn-group-container">
+                                    <a ui-sref="yy_admin_emp.view({id:emp.id})" data-tootik="查看" has-any-authority="ROLE_ADMIN,VIEW_STAFF_MANAGE,EDIT_STAFF_MANAGE"><i class="icon glyphicon glyphicon-search" ></i></a>
+                                    <a ui-sref="yy_admin_emp.edit({id:emp.id})" ng-if="emp.name!='管理员'" data-tootik="编辑" has-any-authority="ROLE_ADMIN,EDIT_STAFF_MANAGE"><i class="icon glyphicon glyphicon-pencil" ></i></a>
+                                    <a ng-click="vm.deleteEmp(emp)" ng-if="emp.name!='管理员'" data-tootik="删除" has-any-authority="ROLE_ADMIN,EDIT_STAFF_MANAGE"><i class="icon glyphicon glyphicon-trash" ></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
+
+<div ng-init="vm.initJsComponents()"></div>

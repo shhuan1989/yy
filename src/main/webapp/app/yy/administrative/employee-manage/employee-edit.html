@@ -1,0 +1,435 @@
+<section class="content-header">
+    <h1>
+        {{vm.pageTitle}}
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li><a ui-sref="yy_admin_emp">员工管理</a></li>
+        <li class="active">{{vm.pageTitle}}</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content emp-edit-content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">员工概况</h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" novalidate data-parsley-validate>
+                        <!--<div class="form-group col-md-4 col-sm-6 col-xs-12">-->
+                            <!--<label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_emp_no">员工编号：</label>-->
+                            <!--<div class="col-md-8 col-sm-8 col-xs-12">-->
+                                <!--<input disabled type="text" class="form-control" name="empNo" id="field_emp_no"-->
+                                       <!--ng-model="vm.employee.empNumber" placeholder="{{'global.autoGenId' | translate}}"-->
+                                <!--/>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_name">姓名：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_name"
+                                       ng-model="vm.employee.name" required="required"
+                                       data-parsley-trigger="blur"
+                                       ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_gender">性别：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control" id="field_gender" name="gender"
+                                        ng-model="vm.employee.gender" ng-disabled="vm.disableEdit"
+                                        ng-options="gender as gender.name for gender in vm.genderOptions track by gender.id">
+                                    <option value="" disabled>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_native_place">籍贯：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control select2" name="field_native_place" ng-model="vm.employee.nativePlace"
+                                        ng-options="place as place.name for place in vm.nativePlaceOptions track by place.id"
+                                        id="field_native_place" ng-disabled="vm.disableEdit">
+                                    <!--<option value="" disabled>请选择</option>-->
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_nationality">民族：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control select2" name="field_native_place" ng-model="vm.employee.nationality"
+                                        ng-options="nationality for nationality in vm.nationalityOptions"
+                                        id="field_nationality" ng-disabled="vm.disableEdit">
+                                    <!--<option value="" disabled>请选择</option>-->
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_id_number">身份证号：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_id_number" ng-disabled="vm.disableEdit"
+                                       ng-model="vm.employee.idNumber" data-parsley-trigger="blur" required="required"
+                                       data-parsley-length="[17, 18]"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_birth_date">出生日期：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input disabled type="text" class="form-control" name="birthDate" id="field_birth_date"
+                                       value="{{ vm.employee.birthDate | yydate }}"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_age">年龄：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input disabled type="text" class="form-control" name="age" id="field_age"
+                                       ng-model="vm.employee.age"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_marriage">婚否：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control" id="field_marriage" name="marriage"
+                                        ng-model="vm.employee.marriage" ng-disabled="vm.disableEdit"
+                                        ng-options="marriage as marriage.name for marriage in vm.marriageOptions track by marriage.id">
+                                    <option value="" disabled>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_childbearing">是否生育：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control" id="field_childbearing" name="childbearing"
+                                        ng-model="vm.employee.childbearing" ng-disabled="vm.disableEdit"
+                                        ng-options="childbearing as childbearing.name for childbearing in vm.childBearingOptions track by childbearing.id">
+                                    <option value="" disabled>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_education">学历：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control" id="field_education" name="education"
+                                        ng-model="vm.employee.education" ng-disabled="vm.disableEdit"
+                                        ng-options="education as education.name for education in vm.educationOptions track by education.id">
+                                    <option value="" disabled>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_driver_license">是否有驾照：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control" id="field_driver_license" name="hasDriverLicense"
+                                        ng-model="vm.employee.hasDriverLicense" ng-disabled="vm.disableEdit"
+                                        ng-options="hasDriverLicense as hasDriverLicense.name for hasDriverLicense in vm.driverLicenseOptions track by hasDriverLicense.id">
+                                    <option value="" disabled>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">上传照片</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <!-- <h3 class="page-header">Demo:</h3> -->
+                            <div class="img-container">
+                                <!--<img src="images/picture.jpg" alt="Picture">-->
+                                <img http-src="resource/pictures/{{vm.employee.photo.id}}" alt="{{vm.employee.name}}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <!-- <h3 class="page-header">Preview:</h3> -->
+                            <div class="docs-preview clearfix">
+                                <div class="img-preview preview-lg"></div>
+                                <div class="img-preview preview-md"></div>
+                                <div class="img-preview preview-sm"></div>
+                                <div class="img-preview preview-xs"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="actions">
+                        <div class="col-md-offset-3 col-md-6 docs-buttons text-center">
+                            <div class="btn-group">
+                                <label class="btn btn-primary btn-upload" for="inputImage" data-tootik="上传图像文件">
+                                    <input type="file" class="sr-only" id="inputImage" name="file" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
+                                    <span class="docs-tooltip" data-toggle="tooltip" title="Import image with Blob URLs">
+                                      <span class="fa fa-upload"></span>
+                                    </span>
+                                </label>
+                                <button type="button" class="btn btn-primary" data-method="getCroppedCanvas" data-tootik="确定">
+                                    <span class="docs-tooltip" data-toggle="tooltip" title="cropper.getCroppedCanvas()">
+                                      <span class="fa fa-check"></span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div><!-- /.docs-buttons -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">联系方式</h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" data-parsley-validate>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_cellphone">手机号：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input  type="text" class="form-control" name="cellphone" id="field_cellphone"
+                                        ng-model="vm.employee.cellphone" data-parsley-trigger="blur" required="required"
+                                        ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_qq">QQ：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_qq"
+                                       ng-model="vm.employee.qq" ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_wechart">微信号：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_wechart"
+                                       ng-model="vm.employee.wechart" ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_mail">邮箱：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="email" class="form-control" name="name" id="field_mail"
+                                       ng-model="vm.employee.mail" ng-disabled="vm.disableEdit"
+                                       data-parsley-type="email"
+                                       data-parsley-trigger="blur"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_address">地址：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_address"
+                                       ng-model="vm.employee.address" ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">岗位信息</h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" data-parsley-validate>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_dept">部门：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control" id="field_dept" name="dept" ng-model="vm.employee.dept"
+                                        ng-options="dept as dept.name for dept in vm.deptOptions track by dept.id"
+                                        ng-disabled="vm.disableEdit">
+                                    <option value="" disabled>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_jobTitle">岗位：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control select2" id="field_jobTitle" name="jobTitle" ng-model="vm.employee.jobTitles"
+                                        ng-disabled="vm.disableEdit" multiple="multiple"
+                                        ng-options="jobTitle as jobTitle.name for jobTitle in vm.jobTitleOptions track by jobTitle.id">
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_position_status">岗位状态：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control" id="field_position_status" name="jobPositionStatus"
+                                        ng-model="vm.employee.jobPositionStatus" ng-disabled="vm.disableEdit"
+                                        ng-options="status as status.name for status in vm.jobPositionStatuusOptions track by status.id">
+                                    <option value="" disabled>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_hire_date">入职时间：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class='input-group date'>
+                                    <input type='text' class="form-control" id="field_hire_date"/>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_probation_salary">试用基本工资：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="number" step="any" class="form-control" name="probationSalary" id="field_probation_salary"
+                                        ng-model="vm.employee.probationSalary" data-parsley-trigger="blur" required="required"
+                                        ng-disabled="vm.disableEdit" data-parsley-type="number" data-parsley-min="0.01"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_salary">转正基本工资：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input  type="number" step="any" class="form-control" name="salary" id="field_salary"
+                                        ng-model="vm.employee.salary" data-parsley-trigger="blur" required="required"
+                                        ng-disabled="vm.disableEdit" data-parsley-type="number" data-parsley-min="0.01"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_work_qq">工作QQ：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input  type="text" class="form-control" name="workQq" id="field_work_qq"
+                                        ng-model="vm.employee.workQq" data-parsley-trigger="blur" required="required"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_work_qq_password">工作QQ密码：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input  type="text" class="form-control" name="workQqPassword" id="field_work_qq_password"
+                                        ng-model="vm.employee.workQqPassword" data-parsley-trigger="blur" required="required"
+                                        ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">附属信息</h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" data-parsley-validate>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_fl_level">外语水平：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="foreignLanguageLevel" id="field_fl_level"
+                                       ng-model="vm.employee.foreignLanguageLevel"
+                                       ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_computer_level">计算机水平：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="computerLevel" id="field_computer_level"
+                                       ng-model="vm.employee.computerLevel"
+                                       ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_em_contact">紧急联系人：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="emergencyContact" id="field_em_contact"
+                                       ng-model="vm.employee.emergencyContact"
+                                       ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_em_contact_rel">关系：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="relationshipWithEmergencyContact" id="field_em_contact_rel"
+                                       ng-model="vm.employee.relationshipWithEmergencyContact"
+                                       ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_em_tel">紧急联系电话：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="emergencyTel" id="field_em_tel"
+                                       ng-model="vm.employee.emergencyTel"
+                                       ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12" data-ng-switch="vm.disableEdit">
+                <div ng-switch-when="false">
+                    <div class="col-sm-offset-4 col-sm-2 col-md-offset-4 col-md-2 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.save()">保存</button>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">取消</button>
+                    </div>
+                </div>
+                <div ng-switch-default>
+                    <div class="col-sm-offset-5 col-sm-2 col-md-offset-5 col-md-2 col-xs-offset-3 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">返回</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div ng-init="vm.initJsComponents()"></div>

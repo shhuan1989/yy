@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span data-translate="yiyingOaApp.pictureInfo.detail.title">Picture Info</span> {{vm.pictureInfo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="yiyingOaApp.pictureInfo.originName">Origin Name</span></dt>
+        <dd>
+            <span>{{vm.pictureInfo.originName}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.pictureInfo.name">Name</span></dt>
+        <dd>
+            <span>{{vm.pictureInfo.name}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.pictureInfo.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{vm.pictureInfo.createTime}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.pictureInfo.creator">Creator</span></dt>
+        <dd>
+            <span>{{vm.pictureInfo.creator}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.pictureInfo.lastModifier">Last Modifier</span></dt>
+        <dd>
+            <span>{{vm.pictureInfo.lastModifier}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.pictureInfo.lastModifiedTime">Last Modified Time</span></dt>
+        <dd>
+            <span>{{vm.pictureInfo.lastModifiedTime}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.pictureInfo.thumbnail">Thumbnail</span></dt>
+        <dd>
+            <a ui-sref="picture-info-detail({id:vm.pictureInfo.thumbnail.id})">{{vm.pictureInfo.thumbnail.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="picture-info-detail.edit({id:vm.pictureInfo.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

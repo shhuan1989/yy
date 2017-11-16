@@ -1,0 +1,25 @@
+{
+    "yiyingOaApp": {
+        "contractInvoice" : {
+            "home": {
+                "title": "Contract Invoices",
+                "createLabel": "Create a new Contract Invoice",
+                "createOrEditLabel": "Create or edit a Contract Invoice",
+                "search": "Search for Contract Invoice"
+            },
+            "created": "A new Contract Invoice is created with identifier {{ param }}",
+            "updated": "A Contract Invoice is updated with identifier {{ param }}",
+            "deleted": "A Contract Invoice is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Contract Invoice {{ id }}?"
+            },
+            "detail": {
+                "title": "Contract Invoice"
+            },
+            "amount": "Amount",
+            "createTime": "Create Time",
+            "contract": "Contract",
+            "creator": "Creator"
+        }
+    }
+}

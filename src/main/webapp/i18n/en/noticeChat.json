@@ -1,0 +1,27 @@
+{
+    "yiyingOaApp": {
+        "noticeChat" : {
+            "home": {
+                "title": "Notice Chats",
+                "createLabel": "Create a new Notice Chat",
+                "createOrEditLabel": "Create or edit a Notice Chat",
+                "search": "Search for Notice Chat"
+            },
+            "created": "A new Notice Chat is created with identifier {{ param }}",
+            "updated": "A Notice Chat is updated with identifier {{ param }}",
+            "deleted": "A Notice Chat is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Notice Chat {{ id }}?"
+            },
+            "detail": {
+                "title": "Notice Chat"
+            },
+            "text": "Text",
+            "createTime": "Create Time",
+            "creator": "Creator",
+            "pictureInfo": "Picture Info",
+            "fileInfo": "File Info",
+            "notice": "Notice"
+        }
+    }
+}

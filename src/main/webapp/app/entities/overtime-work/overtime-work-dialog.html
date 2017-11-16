@@ -1,0 +1,88 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myOvertimeWorkLabel" data-translate="yiyingOaApp.overtimeWork.home.createOrEditLabel">Create or edit a Overtime Work</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.overtimeWork.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.overtimeWork.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.overtimeWork.startTime" for="field_startTime">Start Time</label>
+            <input type="number" class="form-control" name="startTime" id="field_startTime"
+                    ng-model="vm.overtimeWork.startTime"
+                    required />
+            <div ng-show="editForm.startTime.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.startTime.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.startTime.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.overtimeWork.endTime" for="field_endTime">End Time</label>
+            <input type="number" class="form-control" name="endTime" id="field_endTime"
+                    ng-model="vm.overtimeWork.endTime"
+                    required />
+            <div ng-show="editForm.endTime.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.endTime.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.endTime.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.overtimeWork.hours" for="field_hours">Hours</label>
+            <input type="number" class="form-control" name="hours" id="field_hours"
+                    ng-model="vm.overtimeWork.hours"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.overtimeWork.info" for="field_info">Info</label>
+            <input type="text" class="form-control" name="info" id="field_info"
+                    ng-model="vm.overtimeWork.info"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.overtimeWork.createTime" for="field_createTime">Create Time</label>
+            <input type="number" class="form-control" name="createTime" id="field_createTime"
+                    ng-model="vm.overtimeWork.createTime"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="yiyingOaApp.overtimeWork.owner" for="field_owner">Owner</label>
+            <select class="form-control" id="field_owner" name="owner" ng-model="vm.overtimeWork.ownerId" ng-options="employee.id as employee.id for employee in vm.employees"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="yiyingOaApp.overtimeWork.approvalRequest" for="field_approvalRequest">Approval Request</label>
+            <select class="form-control" id="field_approvalRequest" name="approvalRequest" ng-model="vm.overtimeWork.approvalRequestId" ng-options="approvalRequest.id as approvalRequest.id for approvalRequest in vm.approvalrequests | orderBy:'id'">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

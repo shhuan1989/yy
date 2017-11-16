@@ -1,0 +1,188 @@
+<section class="content-header">
+    <h1>
+        收入管理
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li><a ui-sref="yy_contract_mgt">收入管理</a></li>
+        <li class="active">回款详情</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content contract-edit-content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">合同信息</h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" novalidate data-parsley-validate>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_id_number">合同编号：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_id_number"
+                                       ng-model="vm.contract.idNumber" disabled/>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_name">合同名称：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_name"
+                                       ng-model="vm.contract.name" disabled/>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_amount">合同金额：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_amount"
+                                       ng-model="vm.contract.moneyAmount" disabled/>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_info_cost">信息费：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_info_cost"
+                                       ng-model="vm.contract.infoCost" disabled/>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_tax_rate">税率：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="name" id="field_tax_rate"
+                                           ng-model="vm.contract.taxRate" disabled/>
+                                    <div class="input-group-addon">
+                                        <span>%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_tax">税金：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_tax"
+                                       ng-model="vm.contract.tax" disabled/>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_sign_date">签约时间：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class='input-group date'>
+                                    <input type='text' class="form-control" id="field_sign_date" disabled/>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">分期计划</h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" novalidate data-parsley-validate data-parsley-focus="none">
+                        <div class="col-sm-12" ng-repeat="itm in vm.contract.installments">
+                            <div class="form-group col-md-1 col-sm-2 col-xs-12">
+                                <label class="control-label text-aqua">第{{$index+1}}期</label>
+                            </div>
+                            <div class="form-group col-md-4 col-sm-5 col-xs-10">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_installment_{{$index}}">应收金额：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type='text' class="form-control" id="field_installment_{{$index}}"
+                                           disabled
+                                           required="required" data-parsley-trigger="blur" ng-model="itm.amount"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 col-sm-5 col-xs-10">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_installment_time_{{$index}}">应收时间：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12" id="field_installment_time_{{$index}}_container">
+                                    <div class='input-group date'>
+                                        <input type='text' class="form-control" id="field_installment_time_{{$index}}"
+                                               disabled
+                                               value="{{itm.eta | yydate}}"
+                                        />
+                                        <span class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 col-sm-5 col-xs-10">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_paid_{{$index}}">实收金额：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type='text' class="form-control" id="field_paid_{{$index}}"
+                                           ng-model="itm.actualAmount"
+                                           disabled
+                                           data-parsley-max="{{itm.amount}}"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-1 col-sm-2 col-xs-12">
+
+                            </div>
+
+                            <div class="form-group col-md-4 col-sm-5 col-xs-10">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_pay_method_{{$index}}">收款方式：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <select class="form-control" ng-model="itm.payMethod.id" required="required" id="field_pay_method_{{$index}}"
+                                            ng-options="c.id as c.name for c in vm.payMethodOptions"
+                                            disabled>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 col-sm-5 col-xs-10">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_actual_time_{{$index}}">实收时间：</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12" id="field_actual_time_{{$index}}_container">
+                                    <div class='input-group date'>
+                                        <input type='text' class="form-control" id="field_actual_time_{{$index}}"
+                                               disabled
+                                               ng-required="itm.actualAmount > 0" data-parsley-errors-container="#field_actual_time_{{$index}}_container"
+                                        />
+                                        <span class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+
+            <div class="form-group col-sm-12" data-ng-switch="vm.disableEdit">
+                <div class="col-sm-offset-5 col-sm-2 col-md-offset-5 col-md-2 col-xs-offset-3 col-xs-6">
+                    <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">返回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div ng-init="vm.initJsComponents()"></div>

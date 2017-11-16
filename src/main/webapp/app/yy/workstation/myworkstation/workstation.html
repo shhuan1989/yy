@@ -1,0 +1,362 @@
+<section class="content-header">
+    <h1>
+        我的工作台
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li class="active">我的工作台</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content workstation">
+    <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">系统公告</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <ol>
+                            <li ng-repeat="notice in vm.notices">
+                                <a ui-sref="yy_admin_notice.view({id:notice.id})"><h4>{{notice.subject}} <small>{{notice.expireTime | yytime}}</small></h4></a>
+                            </li>
+                        </ol>
+                    </div>
+                    <div ng-if="vm.hasMoreNotices">
+                        <a class="pull-right" ui-sref="notice_more">更多</a>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12" has-any-authority="ROLE_ADMIN,WKS_MY_MEETING">
+            <div class="box box-solid box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">会议提醒</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <ol>
+                            <li ng-repeat="meeting in vm.meetings">
+                                <a ui-sref="yy_meeting"><h4>{{meeting.name}} <small>{{meeting.startTime | yytime}}</small></h4></a>
+                            </li>
+                        </ol>
+                    </div>
+                    <div ng-if="vm.hasMoreMeetings">
+                        <a class="pull-right" ui-sref="yy_meeting">更多</a>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12" has-any-authority="ROLE_ADMIN,WKS_MY_TASK">
+            <div class="box box-solid box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">任务提醒</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <ol>
+                            <li ng-repeat="task in vm.tasks">
+                                <a ui-sref="yy_project_task_view({projectId:task.projectId, id:task.id})"><h4>{{task.name}} <small>{{task.createTime | yytime}}</small></h4></a>
+                            </li>
+                        </ol>
+                    </div>
+                    <div ng-if="vm.hasMoreTasks">
+                        <a class="pull-right" ui-sref="yy_task_more">更多</a>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12" has-any-authority="ROLE_ADMIN,WKS_PROJECT_RATE">
+            <div class="box box-solid box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">我参加的项目评级</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <ol>
+                            <li ng-repeat="rate in vm.rates">
+                                <a ui-sref="project_rate({id:rate.id})"><h4>{{rate.projectName}}<small class="label pull-right" ng-class="vm.timeLabelClass(rate.createTime)">{{rate.createTime | yytime}}</small></h4></a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12" has-any-authority="ROLE_ADMIN,WKS_APPROVE_PROJECT_RATE">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title"> 我审核的项目评级</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <ol>
+                            <li ng-repeat="rate in vm.auditRates">
+                                <a ui-sref="project_rate({id:rate.id})"><h4>{{rate.projectName}}<small class="label pull-right" ng-class="vm.timeLabelClass(rate.createTime)">{{rate.createTime | yytime}}</small></h4></a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12" has-any-authority="ROLE_ADMIN,WKS_APPROVE_BUDGET">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title"> 待审批的预算</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <ol>
+                            <li ng-repeat="p in vm.budgetApprovals">
+                                <a ui-sref="budget_approval({id:p.id})"><h4>{{p.projectName}} - <small>{{p.owner.name}}</small></h4></a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12" has-any-authority="ROLE_ADMIN,WKS_APPROVE_SHOOT_COST">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title"> 待审批的决算</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <ol>
+                            <li ng-repeat="p in vm.shootCostApprovals">
+                                <a ui-sref="shootcost_approval({id:p.id})"><h4>{{p.projectName}} - <small>{{p.owner.name}}</small></h4></a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12" has-any-authority="ROLE_ADMIN,WKS_APPROVE_PERFORMANCE">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title"> 待审批的绩效</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <ol>
+                            <li ng-repeat="p in vm.bonusApprovals">
+                                <a ui-sref="perf_approval({id:p.projectId})"><h4>{{p.name}}</h4></a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12" has-any-authority="ROLE_ADMIN,WKS_APPROVE_VACATION">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title"> 待审批的请假</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <ol>
+                            <li ng-repeat="p in vm.vacationApprovals">
+                                <a ui-sref="vacation_approval({id:p.id})"><h4>{{p.owner.name}} <small>{{p.startTime | yydate}} - {{p.endTime | yydate}}</small></h4></a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12" has-any-authority="ROLE_ADMIN,WKS_APPROVE_INCOME">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title"> 待审批的收入</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <ol>
+                            <li ng-repeat="p in vm.incomeApprovals">
+                                <a ui-sref="income_approval({id:p.id})"><h4>{{p.approvalRequest.name}} <small>{{p.owner.name}}</small></h4></a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12" has-any-authority="ROLE_ADMIN,WKS_APPROVE_COST">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title"> 待审批的支出</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <ol>
+                            <li ng-repeat="p in vm.expenseApprovals">
+                                <a ui-sref="expense_approval({id:p.id})"><h4>{{p.approvalRequest.name}} <small>{{p.owner.name}}</small></h4></a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12" has-any-authority="ROLE_ADMIN,WKS_APPROVE_GOODS_APP">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title"> 待审批的物品领用申请</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <ol>
+                            <li ng-repeat="p in vm.utilApplications">
+                                <a ui-sref="util_approval({id:p.id})"><h4>{{p.owner.name}} - <small>{{p.asset.name}}</small></h4></a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12" has-any-authority="ROLE_ADMIN,WKS_EMP_PROBATION">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title"> 员工转正提醒</h3>
+                </div>
+                <div class="box-body">
+                    <ol>
+                        <li ng-repeat="p in vm.employeeProbations">
+                            <a ui-sref="yy_admin_emp.edit({id:p.id})"><h4>{{p.name}} <small>入职：{{p.hireDate | yydate}}</small></h4></a>
+                        </li>
+                    </ol>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12" has-any-authority="ROLE_ADMIN,WKS_APPROVE_CONFIG">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title"> 待审批的拍摄配置</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <ol>
+                            <li ng-repeat="p in vm.shootConfigApprovals">
+                                <a ui-sref="shoot_config_approval({id:p.id})"><h4>{{p.projectName}} - <small>{{p.owner.name}}</small></h4></a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+
+        <!--<div class="col-sm-6 col-xs-12">-->
+            <!--<div class="box box-solid box-primary">-->
+                <!--<div class="box-header with-border">-->
+                    <!--<h3 class="box-title"> 回款统计</h3>-->
+                <!--</div>-->
+                <!--<div class="box-body">-->
+                    <!--<div class="p-sm">-->
+                        <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<form class="form-horizontal">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<label class="control-label pull-left" for="field_payment_timerange">统计时间：</label>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div class="col-md-8 col-sm-8 col-xs-12">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<div class="input-group">&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<div class="input-group-addon">&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<i class="fa fa-clock-o"></i>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<input type="text" class="form-control pull-right" ng-focus="vm.initPaymentDateRangePicker()" \&ndash;&gt;-->
+                                                   <!--&lt;!&ndash;id="field_payment_timerange">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;&lt;!&ndash; /.input group &ndash;&gt;&ndash;&gt;-->
+                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</form>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--<div class="row">-->
+                            <!--<div id="chart-payment" style="height: 200px;"></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--&lt;!&ndash; /.box-body &ndash;&gt;-->
+                <!--<div class="overlay" ng-if="vm.isLoadingPaymentStatistics">-->
+                    <!--<i class="fa fa-spinner fa-spin"></i>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="col-sm-6 col-xs-12">-->
+            <!--<div class="box box-solid box-primary">-->
+                <!--<div class="box-header with-border">-->
+                    <!--<h3 class="box-title"> 发票统计</h3>-->
+                <!--</div>-->
+                <!--<div class="box-body">-->
+                    <!--<div class="p-sm">-->
+                        <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<form class="form-horizontal">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<label class="control-label pull-left" for="field_invoice_timerange">统计时间：</label>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div class="col-md-8 col-sm-8 col-xs-12">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<div class="input-group">&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<div class="input-group-addon">&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<i class="fa fa-clock-o"></i>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<input type="text" class="form-control pull-right" ng-focus="vm.initInvoiceDateRangePicker()" \&ndash;&gt;-->
+                                                   <!--&lt;!&ndash;id="field_invoice_timerange">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;&lt;!&ndash; /.input group &ndash;&gt;&ndash;&gt;-->
+                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</form>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--<div class="row">-->
+                            <!--<div id="chart-invoice" style="height: 200px;"></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--&lt;!&ndash; /.box-body &ndash;&gt;-->
+                <!--<div class="overlay" ng-if="vm.isLoadingPaymentStatistics">-->
+                    <!--<i class="fa fa-spinner fa-spin"></i>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <div class="col-sm-12 col-xs-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">拍摄排期</h3>
+                </div>
+                <div class="box-body">
+                    <div id="wks-calendar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /.content -->

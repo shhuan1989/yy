@@ -1,0 +1,75 @@
+
+<div>
+    <h2><span data-translate="yiyingOaApp.task.detail.title">Task</span> {{vm.task.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="yiyingOaApp.task.name">Name</span></dt>
+        <dd>
+            <span>{{vm.task.name}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.task.info">Info</span></dt>
+        <dd>
+            <span>{{vm.task.info}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.task.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{vm.task.createTime}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.task.eta">Eta</span></dt>
+        <dd>
+            <span>{{vm.task.eta}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.task.owner">Owner</span></dt>
+        <dd>
+            <span ng-repeat="owner in vm.task.owners">
+                <a ui-sref="employee-detail({id: owner.id})">{{owner.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.task.members">Members</span></dt>
+        <dd>
+            <span ng-repeat="members in vm.task.members">
+                <a ui-sref="employee-detail({id: members.id})">{{members.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.task.attachments">Attachments</span></dt>
+        <dd>
+            <span ng-repeat="attachments in vm.task.attachments">
+                <a ui-sref="file-info-detail({id: attachments.id})">{{attachments.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.task.pictureInfos">Picture Infos</span></dt>
+        <dd>
+            <span ng-repeat="pictureInfos in vm.task.pictureInfos">
+                <a ui-sref="picture-info-detail({id: pictureInfos.id})">{{pictureInfos.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.task.status">Status</span></dt>
+        <dd>
+            <a ui-sref="dictionary-detail({id:vm.task.statusId})">{{vm.task.statusId}}</a>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.task.creator">Creator</span></dt>
+        <dd>
+            <a ui-sref="employee-detail({id:vm.task.creatorId})">{{vm.task.creatorId}}</a>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.task.owner">Owner</span></dt>
+        <dd>
+            <a ui-sref="employee-detail({id:vm.task.ownerId})">{{vm.task.ownerId}}</a>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.task.project">Project</span></dt>
+        <dd>
+            <a ui-sref="project-detail({id:vm.task.projectId})">{{vm.task.projectId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="task-detail.edit({id:vm.task.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

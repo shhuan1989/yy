@@ -1,0 +1,24 @@
+{
+    "yiyingOaApp": {
+        "directorNeedsComment" : {
+            "home": {
+                "title": "Director Needs Comments",
+                "createLabel": "Create a new Director Needs Comment",
+                "createOrEditLabel": "Create or edit a Director Needs Comment",
+                "search": "Search for Director Needs Comment"
+            },
+            "created": "A new Director Needs Comment is created with identifier {{ param }}",
+            "updated": "A Director Needs Comment is updated with identifier {{ param }}",
+            "deleted": "A Director Needs Comment is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Director Needs Comment {{ id }}?"
+            },
+            "detail": {
+                "title": "Director Needs Comment"
+            },
+            "content": "Content",
+            "createTime": "Create Time",
+            "employee": "Employee"
+        }
+    }
+}

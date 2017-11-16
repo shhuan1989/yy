@@ -1,0 +1,199 @@
+<section class="content-header">
+    <h1>
+        演员库
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li class="active">演员库</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">演员查询</h3>
+                </div>
+
+                <div class="box-body">
+                    <form class="form-horizontal" ng-submit="vm.search()">
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_gender">性别：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control" id="field_gender" name="genderId"
+                                        ng-model="vm.searchParams.genderId"
+                                        ng-options="gender.id as gender.name for gender in vm.genderOptions">
+                                    <option value="">全部</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_age_from">年龄：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class="col-md-5 col-sm-5 col-xs-12 input-partial">
+                                    <input type="number" class="form-control" name="age_from" id="field_age_from"
+                                           ng-model="vm.searchParams.ageFrom"
+                                    />
+                                </div>
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12 label-center" for="field_age_to">到</label>
+                                <div class="col-md-5 col-sm-5 col-xs-12 input-partial">
+                                    <input type="number" class="form-control col-md-5 col-sm-5 col-xs-12" name="age_to" id="field_age_to"
+                                           ng-model="vm.searchParams.ageTo"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_countryId">国籍：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control select2" id="field_countryId" name="countryId"
+                                        ng-model="vm.searchParams.countryId"
+                                        ng-options="country.id as country.name for country in vm.countryOptions">
+                                    <option value="">全部</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <div class="col-sm-offset-5 col-sm-2 col-md-offset-5 col-md-2 col-xs-offset-4 col-xs-4">
+                                <button type="submit" class="btn btn-primary btn-full">查询</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <div has-any-authority="ROLE_ADMIN,EDIT_ACTORS">
+                        <button class="btn btn-primary" ui-sref="yy_resource_actor.new" >
+                            <span class="glyphicon glyphicon-plus"></span>
+                            <span >
+                                新增演员
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="col-sm-6 col-md-4 col-xs-12 actor-card" ng-repeat="actor in vm.actors">
+                        <div class="box box-default box-actor">
+                            <div class="box-body">
+                                <div class="row">
+                                    <div class="col-sm-5 col-md-5 col-xs-5 text-center" ng-if="actor.photos[0].thumbnail.id">
+                                        <img http-src="resource/pictures/{{actor.photos[0].thumbnail.id}}"/>
+                                    </div>
+                                    <div class="col-sm-5 col-md-5 col-xs-5 text-center" ng-if="!actor.photos[0].thumbnail.id">
+                                        <img ng-src="content/images/placeholder_avatar.jpg"/>
+                                    </div>
+                                    <div class="col-sm-7 col-md-7 col-xs-7">
+                                        <ul class="list-unstyled">
+                                            <li>姓名: {{actor.name}}</li>
+                                            <li>性别: {{actor.gender.name}}</li>
+                                            <li>年龄: {{actor.age}}</li>
+                                            <li>身高: {{actor.height}}</li>
+                                            <li>三围: {{actor.bust}}*{{actor.waist}}*{{actor.hip}}</li>
+                                            <li>联系方式: {{actor.tel}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="btn-group flex-btn-group-container col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <button type="submit" ng-click="vm.showPhotos(actor.id)" class="btn btn-info btn-sm">
+                                            <span class="glyphicon glyphicon-eye-open"></span>
+                                            <span class="hidden-xs hidden-sm hidden-md">更多图片</span>
+                                        </button>
+                                        <button type="submit" ui-sref="yy_resource_actor.edit({id:actor.id})" class="btn btn-primary btn-sm" has-any-authority="ROLE_ADMIN,EDIT_ACTORS">
+                                            <span class="glyphicon glyphicon-pencil"></span>
+                                            <span class="hidden-xs hidden-sm hidden-md">编辑</span>
+                                        </button>
+                                        <button type="submit" ng-click="vm.deleteActor(actor)" class="btn btn-danger btn-sm" has-any-authority="ROLE_ADMIN,EDIT_ACTORS">
+                                            <span class="glyphicon glyphicon-remove-circle"></span>
+                                            <span class="hidden-xs hidden-sm hidden-md">删除</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="box-footer" ng-if="vm.totalPages > 1">
+                    <nav aria-label="">
+                        <ul class="pagination">
+                            <li class="page-item" ng-class="{disabled: vm.currentPage <= 0}">
+                                <a class="page-link" ng-click="vm.goPreviousPage(i)" tabindex="-1" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">上一页</span>
+                                </a>
+                            </li>
+                            <li ng-repeat="i in [] | range:vm.totalPages" class="page-item"  ng-class="{active: vm.currentPage == i}">
+                                <a class="page-link" ng-click="vm.goPage(i)">{{$index+1}}</a>
+                            </li>
+                            <li class="page-item" ng-class="{disabled: vm.currentPage >= vm.totalPages-1}">
+                                <a class="page-link" ng-click="vm.goNextPage(i)" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">下一页</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
+
+<div id="photo-gallery" class="modal fade" role="dialog" aria-hidden="true">
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{vm.currentActor.name}}</h4>
+            </div>
+            <div class="modal-body text-center">
+                <div ng-if="vm.currentActor.photos[vm.currentPhtoIndex].id" class="actor-img-container">
+                    <span class="helper"></span><img http-src="resource/pictures/{{vm.currentActor.photos[vm.currentPhtoIndex].id}}"/>
+                </div>
+                <div ng-if="!vm.currentActor.photos[vm.currentPhtoIndex].id" class="actor-img-container">
+                    <span class="helper"></span><img ng-src="content/images/placeholder_avatar.jpg"/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left prev" ng-click="vm.previousPhoto()"
+                        ng-disabled="vm.currentPhtoIndex <= 0"
+                >
+                    <i class="glyphicon glyphicon-chevron-left"></i>
+                    上一张
+                </button>
+                <button type="button" class="btn btn-primary next" ng-click="vm.nextPhoto()"
+                        ng-disabled="!vm.currentActor || !vm.currentActor.photos || vm.currentPhtoIndex >= vm.currentActor.photos.length-1"
+                >
+                    下一张
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div ng-init="vm.initJsComponents()"></div>

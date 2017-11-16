@@ -1,0 +1,32 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "owner",
+            "otherEntityName": "employee",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "projectProgressTable",
+            "otherEntityName": "projectProgressTable",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "eta",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "finishTime",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20170114114543",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "project_progress_item",
+    "pagination": "no"
+}

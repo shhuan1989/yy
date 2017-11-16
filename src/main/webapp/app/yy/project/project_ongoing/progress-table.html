@@ -1,0 +1,245 @@
+<section class="content-header">
+    <h1>
+        编辑进度表
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li><a ui-sref="yy_project_ongoing">进行中的项目</a></li>
+        <li class="active">编辑进度表</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content progress-table-edit-content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">新增进度表</h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" novalidate data-parsley-validate data-parsley-focus="none">
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_project_name">项目名称：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <label class="form-control" id="field_project_name">{{vm.project.name}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_project_creator">创建人：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <label class="form-control" id="field_project_creator">{{vm.project.creatorName}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_project_create_time">创建时间：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <label class="form-control" id="field_project_create_time">{{vm.project.createTime | yydate}}</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_p1_owner">文案初稿负责人：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12" id="p1_owner_error_container">
+                                <select class="form-control select2" id="field_p1_owner" name="p1OwnerId"
+                                        ng-model="vm.projectProgress.items[0].ownerId"
+                                        data-parsley-errors-container="#p1_owner_error_container"
+                                        data-parsley-required="true"
+                                        ng-options="e.id as e.name for e in vm.employees">
+                                    <option value="" disabled selected>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_p1_eta">计划时间：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class='input-group date'>
+                                    <input type='text' class="form-control" id="field_p1_eta" required/>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_p1_ft">完成时间：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class='input-group date'>
+                                    <input type='text' class="form-control" id="field_p1_ft"/>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_p2_owner">脚本终稿负责人：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12" id="p2_owner_error_container">
+                                <select class="form-control select2" id="field_p2_owner" name="p2OwnerId"
+                                        ng-model="vm.projectProgress.items[1].ownerId"
+                                        data-parsley-errors-container="#p2_owner_error_container"
+                                        data-parsley-required="true"
+                                        ng-options="e.id as e.name for e in vm.employees">
+                                    <option value="" disabled selected>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_p2_eta">计划时间：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class='input-group date'>
+                                    <input type='text' class="form-control" id="field_p2_eta" required/>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_p2_ft">完成时间：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class='input-group date'>
+                                    <input type='text' class="form-control" id="field_p2_ft"/>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_p3_owner">拍摄负责人：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12" id="p3_owner_error_container">
+                                <select class="form-control select2" id="field_p3_owner" name="p3OwnerId"
+                                        ng-model="vm.projectProgress.items[2].ownerId"
+                                        data-parsley-errors-container="#p3_owner_error_container"
+                                        data-parsley-required="true"
+                                        ng-options="e.id as e.name for e in vm.employees">
+                                    <option value="" disabled selected>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_p3_eta">计划时间：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class='input-group date'>
+                                    <input type='text' class="form-control" id="field_p3_eta" required/>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_p3_ft">完成时间：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class='input-group date'>
+                                    <input type='text' class="form-control" id="field_p3_ft"/>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_p4_owner">后期初稿负责人：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12" id="p4_owner_error_container">
+                                <select class="form-control select2" id="field_p4_owner" name="p4OwnerId"
+                                        ng-model="vm.projectProgress.items[3].ownerId"
+                                        data-parsley-errors-container="#p4_owner_error_container"
+                                        data-parsley-required="true"
+                                        ng-options="e.id as e.name for e in vm.employees">
+                                    <option value="" disabled selected>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_p4_eta">计划时间：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class='input-group date'>
+                                    <input type='text' class="form-control" id="field_p4_eta" required/>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_p4_ft">完成时间：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class='input-group date'>
+                                    <input type='text' class="form-control" id="field_p4_ft"/>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_p5_owner">后期终稿负责人：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12" id="p5_owner_error_container">
+                                <select class="form-control select2" id="field_p5_owner" name="p5OwnerId"
+                                        ng-model="vm.projectProgress.items[4].ownerId"
+                                        data-parsley-errors-container="#p5_owner_error_container"
+                                        data-parsley-required="true"
+                                        ng-options="e.id as e.name for e in vm.employees">
+                                    <option value="" disabled selected>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_p5_eta">计划时间：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class='input-group date'>
+                                    <input type='text' class="form-control" id="field_p5_eta" required/>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_p5_ft">完成时间：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class='input-group date'>
+                                    <input type='text' class="form-control" id="field_p5_ft"/>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_comment">备注：</label>
+                        </div>
+                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="form-control" name="basicInfo" id="field_comment"
+                                          ng-model="vm.projectProgress.memo"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12">
+                <div class="col-sm-offset-4 col-sm-2 col-md-offset-4 col-md-2 col-xs-6">
+                    <button type="submit" class="btn btn-primary btn-full" ng-click="vm.save()">保存</button>
+                </div>
+                <div class="col-sm-2 col-md-2 col-xs-6">
+                    <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div ng-init="vm.initJsComponents()"></div>

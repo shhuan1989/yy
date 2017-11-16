@@ -1,0 +1,157 @@
+<section class="content-header">
+    <h1>
+        请假记录
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li class="active">请假记录</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content content-admin-vacation">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">请假查询</h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" ng-submit="vm.search()">
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_emp_name">姓名：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control select2" id="field_emp_name" name="ownerId"
+                                        ng-model="vm.searchParams.ownerId"
+                                        ng-options="owner.id as owner.uniqueName for owner in vm.employees">
+                                    <option value="">全部</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_dept">部门：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control select2" id="field_dept" name="deptId"
+                                        ng-model="vm.searchParams.deptId"
+                                        ng-options="dept.id as dept.name for dept in vm.deptOptions">
+                                    <option value="">全部</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_job_title">岗位：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control select2" id="field_job_title" name="jobTitleId"
+                                        ng-model="vm.searchParams.jobTitleId"
+                                        ng-options="jobTitle.id as jobTitle.name for jobTitle in vm.jobTitleOptions">
+                                    <option value="">全部</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_vacation_timerange">请假时间：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                    <input type="text" class="form-control pull-right" ng-focus="vm.initSearchDateRangePicker()"
+                                           id="field_vacation_timerange">
+                                </div>
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_vacation_type">假期类型：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control" id="field_vacation_type" name="vacationTypeId"
+                                        ng-model="vm.searchParams.typeId"
+                                        ng-options="type.id as type.name for type in vm.vacationTypeOptions">
+                                    <option value="">全部</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_vacation_approval_status">审批状态：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control" id="field_vacation_approval_status" name="approvalStatusId"
+                                        ng-model="vm.searchParams.approvalStatusId"
+                                        ng-options="status.id as status.name for status in vm.approvalStatusOptions">
+                                    <option value="">全部</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <div class="col-sm-offset-5 col-sm-2 col-md-offset-5 col-md-2 col-xs-offset-4 col-xs-4">
+                                <button type="submit" class="btn btn-primary btn-full">查询</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="dataTables_length" id="example1_length">
+                                <label>每页显示
+                                    <select class="form-control input-sm" ng-options="count for count in vm.vacationsTableParams.settings().counts" ng-model="vm.pageSize">
+
+                                    </select> 条, 共 {{vm.vacations.length}}条
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table ng-table="vm.vacationsTableParams" class="table table-bordered table-hover">
+                        <tr ng-repeat="vacation in $data">
+                            <td data-title="'姓名'">{{vacation.owner.name}}</td>
+                            <td data-title="'部门'">{{vacation.owner.dept.name}}</td>
+                            <td data-title="'岗位'">{{vacation.owner.jobTitles | arrprop: 'name'}}</td>
+                            <td data-title="'申请日期'">{{vacation.createTime | yydate}}</td>
+                            <td data-title="'请假日期'">{{vacation.startTime | yydate}} - {{vacation.endTime | yydate}}</td>
+                            <td data-title="'请假天数'">{{vacation.days}}</td>
+                            <td data-title="'假期类型'">{{vacation.type.name}}</td>
+                            <td data-title="'审核状态'">
+                                <div ng-if="vacation.approvalRequest == undefined || vacation.approvalRequest.status == undefined">
+                                    <span class="label label-primary">未开始</span>
+                                </div>
+                                <div data-ng-switch="vacation.approvalRequest.status.id">
+                                    <span class="label label-info" ng-switch-when="1">{{vacation.approvalRequest.status.name}}</span>
+                                    <span class="label label-success" ng-switch-when="2">{{vacation.approvalRequest.status.name}}</span>
+                                    <span class="label label-danger" ng-switch-when="3"><span data-tootik="{{vacation.approvalRequest.result}}" data-tootik-conf="multiline">{{vacation.approvalRequest.status.name}}</span></span>
+                                    <span class="label label-warning" ng-switch-when="4">{{vacation.approvalRequest.status.name}}</span>
+                                    <span class="label label-primary" ng-switch-default>{{vacation.approvalRequest.status.name}}</span>
+                                </div>
+                            </td>
+                            <td data-title="'操作'">
+                                <a ui-sref="yy_admin_vacation.view({id:vacation.id})" data-tootik="查看"><i class="icon glyphicon glyphicon-search" ></i></a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
+
+<div ng-init="vm.initJsComponents()"></div>

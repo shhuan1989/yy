@@ -1,0 +1,31 @@
+{
+    "yiyingOaApp": {
+        "shootAgenda" : {
+            "home": {
+                "title": "Shoot Agenda",
+                "createLabel": "Create a new Shoot Agenda",
+                "createOrEditLabel": "Create or edit a Shoot Agenda",
+                "search": "Search for Shoot Agenda"
+            },
+            "created": "A new Shoot Agenda is created with identifier {{ param }}",
+            "updated": "A Shoot Agenda is updated with identifier {{ param }}",
+            "deleted": "A Shoot Agenda is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Shoot Agenda {{ id }}?"
+            },
+            "detail": {
+                "title": "Shoot Agenda"
+            },
+            "title": "Title",
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "backgroudColor": "Backgroud Color",
+            "borderColor": "Border Color",
+            "allDay": "All Day",
+            "url": "Url",
+            "location": "Location",
+            "creator": "Creator",
+            "project": "Project"
+        }
+    }
+}

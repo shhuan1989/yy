@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity AssetBorrowRecord.
+    -->
+    <changeSet id="20161107065536-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="owner_id"
+                                 baseTableName="asset_borrow_record"
+                                 constraintName="fk_asset_borrow_record_owner_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="operator_id"
+                                 baseTableName="asset_borrow_record"
+                                 constraintName="fk_asset_borrow_record_operator_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="asset_id"
+                                 baseTableName="asset_borrow_record"
+                                 constraintName="fk_asset_borrow_record_asset_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="asset"/>
+
+    </changeSet>
+</databaseChangeLog>

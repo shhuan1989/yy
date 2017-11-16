@@ -1,0 +1,153 @@
+<section class="content-header">
+    <h1>
+        项目绩效审批
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li><a ui-sref="yy_workstation_mystation"><i class="fa fa-dashboard"></i> 我的工作台</a></li>
+        <li class="active">{{vm.project.name}}</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content perfapproval-edit-content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">项目概况</h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" novalidate data-parsley-validate>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-6">项目编号：</label>
+                            <label class="control-label text-left col-md-8 col-sm-8 col-xs-6">
+                                {{vm.project.idNumber}}
+                            </label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-6">项目名称：</label>
+                            <label class="control-label text-left col-md-8 col-sm-8 col-xs-6">
+                                {{vm.project.name}}
+                            </label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-6">合同/PO编号：</label>
+                            <label class="control-label text-left col-md-8 col-sm-8 col-xs-6">
+                                {{vm.project.contract.idNumber}}
+                            </label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-6">合同金额：</label>
+                            <label class="control-label text-left col-md-8 col-sm-8 col-xs-6">
+                                {{vm.project.contract.moneyAmount}}
+                            </label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-6">税金：</label>
+                            <label class="control-label text-left col-md-8 col-sm-8 col-xs-6">
+                                {{vm.project.contract.tax}}
+                            </label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-6">项目成本：</label>
+                            <label class="control-label text-left col-md-8 col-sm-8 col-xs-6">
+                                {{vm.project.cost}}
+                            </label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-6">提成基数：</label>
+                            <label class="control-label text-left col-md-8 col-sm-8 col-xs-6">
+                                {{vm.project.bonusPool}}
+                            </label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-6">项目总监：</label>
+                            <label class="control-label text-left col-md-8 col-sm-8 col-xs-6">
+                                {{vm.project.director.name}}
+                            </label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-6">项目经理：</label>
+                            <label class="control-label text-left col-md-8 col-sm-8 col-xs-6">
+                                {{vm.project.aes | arrprop:'name'}}
+                            </label>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <!--<div class="box box-solid box-primary">-->
+                <!--<div class="box-header with-border">-->
+                    <!--<h3 class="box-title">成本详情</h3>-->
+                <!--</div>-->
+                <!--<div class="box-body">-->
+                    <!--<div ng-repeat="cost in vm.costs" class="cost-item">-->
+                        <!--<div class="cost-title bg-gray">{{cost.name}}</div>-->
+                        <!--<div class="cost-amount">{{cost.amount}}</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="overlay" ng-if="vm.isLoading">-->
+                    <!--<i class="fa fa-spinner fa-spin"></i>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">绩效详情</h3>
+                </div>
+                <div class="box-body">
+
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>部门</th>
+                                <th>姓名</th>
+                                <th>绩效奖金</th>
+                                <th>合计</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="bonus in vm.bonuses">
+                                <th rowspan="{{bonus.rowspan}}" ng-if="bonus.dept != undefined">{{bonus.dept}}</th>
+                                <td>{{bonus.name}}</td>
+                                <td>{{bonus.amount | yymoney}}</td>
+                                <td rowspan="{{bonus.rowspan}}" ng-if="bonus.total != undefined">{{bonus.total | yymoney}}</td>
+                            </tr>
+                            <tr>
+                                <th>合计</th>
+                                <td colspan="3">{{vm.totalBonus | yymoney}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12">
+                <div class="col-sm-offset-4 col-sm-2 col-md-offset-4 col-md-2 col-xs-6">
+                    <button type="submit" class="btn btn-primary btn-full" ng-click="vm.approve()" ng-disabled="vm.isLoading">通过</button>
+                </div>
+                <div class="col-sm-2 col-md-2 col-xs-6">
+                    <button type="submit" class="btn btn-danger btn-full" ng-click="vm.reject()" ng-disabled="vm.isLoading">驳回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

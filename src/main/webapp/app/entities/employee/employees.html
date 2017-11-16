@@ -1,0 +1,144 @@
+<div>
+    <h2 data-translate="yiyingOaApp.employee.home.title">Employees</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="employee.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="yiyingOaApp.employee.home.createLabel">
+                        Create new Employee
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span data-translate="yiyingOaApp.employee.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="gender"><span data-translate="yiyingOaApp.employee.gender">Gender</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="age"><span data-translate="yiyingOaApp.employee.age">Age</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="education"><span data-translate="yiyingOaApp.employee.education">Education</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="empNumber"><span data-translate="yiyingOaApp.employee.empNumber">Emp Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nativePlace"><span data-translate="yiyingOaApp.employee.nativePlace">Native Place</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nationality"><span data-translate="yiyingOaApp.employee.nationality">Nationality</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="idNumber"><span data-translate="yiyingOaApp.employee.idNumber">Id Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="basicInfo"><span data-translate="yiyingOaApp.employee.basicInfo">Basic Info</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="hireDate"><span data-translate="yiyingOaApp.employee.hireDate">Hire Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="probationSalary"><span data-translate="yiyingOaApp.employee.probationSalary">Probation Salary</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="salary"><span data-translate="yiyingOaApp.employee.salary">Salary</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="jobPositionStatus"><span data-translate="yiyingOaApp.employee.jobPositionStatus">Job Position Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="jobPositionInfo"><span data-translate="yiyingOaApp.employee.jobPositionInfo">Job Position Info</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="birthDate"><span data-translate="yiyingOaApp.employee.birthDate">Birth Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="marriage"><span data-translate="yiyingOaApp.employee.marriage">Marriage</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="childbearing"><span data-translate="yiyingOaApp.employee.childbearing">Childbearing</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="hukou"><span data-translate="yiyingOaApp.employee.hukou">Hukou</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pensionAccount"><span data-translate="yiyingOaApp.employee.pensionAccount">Pension Account</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="houseFoundAccount"><span data-translate="yiyingOaApp.employee.houseFoundAccount">House Found Account</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="hasDriverLicense"><span data-translate="yiyingOaApp.employee.hasDriverLicense">Has Driver License</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cellphone"><span data-translate="yiyingOaApp.employee.cellphone">Cellphone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="mail"><span data-translate="yiyingOaApp.employee.mail">Mail</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="qq"><span data-translate="yiyingOaApp.employee.qq">Qq</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="workQq"><span data-translate="yiyingOaApp.employee.workQq">Work Qq</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="workQqPassword"><span data-translate="yiyingOaApp.employee.workQqPassword">Work Qq Password</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="wechart"><span data-translate="yiyingOaApp.employee.wechart">Wechart</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="address"><span data-translate="yiyingOaApp.employee.address">Address</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tel"><span data-translate="yiyingOaApp.employee.tel">Tel</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="emergencyTel"><span data-translate="yiyingOaApp.employee.emergencyTel">Emergency Tel</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="emergencyContact"><span data-translate="yiyingOaApp.employee.emergencyContact">Emergency Contact</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="relationshipWithEmergencyContact"><span data-translate="yiyingOaApp.employee.relationshipWithEmergencyContact">Relationship With Emergency Contact</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="additionalInfo"><span data-translate="yiyingOaApp.employee.additionalInfo">Additional Info</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="computerLevel"><span data-translate="yiyingOaApp.employee.computerLevel">Computer Level</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="foreignLanguageLevel"><span data-translate="yiyingOaApp.employee.foreignLanguageLevel">Foreign Language Level</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="probationDeduction"><span data-translate="yiyingOaApp.employee.probationDeduction">Probation Deduction</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="employeeDeduction"><span data-translate="yiyingOaApp.employee.employeeDeduction">Employee Deduction</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="jobTitleId"><span data-translate="yiyingOaApp.employee.jobTitle">Job Title</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nativePlaceId"><span data-translate="yiyingOaApp.employee.nativePlace">Native Place</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="deptId"><span data-translate="yiyingOaApp.employee.dept">Dept</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in vm.employees track by employee.id">
+                    <td><a ui-sref="employee-detail({id:employee.id})">{{employee.id}}</a></td>
+                    <td>{{employee.name}}</td>
+                    <td data-translate="{{'yiyingOaApp.Gender.' + employee.gender}}">{{employee.gender}}</td>
+                    <td>{{employee.age}}</td>
+                    <td data-translate="{{'yiyingOaApp.Education.' + employee.education}}">{{employee.education}}</td>
+                    <td>{{employee.empNumber}}</td>
+                    <td>{{employee.nativePlace}}</td>
+                    <td>{{employee.nationality}}</td>
+                    <td>{{employee.idNumber}}</td>
+                    <td>{{employee.basicInfo}}</td>
+                    <td>{{employee.hireDate}}</td>
+                    <td>{{employee.probationSalary}}</td>
+                    <td>{{employee.salary}}</td>
+                    <td data-translate="{{'yiyingOaApp.JobPositionStatus.' + employee.jobPositionStatus}}">{{employee.jobPositionStatus}}</td>
+                    <td>{{employee.jobPositionInfo}}</td>
+                    <td>{{employee.birthDate}}</td>
+                    <td>{{employee.marriage}}</td>
+                    <td>{{employee.childbearing}}</td>
+                    <td>{{employee.hukou}}</td>
+                    <td>{{employee.pensionAccount}}</td>
+                    <td>{{employee.houseFoundAccount}}</td>
+                    <td>{{employee.hasDriverLicense}}</td>
+                    <td>{{employee.cellphone}}</td>
+                    <td>{{employee.mail}}</td>
+                    <td>{{employee.qq}}</td>
+                    <td>{{employee.workQq}}</td>
+                    <td>{{employee.workQqPassword}}</td>
+                    <td>{{employee.wechart}}</td>
+                    <td>{{employee.address}}</td>
+                    <td>{{employee.tel}}</td>
+                    <td>{{employee.emergencyTel}}</td>
+                    <td>{{employee.emergencyContact}}</td>
+                    <td>{{employee.relationshipWithEmergencyContact}}</td>
+                    <td>{{employee.additionalInfo}}</td>
+                    <td>{{employee.computerLevel}}</td>
+                    <td>{{employee.foreignLanguageLevel}}</td>
+                    <td>{{employee.probationDeduction}}</td>
+                    <td>{{employee.employeeDeduction}}</td>
+                    <td>
+                        <a ui-sref="job-title-detail({id:employee.jobTitleId})">{{employee.jobTitleId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="city-detail({id:employee.nativePlaceId})">{{employee.nativePlaceId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="dept-detail({id:employee.deptId})">{{employee.deptId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="employee-detail({id:employee.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="employee.edit({id:employee.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="employee.delete({id:employee.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+    </div>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+</div>

@@ -1,0 +1,122 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myActorLabel" data-translate="yiyingOaApp.actor.home.createOrEditLabel">Create or edit a Actor</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.actor.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.actor.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.actor.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.actor.name"
+                    required />
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.actor.gender" for="field_gender">Gender</label>
+            <input type="number" class="form-control" name="gender" id="field_gender"
+                    ng-model="vm.actor.gender"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.actor.birthDate" for="field_birthDate">Birth Date</label>
+            <input type="number" class="form-control" name="birthDate" id="field_birthDate"
+                    ng-model="vm.actor.birthDate"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.actor.height" for="field_height">Height</label>
+            <input type="number" class="form-control" name="height" id="field_height"
+                    ng-model="vm.actor.height"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.actor.bust" for="field_bust">Bust</label>
+            <input type="number" class="form-control" name="bust" id="field_bust"
+                    ng-model="vm.actor.bust"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.actor.waist" for="field_waist">Waist</label>
+            <input type="number" class="form-control" name="waist" id="field_waist"
+                    ng-model="vm.actor.waist"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.actor.hip" for="field_hip">Hip</label>
+            <input type="number" class="form-control" name="hip" id="field_hip"
+                    ng-model="vm.actor.hip"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.actor.tel" for="field_tel">Tel</label>
+            <input type="text" class="form-control" name="tel" id="field_tel"
+                    ng-model="vm.actor.tel"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.actor.inputOperator" for="field_inputOperator">Input Operator</label>
+            <input type="text" class="form-control" name="inputOperator" id="field_inputOperator"
+                    ng-model="vm.actor.inputOperator"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.actor.inputTime" for="field_inputTime">Input Time</label>
+            <input type="number" class="form-control" name="inputTime" id="field_inputTime"
+                    ng-model="vm.actor.inputTime"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.actor.lastModifier" for="field_lastModifier">Last Modifier</label>
+            <input type="text" class="form-control" name="lastModifier" id="field_lastModifier"
+                    ng-model="vm.actor.lastModifier"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.actor.lastModifiedTime" for="field_lastModifiedTime">Last Modified Time</label>
+            <input type="number" class="form-control" name="lastModifiedTime" id="field_lastModifiedTime"
+                    ng-model="vm.actor.lastModifiedTime"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="yiyingOaApp.actor.age" for="field_age">Age</label>
+            <input type="number" class="form-control" name="age" id="field_age"
+                    ng-model="vm.actor.age"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="yiyingOaApp.actor.source" for="field_source">Source</label>
+            <select class="form-control" id="field_source" name="source" ng-model="vm.actor.sourceId" ng-options="dictionary.id as dictionary.name for dictionary in vm.dictionaries"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="yiyingOaApp.actor.country" for="field_country">Country</label>
+            <select class="form-control" id="field_country" name="country" ng-model="vm.actor.countryId" ng-options="dictionary.id as dictionary.name for dictionary in vm.dictionaries"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

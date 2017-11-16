@@ -1,0 +1,22 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "attachments",
+            "otherEntityName": "fileInfo",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "contract"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160924080143",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "contract",
+    "pagination": "pager"
+}

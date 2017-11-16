@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="yiyingOaApp.approval.detail.title">Approval</span> {{vm.approval.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="yiyingOaApp.approval.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{vm.approval.createTime}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.approval.lastModifiedTime">Last Modified Time</span></dt>
+        <dd>
+            <span>{{vm.approval.lastModifiedTime}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.approval.status">Status</span></dt>
+        <dd>
+            <span>{{vm.approval.status}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.approval.previousApproval">Previous Approval</span></dt>
+        <dd>
+            <a ui-sref="approval-detail({id:vm.approval.previousApprovalId})">{{vm.approval.previousApprovalId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="approval-detail.edit({id:vm.approval.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

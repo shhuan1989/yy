@@ -1,0 +1,102 @@
+<div>
+    <h2 data-translate="yiyingOaApp.task.home.title">Tasks</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="task.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="yiyingOaApp.task.home.createLabel">
+                        Create new Task
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="yiyingOaApp.task.name">Name</span></th>
+                    <th><span data-translate="yiyingOaApp.task.info">Info</span></th>
+                    <th><span data-translate="yiyingOaApp.task.createTime">Create Time</span></th>
+                    <th><span data-translate="yiyingOaApp.task.eta">Eta</span></th>
+                    <th><span data-translate="yiyingOaApp.task.owner">Owner</span></th>
+                    <th><span data-translate="yiyingOaApp.task.members">Members</span></th>
+                    <th><span data-translate="yiyingOaApp.task.attachments">Attachments</span></th>
+                    <th><span data-translate="yiyingOaApp.task.pictureInfos">Picture Infos</span></th>
+                    <th><span data-translate="yiyingOaApp.task.status">Status</span></th>
+                    <th><span data-translate="yiyingOaApp.task.creator">Creator</span></th>
+                    <th><span data-translate="yiyingOaApp.task.owner">Owner</span></th>
+                    <th><span data-translate="yiyingOaApp.task.project">Project</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="task in vm.tasks track by task.id">
+                    <td><a ui-sref="task-detail({id:task.id})">{{task.id}}</a></td>
+                    <td>{{task.name}}</td>
+                    <td>{{task.info}}</td>
+                    <td>{{task.createTime}}</td>
+                    <td>{{task.eta}}</td>
+                    <td>
+                        <span ng-repeat="owner in task.owners">
+                            <a class="form-control-static" ui-sref="employee-detail({id: owner.id})">{{owner.id}}</a>{{$last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td>
+                        <span ng-repeat="members in task.members">
+                            <a class="form-control-static" ui-sref="employee-detail({id: members.id})">{{members.id}}</a>{{$last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td>
+                        <span ng-repeat="attachments in task.attachments">
+                            <a class="form-control-static" ui-sref="file-info-detail({id: attachments.id})">{{attachments.id}}</a>{{$last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td>
+                        <span ng-repeat="pictureInfos in task.pictureInfos">
+                            <a class="form-control-static" ui-sref="picture-info-detail({id: pictureInfos.id})">{{pictureInfos.id}}</a>{{$last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td>
+                        <a ui-sref="dictionary-detail({id:task.statusId})">{{task.statusId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="employee-detail({id:task.creatorId})">{{task.creatorId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="employee-detail({id:task.ownerId})">{{task.ownerId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="project-detail({id:task.projectId})">{{task.projectId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="task-detail({id:task.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="task.edit({id:task.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="task.delete({id:task.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

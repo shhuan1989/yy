@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity DirectorNeedsItem.
+    -->
+    <changeSet id="20170107051429-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="director_needs_id"
+                                 baseTableName="director_needs_item"
+                                 constraintName="fk_director_needs_item_director_needs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="director_needs"/>
+
+    </changeSet>
+</databaseChangeLog>

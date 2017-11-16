@@ -1,0 +1,32 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "items",
+            "otherEntityName": "projectProgressItem",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "projectProgressTable"
+        },
+        {
+            "relationshipName": "creator",
+            "otherEntityName": "employee",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "createTime",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "memo",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170114114731",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "project_progress_table",
+    "pagination": "no"
+}

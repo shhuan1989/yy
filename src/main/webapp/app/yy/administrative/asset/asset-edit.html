@@ -1,0 +1,165 @@
+<section class="content-header">
+    <h1>
+        {{vm.pageTitle}}
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li><a ui-sref="yy_admin_asset">资产管理</a></li>
+        <li class="active">{{vm.pageTitle}}</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content asset-edit-content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-body">
+                    <form class="form-horizontal" novalidate data-parsley-validate>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_asset_name">物品名称：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_asset_name"
+                                       ng-model="vm.asset.name" required="required"
+                                       data-parsley-trigger="blur"
+                                       ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_amount">资产数量：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_amount"
+                                       ng-model="vm.asset.amount" required="required"
+                                       data-parsley-trigger="blur"
+                                       ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_owner">所属员工：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control select2" id="field_owner" name="ownerId"
+                                        ng-model="vm.asset.ownerId"
+                                        ng-options="pm.id as pm.name for pm in vm.employees"
+                                        ng-disabled="vm.disableEdit"
+                                >
+                                    <option value="">公用资产</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_brand">品牌：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_brand"
+                                       ng-model="vm.asset.brand"
+                                       data-parsley-trigger="blur"
+                                       ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_model">型号：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="model" id="field_model"
+                                       ng-model="vm.asset.model"
+                                       data-parsley-trigger="blur"
+                                       ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_sn">SN码：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="sncode" id="field_sn"
+                                       ng-model="vm.asset.sncode"
+                                       data-parsley-trigger="blur"
+                                       ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_eidt_asset_needreturn">是否需要归还：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control" id="field_eidt_asset_needreturn" name="needReturn"
+                                        ng-model="vm.asset.needReturn"
+                                        ng-options="item.value as item.name for item in vm.yesNoOptions"
+                                        ng-disabled="vm.disableEdit"
+                                >
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_vendor">供应商：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_vendor"
+                                       ng-model="vm.asset.vendor"
+                                       data-parsley-trigger="blur"
+                                       ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_price">单价：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="price" id="field_price"
+                                       ng-model="vm.asset.price"
+                                       data-parsley-trigger="blur"
+                                       ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_basic_info">备注：</label>
+                            </div>
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="form-control" name="basicInfo" id="field_basic_info"
+                                          ng-model="vm.asset.memo"
+                                          ng-disabled="vm.disableEdit"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+                <div class="box-footer">
+
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12" data-ng-switch="vm.disableEdit">
+                <div ng-switch-when="false">
+                    <div class="col-sm-offset-4 col-sm-2 col-md-offset-4 col-md-2 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.save()">保存</button>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">取消</button>
+                    </div>
+                </div>
+                <div ng-switch-default>
+                    <div class="col-sm-offset-5 col-sm-2 col-md-offset-5 col-md-2 col-xs-offset-3 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">返回</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div ng-init="vm.initJsComponents()"></div>
+

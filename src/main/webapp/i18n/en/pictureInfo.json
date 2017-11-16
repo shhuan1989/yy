@@ -1,0 +1,28 @@
+{
+    "yiyingOaApp": {
+        "pictureInfo" : {
+            "home": {
+                "title": "Picture Infos",
+                "createLabel": "Create a new Picture Info",
+                "createOrEditLabel": "Create or edit a Picture Info",
+                "search": "Search for Picture Info"
+            },
+            "created": "A new Picture Info is created with identifier {{ param }}",
+            "updated": "A Picture Info is updated with identifier {{ param }}",
+            "deleted": "A Picture Info is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Picture Info {{ id }}?"
+            },
+            "detail": {
+                "title": "Picture Info"
+            },
+            "originName": "Origin Name",
+            "name": "Name",
+            "createTime": "Create Time",
+            "creator": "Creator",
+            "lastModifier": "Last Modifier",
+            "lastModifiedTime": "Last Modified Time",
+            "thumbnail": "Thumbnail"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "yiyingOaApp": {
+        "expenseItem" : {
+            "home": {
+                "title": "Expense Items",
+                "createLabel": "Create a new Expense Item",
+                "createOrEditLabel": "Create or edit a Expense Item",
+                "search": "Search for Expense Item"
+            },
+            "created": "A new Expense Item is created with identifier {{ param }}",
+            "updated": "A Expense Item is updated with identifier {{ param }}",
+            "deleted": "A Expense Item is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Expense Item {{ id }}?"
+            },
+            "detail": {
+                "title": "Expense Item"
+            },
+            "purpose": "Purpose",
+            "amount": "Amount",
+            "expense": "Expense"
+        }
+    }
+}

@@ -1,0 +1,66 @@
+<div>
+    <h2 data-translate="yiyingOaApp.fileInfo.home.title">File Infos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="file-info.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="yiyingOaApp.fileInfo.home.createLabel">
+                        Create new File Info
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="yiyingOaApp.fileInfo.originName">Origin Name</span></th>
+                    <th><span data-translate="yiyingOaApp.fileInfo.name">Name</span></th>
+                    <th><span data-translate="yiyingOaApp.fileInfo.createTime">Create Time</span></th>
+                    <th><span data-translate="yiyingOaApp.fileInfo.creator">Creator</span></th>
+                    <th><span data-translate="yiyingOaApp.fileInfo.lastModifier">Last Modifier</span></th>
+                    <th><span data-translate="yiyingOaApp.fileInfo.lastModifiedTime">Last Modified Time</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="fileInfo in vm.fileInfos track by fileInfo.id">
+                    <td><a ui-sref="file-info-detail({id:fileInfo.id})">{{fileInfo.id}}</a></td>
+                    <td>{{fileInfo.originName}}</td>
+                    <td>{{fileInfo.name}}</td>
+                    <td>{{fileInfo.createTime}}</td>
+                    <td>{{fileInfo.creator}}</td>
+                    <td>{{fileInfo.lastModifier}}</td>
+                    <td>{{fileInfo.lastModifiedTime}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="file-info-detail({id:fileInfo.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="file-info.edit({id:fileInfo.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="file-info.delete({id:fileInfo.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

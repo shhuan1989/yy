@@ -1,0 +1,224 @@
+<section class="content-header">
+    <h1>
+        {{vm.pageTitle}}
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li><a ui-sref="yy_client_mgt">客户管理</a></li>
+        <li class="active">{{vm.pageTitle}}</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content client-edit-content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">公司信息</h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" novalidate data-parsley-validate>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_name">客户名称：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_name"
+                                       ng-model="vm.client.name" required="required"
+                                       data-parsley-trigger="blur"
+                                       ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_industry">行业类别：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12" id="industry_error_container">
+                                <select class="form-control" id="field_industry" name="industryId"
+                                        ng-model="vm.client.industry.id" ng-disabled="vm.disableEdit"
+                                        data-parsley-errors-container="#industry_error_container"
+                                        data-parsley-required="true"
+                                        ng-options="industry.id as industry.name for industry in vm.industryOptions">
+                                    <option value="" disabled selected>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_client_status">客户状态：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12" id="client_status_error_container">
+                                <select class="form-control" id="field_client_status" name="clientStatus"
+                                        ng-model="vm.client.status.id" ng-disabled="vm.disableEdit"
+                                        data-parsley-errors-container="#client_status_error_container"
+                                        data-parsley-required="true"
+                                        ng-options="status.id as status.name for status in vm.clientStatusOptions">
+                                    <option value="" disabled selected>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_tel">公司电话：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="telCorp" id="field_tel"
+                                       ng-model="vm.client.telCorp"
+                                       ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_website">公司网址：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="websiteCorp" id="field_website"
+                                       ng-model="vm.client.websiteCorp"
+                                       ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_address">公司地址：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="addressCorp" id="field_address"
+                                       ng-model="vm.client.addressCorp"
+                                       ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_source">客户来源：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <select class="form-control" name="field_source" ng-model="vm.client.source.id"
+                                        ng-options="source.id as source.name for source in vm.clientSourceOptions"
+                                        id="field_source" ng-disabled="vm.disableEdit" required="required">
+                                    <option value="" disabled selected>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">联系人信息</h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" data-parsley-validate>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_contact">联系人：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input  type="text" class="form-control" name="contact" id="field_contact"
+                                        ng-model="vm.client.contact" data-parsley-trigger="blur" required="required"
+                                        ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_contect_phone">联系电话：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input  type="text" class="form-control" name="contactTel" id="field_contect_phone"
+                                        ng-model="vm.client.contactTel" data-parsley-trigger="blur" required="required"
+                                        ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_contact_qq">QQ：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_contact_qq"
+                                       ng-model="vm.client.qq" ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_contact_wechat">微信号：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_contact_wechat"
+                                       ng-model="vm.client.wechat" ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_contact_mail">邮箱：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="email" class="form-control" name="email" id="field_contact_mail"
+                                       ng-model="vm.client.email" ng-disabled="vm.disableEdit"
+                                       data-parsley-type="email"
+                                       data-parsley-trigger="blur"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_contact_jobtitle">职位：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_contact_jobtitle"
+                                       ng-model="vm.client.contactJobTitle" ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_contact_birthdate">生日：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_contact_birthdate"
+                                       ng-model="vm.client.contactBirthDate" ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_contact_hobby">喜好：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_contact_hobby"
+                                       ng-model="vm.client.contactHobby" ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_contact_comment">备注：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_contact_comment"
+                                       ng-model="vm.client.comment" ng-disabled="vm.disableEdit"
+                                />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12" data-ng-switch="vm.disableEdit">
+                <div ng-switch-when="false">
+                    <div class="col-sm-offset-4 col-sm-2 col-md-offset-4 col-md-2 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.save()">保存</button>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">取消</button>
+                    </div>
+                </div>
+                <div ng-switch-default>
+                    <div class="col-sm-offset-5 col-sm-2 col-md-offset-5 col-md-2 col-xs-offset-3 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">返回</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div ng-init="vm.initJsComponents()"></div>

@@ -1,0 +1,554 @@
+<section class="content-header">
+    <h1>
+        {{vm.pageTitle}}
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li><a ui-sref="yy_perf_mgt"><i class="fa fa-balance-scale"></i> 项目绩效管理</a></li>
+        <li class="active">{{vm.pageTitle}}</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content performance-edit-content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">项目概况</h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" novalidate data-parsley-validate>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-6">项目编号：</label>
+                            <label class="control-label text-left col-md-8 col-sm-8 col-xs-6">
+                                {{vm.project.idNumber}}
+                            </label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-6">项目名称：</label>
+                            <label class="control-label text-left col-md-8 col-sm-8 col-xs-6">
+                                {{vm.project.name}}
+                            </label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-6">合同/PO编号：</label>
+                            <label class="control-label text-left col-md-8 col-sm-8 col-xs-6">
+                                {{vm.project.contract.idNumber}}
+                            </label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-6">合同金额：</label>
+                            <label class="control-label text-left col-md-8 col-sm-8 col-xs-6">
+                                {{vm.project.contract.moneyAmount | yymoney}}
+                            </label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-6">税金：</label>
+                            <label class="control-label text-left col-md-8 col-sm-8 col-xs-6">
+                                {{vm.project.contract.tax | yymoney}}
+                            </label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-6">项目成本：</label>
+                            <label class="control-label text-left col-md-8 col-sm-8 col-xs-6">
+                                {{vm.project.cost | yymoney}}
+                            </label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-6">提成基数：</label>
+                            <label class="control-label text-left col-md-8 col-sm-8 col-xs-6">
+                                {{vm.project.bonusPool | yymoney}}
+                            </label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-6">项目总监：</label>
+                            <label class="control-label text-left col-md-8 col-sm-8 col-xs-6">
+                                {{vm.project.director.name}}
+                            </label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-6">项目经理：</label>
+                            <label class="control-label text-left col-md-8 col-sm-8 col-xs-6">
+                                {{vm.project.aes | arrprop:'name'}}
+                            </label>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">绩效设置</h3>
+                </div>
+                <div class="box-body">
+                    <div class="box no-border" ng-if="vm.project.huaWei">
+                        <div class="box-header text-center with-border bg-light-blue">
+                            <h3 class="box-title">项目经理（华为项目）</h3>
+                        </div>
+                        <div class="box-body">
+                            <form class="form-horizontal" data-parsley-validate>
+
+                                <div class="form-group col-sm-12 col-xs-12">
+                                    <label class="control-label text-center col-sm-2 col-xs-2 bg-gray">项目评级：</label>
+                                    <label class="control-label text-center col-sm-2 col-xs-2">{{vm.rate.managementDesc}}</label>
+                                </div>
+
+                                <div class="form-group col-sm-12 col-xs-12">
+                                    <label class="control-label text-center col-sm-2 col-xs-2 bg-gray">姓名</label>
+                                    <label class="control-label text-center col-sm-2 col-xs-2 bg-gray">工作占比</label>
+                                    <label class="control-label text-center col-sm-2 col-xs-2 bg-gray">提成比例</label>
+                                    <label class="control-label text-center col-sm-2 col-xs-2 bg-gray">绩效奖金</label>
+                                    <label class="control-label text-center col-sm-2 col-xs-2 bg-gray">自定义</label>
+                                </div>
+
+                                <div class="form-group col-sm-12 col-xs-12" ng-repeat="m in vm.membersByDept['项目经理']">
+                                    <label class="control-label text-center col-sm-2 col-xs-2">{{m.name}}</label>
+                                    <div class="text-center col-sm-2 col-xs-2" id="m_1_{{$index}}">
+                                        <div class="input-group">
+                                            <input type="number" step="any" class="form-control"
+                                                   ng-model="m.workProportion" required="required"
+                                                   data-parsley-trigger="blur"
+                                                   data-parsley-range="[0,100]"
+                                                   ng-disabled="!vm.canEdit"
+                                                   data-parsley-errors-container="#m_1_{{$index}}"
+                                            />
+                                            <div class="input-group-addon">
+                                                <span>%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label class="control-label text-center col-sm-2 col-xs-2">{{m.employeeDeduction | percentage_abs}}</label>
+                                    <label class="control-label text-center col-sm-2 col-xs-2">{{vm.autoBonus[m.id] | yymoney}}</label>
+
+                                    <div class="text-center col-sm-2 col-xs-2">
+                                        <div class="input-group">
+                                            <input type="number" step="any" class="form-control"
+                                                   ng-model="vm.bonus[m.id]"
+                                                   data-parsley-trigger="blur"
+                                                   ng-disabled="!vm.canEdit"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-sm-12 col-xs-12">
+                                    <label class="control-label text-center col-sm-2 col-xs-2 bg-red-active">合计</label>
+                                    <label class="control-label text-center col-sm-2 col-xs-2">{{vm.totalBonusByDept['项目经理'] | yymoney}}</label>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <div class="box no-border" ng-if="!vm.project.huaWei">
+                        <div class="box-header text-center with-border bg-light-blue">
+                            <h3 class="box-title">项目经理（综合项目组）</h3>
+                        </div>
+                        <div class="box-body">
+                            <form class="form-horizontal" data-parsley-validate>
+
+                                <div class="form-group col-sm-12 col-xs-12">
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-gray">项目评级：</label>
+                                    <label class="control-label text-center col-sm-3 col-xs-3">{{vm.rate.managementDesc}}</label>
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-gray">工作类型：</label>
+                                    <div class="text-center col-sm-3 col-xs-3" ng-if="vm.canEdit">
+                                        <select ng-model="vm.workType" required="required">
+                                            <option value="0.03">A</option>
+                                            <option value="0.02">B</option>
+                                            <option value="0.01">C</option>
+                                        </select>
+                                    </div>
+                                    <label class="control-label text-center col-sm-3 col-xs-3" ng-if="!vm.canEdit">{{vm.workTypeDesc}}</label>
+                                </div>
+
+                                <div class="form-group col-sm-12 col-xs-12">
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-gray">姓名</label>
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-gray">工作占比</label>
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-gray">绩效奖金</label>
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-gray">自定义</label>
+                                </div>
+
+                                <div class="form-group col-sm-12 col-xs-12" ng-repeat="m in vm.membersByDept['项目经理']">
+                                    <label class="control-label text-center col-sm-3 col-xs-3">{{m.name}}</label>
+                                    <div class="text-center col-sm-3 col-xs-3" id="m_2_{{$index}}">
+                                        <div class="input-group">
+                                            <input type="number" step="any" class="form-control"
+                                                   ng-model="m.workProportion" required="required"
+                                                   data-parsley-trigger="blur"
+                                                   data-parsley-range="[0,100]"
+                                                   data-parsley-errors-container="#m_2_{{$index}}"
+                                                   ng-disabled="!vm.canEdit"
+                                            />
+                                            <div class="input-group-addon">
+                                                <span>%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label class="control-label text-center col-sm-3 col-xs-3">{{vm.autoBonus[m.id] | yymoney}}</label>
+
+                                    <div class="text-center col-sm-3 col-xs-3">
+                                        <div class="input-group">
+                                            <input type="number" step="any" class="form-control"
+                                                   ng-model="vm.bonus[m.id]"
+                                                   data-parsley-trigger="blur"
+                                                   ng-disabled="!vm.canEdit"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-sm-12 col-xs-12">
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-red-active">合计</label>
+                                    <label class="control-label text-center col-sm-3 col-xs-3">{{vm.totalBonusByDept['项目经理'] | yymoney}}</label>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <div class="box no-border" ng-if="vm.membersByDept['创意部'].length > 0">
+                        <div class="box-header text-center with-border bg-light-blue">
+                            <h3 class="box-title">创意部</h3>
+                        </div>
+                        <div class="box-body">
+                            <form class="form-horizontal" data-parsley-validate>
+
+                                <div class="form-group col-sm-12 col-xs-12">
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-gray">项目评级：</label>
+                                    <label class="control-label text-center col-sm-3 col-xs-3">{{vm.rate.creationDesc}}</label>
+                                </div>
+
+                                <div class="form-group col-sm-12 col-xs-12">
+                                    <label class="control-label text-center col-sm-2 col-xs-2 bg-gray">姓名</label>
+                                    <label class="control-label text-center col-sm-2 col-xs-2 bg-gray">工作占比</label>
+                                    <label class="control-label text-center col-sm-2 col-xs-2 bg-gray">提成比例</label>
+                                    <label class="control-label text-center col-sm-2 col-xs-2 bg-gray">绩效奖金</label>
+                                    <label class="control-label text-center col-sm-2 col-xs-2 bg-gray">自定义</label>
+                                </div>
+
+                                <div class="form-group col-sm-12 col-xs-12" ng-repeat="m in vm.membersByDept['创意部']">
+                                    <label class="control-label text-center col-sm-2 col-xs-2">{{m.name}}</label>
+                                    <div class="text-center col-sm-2 col-xs-2" id="m_3_{{$index}}">
+                                        <div class="input-group">
+                                            <input type="number" step="any" class="form-control"
+                                                   ng-model="m.workProportion" required="required"
+                                                   data-parsley-trigger="blur"
+                                                   data-parsley-range="[0,100]"
+                                                   data-parsley-errors-container="#m_3_{{$index}}"
+                                                   ng-disabled="!vm.canEdit"
+                                            />
+                                            <div class="input-group-addon">
+                                                <span>%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label class="control-label text-center col-sm-2 col-xs-2">{{m.employeeDeduction | percentage_abs}}</label>
+                                    <label class="control-label text-center col-sm-2 col-xs-2">{{vm.autoBonus[m.id] | yymoney}}</label>
+
+                                    <div class="text-center col-sm-2 col-xs-2">
+                                        <div class="input-group">
+                                            <input type="number" step="any" class="form-control"
+                                                   ng-model="vm.bonus[m.id]"
+                                                   data-parsley-trigger="blur"
+                                                   ng-disabled="!vm.canEdit"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-12 col-xs-12">
+                                    <label class="control-label text-center col-sm-2 col-xs-2 bg-red-active">合计</label>
+                                    <label class="control-label text-center col-sm-2 col-xs-2">{{vm.totalBonusByDept['创意部'] | yymoney}}</label>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <div class="box no-border" ng-if="vm.membersByDept['制片部'].length > 0">
+                        <div class="box-header text-center with-border bg-light-blue">
+                            <h3 class="box-title">制片部</h3>
+                        </div>
+                        <div class="box-body">
+                            <form class="form-horizontal" data-parsley-validate>
+
+                                <div class="form-group col-sm-12 col-xs-12">
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-gray">项目评级：</label>
+                                    <label class="control-label text-center col-sm-3 col-xs-3">{{vm.rate.productionDesc}}</label>
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-gray">难度系数：</label>
+                                    <div class="text-center col-sm-3 col-xs-3">
+                                        <select ng-model="vm.productionDifficulty" required="required" ng-if="vm.canEdit">
+                                            <option value="0.005">一类</option>
+                                            <option value="0.003">二类</option>
+                                            <option value="0.002">三类</option>
+                                        </select>
+                                    </div>
+                                    <label class="control-label text-center col-sm-3 col-xs-3" ng-if="!vm.canEdit">{{vm.productionDifficultyDesc}}</label>
+                                </div>
+
+                                <div class="form-group col-sm-12 col-xs-12">
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-gray">姓名</label>
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-gray">工作占比</label>
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-gray">绩效奖金</label>
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-gray">自定义</label>
+                                </div>
+
+                                <div class="form-group col-sm-12 col-xs-12" ng-repeat="m in vm.membersByDept['制片部']">
+                                    <label class="control-label text-center col-sm-3 col-xs-3">{{m.name}}</label>
+                                    <div class="text-center col-sm-3 col-xs-3" id="m_4_{{$index}}">
+                                        <div class="input-group">
+                                            <input type="number" step="any" class="form-control"
+                                                   ng-model="m.workProportion" required="required"
+                                                   data-parsley-trigger="blur"
+                                                   data-parsley-range="[0,100]"
+                                                   data-parsley-errors-container="#m_4_{{$index}}"
+                                                   ng-disabled="!vm.canEdit"
+                                            />
+                                            <div class="input-group-addon">
+                                                <span>%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <label class="control-label text-center col-sm-3 col-xs-3">{{vm.autoBonus[m.id] | yymoney}}</label>
+
+                                    <div class="text-center col-sm-3 col-xs-3">
+                                        <div class="input-group">
+                                            <input type="number" step="any" class="form-control"
+                                                   ng-model="vm.bonus[m.id]"
+                                                   data-parsley-trigger="blur"
+                                                   ng-disabled="!vm.canEdit"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-12 col-xs-12">
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-red-active">合计</label>
+                                    <label class="control-label text-center col-sm-3 col-xs-3">{{vm.totalBonusByDept['制片部'] | yymoney}}</label>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <div class="box no-border" ng-if="vm.membersByDept['摄像部'].length > 0">
+                        <div class="box-header text-center with-border bg-light-blue">
+                            <h3 class="box-title">摄像部</h3>
+                        </div>
+                        <div class="box-body">
+                            <form class="form-horizontal" data-parsley-validate>
+
+                                <div class="form-group col-sm-12 col-xs-12">
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-gray">项目评级：</label>
+                                    <label class="control-label text-center col-sm-3 col-xs-3">{{vm.rate.photographyDesc}}</label>
+                                </div>
+
+                                <div class="form-group col-sm-12 col-xs-12">
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-gray">姓名</label>
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-gray">工作占比</label>
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-gray">绩效奖金</label>
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-gray">自定义</label>
+                                </div>
+
+                                <div class="form-group col-sm-12 col-xs-12" ng-repeat="m in vm.membersByDept['摄像部']">
+                                    <label class="control-label text-center col-sm-3 col-xs-3">{{m.name}}</label>
+                                    <div class="text-center col-sm-3 col-xs-3" id="m_5_{{$index}}">
+                                        <div class="input-group">
+                                            <input type="number" step="any" class="form-control"
+                                                   ng-model="m.workProportion" required="required"
+                                                   data-parsley-trigger="blur"
+                                                   data-parsley-range="[0,100]"
+                                                   data-parsley-errors-container="#m_5_{{$index}}"
+                                                   ng-disabled="!vm.canEdit"
+                                            />
+                                            <div class="input-group-addon">
+                                                <span>%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <label class="control-label text-center col-sm-3 col-xs-3">{{vm.autoBonus[m.id] | yymoney}}</label>
+
+                                    <div class="text-center col-sm-3 col-xs-3">
+                                        <div class="input-group">
+                                            <input type="number" step="any" class="form-control"
+                                                   ng-model="vm.bonus[m.id]"
+                                                   data-parsley-trigger="blur"
+                                                   ng-disabled="!vm.canEdit"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-12 col-xs-12">
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-red-active">合计</label>
+                                    <label class="control-label text-center col-sm-3 col-xs-3">{{vm.totalBonusByDept['摄像部'] | yymoney}}</label>
+                                </div>
+                            </form>
+
+
+                        </div>
+                    </div>
+
+                    <div class="box no-border" ng-if="vm.membersByDept['设计部'].length > 0">
+                        <div class="box-header text-center with-border bg-light-blue">
+                            <h3 class="box-title">后期设计部</h3>
+                        </div>
+                        <div class="box-body">
+                            <form class="form-horizontal" data-parsley-validate>
+
+                                <div class="form-group col-sm-12 col-xs-12">
+                                    <label class="control-label text-center col-sm-3 col-xs-3 bg-gray">项目评级：</label>
+                                    <label class="control-label text-center col-sm-3 col-xs-3">{{vm.rate.postprocessDesc}}</label>
+                                </div>
+
+                                <div class="form-group col-sm-12 col-xs-12">
+                                    <label class="control-label text-center col-sm-2 col-xs-2 bg-gray">姓名</label>
+                                    <label class="control-label text-center col-sm-2 col-xs-2 bg-gray">工作占比</label>
+                                    <label class="control-label text-center col-sm-2 col-xs-2 bg-gray">附加奖惩</label>
+                                    <label class="control-label text-center col-sm-2 col-xs-2 bg-gray">绩效奖金</label>
+                                    <label class="control-label text-center col-sm-2 col-xs-2 bg-gray">自定义</label>
+                                </div>
+
+                                <div class="form-group col-sm-12 col-xs-12" ng-repeat="m in vm.membersByDept['设计部']">
+                                    <label class="control-label text-center col-sm-2 col-xs-2">{{m.name}}</label>
+                                    <div class="text-center col-sm-2 col-xs-2" id="m_6_{{$index}}">
+                                        <div class="input-group">
+                                            <input type="number" step="any" class="form-control"
+                                                   ng-model="m.workProportion" required="required"
+                                                   data-parsley-trigger="blur"
+                                                   data-parsley-range="[0,100]"
+                                                   data-parsley-errors-container="#m_6_{{$index}}"
+                                                   ng-disabled="!vm.canEdit"
+                                            />
+                                            <div class="input-group-addon">
+                                                <span>%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center col-sm-2 col-xs-2">
+                                        <div class="input-group">
+                                            <input type="number" step="any" class="form-control"
+                                                   ng-model="vm.addPostBonus[m.id]"
+                                                   data-parsley-trigger="blur"
+                                                   ng-disabled="!vm.canEdit"
+                                            />
+                                        </div>
+                                    </div>
+                                    <label class="control-label text-center col-sm-2 col-xs-2">{{vm.autoBonus[m.id] | yymoney}}</label>
+
+                                    <div class="text-center col-sm-2 col-xs-2">
+                                        <div class="input-group">
+                                            <input type="number" step="any" class="form-control"
+                                                   ng-model="vm.bonus[m.id]"
+                                                   data-parsley-trigger="blur"
+                                                   ng-disabled="!vm.canEdit"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-sm-12 col-xs-12">
+                                    <label class="control-label text-center col-sm-2 col-xs-2 bg-red-active">合计</label>
+                                    <label class="control-label text-center col-sm-2 col-xs-2">{{vm.totalBonusByDept['设计部'] | yymoney}}</label>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+                <div class="box-footer">
+                    <div ng-if="!vm.canEdit">
+                        <p>审批人：</p>
+                        <div ng-repeat="auditor in vm.auditors" class="approver">
+                            <div data-ng-switch="auditor.approval.status.id" >
+                                <div ng-switch-when="2" data-tootik-conf="right success" data-tootik="已通过">
+                                    <img http-src="resource/pictures/{{auditor.photo.id}}" alt="{{task.owner.name}}" class="img-circle">
+                                    <i class="fa fa-check-circle-o fa-2x image-tool-static" aria-hidden="true"></i>
+                                </div>
+                                <div ng-switch-when="3" data-tootik-conf="right danger multiline" data-tootik="已驳回，{{auditor.approval.result}}">
+                                    <img http-src="resource/pictures/{{auditor.photo.id}}" alt="{{task.owner.name}}" class="img-circle">
+                                    <i class="fa fa-times-circle-o fa-2x image-tool-static text-red" aria-hidden="true"></i>
+                                </div>
+                                <div ng-switch-default data-tootik-conf="right info" data-tootik="进行中">
+                                    <img http-src="resource/pictures/{{auditor.photo.id}}" alt="{{task.owner.name}}" class="img-circle">
+                                    <span>{{auditor.name}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="vm.canEdit">
+                        <p>选择审批人：</p>
+                        <div ng-repeat="auditor in vm.auditors" class="approver">
+                            <img http-src="resource/pictures/{{auditor.photo.id}}" alt="{{task.owner.name}}" class="img-circle" >
+                            <a ng-click="vm.deleteAuditor(auditor)" data-tootik="删除" class="image-tool">
+                                <i class="icon glyphicon glyphicon-trash" ></i>
+                            </a>
+                            <a class="users-list-name">{{auditor.name}}</a>
+                        </div>
+                        <div class="approver-more">
+                            <button class="btn btn-primary btn-full" ng-click="vm.addNewAuditor()">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                            <a class="text-center label-full users-list-name">添加</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12">
+                <div class="col-sm-offset-4 col-sm-2 col-md-offset-4 col-md-2 col-xs-6">
+                    <button type="submit" class="btn btn-primary btn-full" ng-click="vm.save()" ng-disabled="vm.isSaving">保存</button>
+                </div>
+                <div class="col-sm-2 col-md-2 col-xs-6">
+                    <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()" ng-disabled="vm.isSaving">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- add approver modal-->
+<div class="modal" data-backdrop="static" id="modal-add-auditor">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加审批人员</h4>
+            </div>
+            <div class="modal-body">
+                <select class="form-control select2" ng-model="vm.newAuditor" \
+                        ng-options="emp as emp.name for emp in vm.employeesNotIncluded"
+                        id="field_new_member" required="required"
+                >
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" ng-click="vm.saveNewAuditor()">保存</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

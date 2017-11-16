@@ -1,0 +1,37 @@
+{
+    "yiyingOaApp": {
+        "actor" : {
+            "home": {
+                "title": "Actors",
+                "createLabel": "Create a new Actor",
+                "createOrEditLabel": "Create or edit a Actor",
+                "search": "Search for Actor"
+            },
+            "created": "A new Actor is created with identifier {{ param }}",
+            "updated": "A Actor is updated with identifier {{ param }}",
+            "deleted": "A Actor is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Actor {{ id }}?"
+            },
+            "detail": {
+                "title": "Actor"
+            },
+            "name": "Name",
+            "gender": "Gender",
+            "birthDate": "Birth Date",
+            "height": "Height",
+            "bust": "Bust",
+            "waist": "Waist",
+            "hip": "Hip",
+            "tel": "Tel",
+            "inputOperator": "Input Operator",
+            "inputTime": "Input Time",
+            "lastModifier": "Last Modifier",
+            "lastModifiedTime": "Last Modified Time",
+            "age": "Age",
+            "photos": "Photos",
+            "source": "Source",
+            "country": "Country"
+        }
+    }
+}

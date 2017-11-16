@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span data-translate="yiyingOaApp.directorNeedsComment.detail.title">Director Needs Comment</span> {{vm.directorNeedsComment.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="yiyingOaApp.directorNeedsComment.content">Content</span></dt>
+        <dd>
+            <span>{{vm.directorNeedsComment.content}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.directorNeedsComment.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{vm.directorNeedsComment.createTime}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.directorNeedsComment.employee">Employee</span></dt>
+        <dd>
+            <a ui-sref="employee-detail({id:vm.directorNeedsComment.employeeId})">{{vm.directorNeedsComment.employeeId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="director-needs-comment-detail.edit({id:vm.directorNeedsComment.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

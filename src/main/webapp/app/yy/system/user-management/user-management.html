@@ -1,0 +1,113 @@
+<section class="content-header">
+    <h1>
+        用户管理
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li class="active">用户管理</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content user-management-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">用户查询</h3>
+                </div>
+
+                <div class="box-body">
+                    <form class="form-horizontal" ng-submit="vm.search()">
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_name">员工姓名：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_name"
+                                       ng-model="vm.searchParams.name"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_login">登录名：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_login"
+                                       ng-model="vm.searchParams.accountName"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="field_dept">部门：</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" name="name" id="field_dept"
+                                       ng-model="vm.searchParams.dept"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <div class="col-sm-offset-5 col-sm-2 col-md-offset-5 col-md-2 col-xs-offset-4 col-xs-4">
+                                <button type="submit" class="btn btn-primary btn-full">查询</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="col-sm-4 col-md-3 col-xs-6" has-any-authority="ROLE_ADMIN,EDIT_USER_MANAGE">
+                        <button class="btn btn-primary btn-full" ui-sref="yy_user-management.new">
+                            <span class="glyphicon glyphicon-flash"></span>
+                            <span data-translate="userManagement.home.createLabel">创建新用户</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+
+                    <table ng-table="vm.usersTableParams" class="table table-bordered table-hover">
+                        <tr ng-repeat="user in $data">
+                            <!--<td data-title="'ID'">{{user.id}}</td>-->
+                            <td data-title="'员工'">{{user.employee.name}}</td>
+                            <td data-title="'部门'">{{user.employee.dept.name}}</td>
+                            <td data-title="'登录名'">{{user.login}}</td>
+                            <td data-title="'邮箱'">{{user.email}}</td>
+                            <td data-title="'激活状态'">
+                                <span class="label label-danger" ng-show="!user.activated"
+                                      data-translate="userManagement.deactivated" style="cursor: pointer;">Deactivated</span>
+                                <span class="label label-success" ng-show="user.activated"
+                                      data-translate="userManagement.activated" style="cursor: pointer;">Activated</span>
+                            </td>
+                            <td data-title="'角色'">
+                                <div ng-repeat="role in user.roles">
+                                    <span class="label label-info">{{ role.name }}</span>
+                                </div>
+                            </td>
+                            <td data-title="'创建时间'">{{user.createdDate | date:'dd/MM/yy HH:mm'}}</td>
+                            <td data-title="'修改于'">{{user.lastModifiedBy}}</td>
+                            <td data-title="'最后修改时间'">{{user.lastModifiedDate | date:'dd/MM/yy HH:mm'}}</td>
+                            <td data-title="'操作'">
+                                <div class="btn-group flex-btn-group-container">
+                                    <a ui-sref="yy_user-management.view({login:user.login})" data-tootik="查看"><i class="icon glyphicon glyphicon-search" ></i></a>
+                                    <a ui-sref="yy_user-management.edit({login:user.login})" data-tootik="编辑" has-any-authority="ROLE_ADMIN,EDIT_USER_MANAGE"><i class="icon glyphicon glyphicon-pencil" ></i></a>
+                                    <!--<a ng-click="vm.deleteUser(user.login)" data-tootik="删除" has-any-authority="ROLE_ADMIN,EDIT_USER_MANAGE" ng-disabled="vm.currentAccount.login==user.login"><i class="icon glyphicon glyphicon-trash" ></i></a>-->
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->

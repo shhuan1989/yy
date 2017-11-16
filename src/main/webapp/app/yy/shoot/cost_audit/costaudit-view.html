@@ -1,0 +1,164 @@
+<section class="content-header">
+    <h1>
+        预决算详情
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-home"></i> 主页</a></li>
+        <li><a ui-sref="yy_shoot_cost_audit">预算决算对比</a></li>
+        <li class="active">预决算详情</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content shootcost-edit-content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">项目概况</h3>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal" novalidate data-parsley-validate>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12">项目：</label>
+                            <label class="control-label col-md-8 col-sm-8 col-xs-12 text-left">{{vm.project.name}}</label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12">项目编号：</label>
+                            <label class="control-label col-md-8 col-sm-8 col-xs-12 text-left">{{vm.project.idNumber}}</label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12">合同/PO编号：</label>
+                            <label class="control-label col-md-8 col-sm-8 col-xs-12 text-left">{{vm.project.contract.idNumber}}</label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12">客户名称：</label>
+                            <label class="control-label col-md-8 col-sm-8 col-xs-12 text-left">{{vm.project.client.name}}</label>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12">合同金额：</label>
+                            <label class="control-label col-md-8 col-sm-8 col-xs-12 text-left">{{vm.project.contract.moneyAmount}}</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="box box-solid box-primary" ng-repeat="shootCost in vm.shootCosts">
+                <div class="box-header with-border" data-ng-switch="$index">
+                    <h3 class="box-title" ng-switch-when="0">拍摄预算</h3>
+                    <h3 class="box-title" ng-switch-default>追加拍摄预算</h3>
+                </div>
+                <div class="box-body">
+                    <table class="table table-bordered table-hover ng-scope ng-table" data-parsley-validate>
+                        <thead>
+                        <tr>
+                            <th>类别一</th>
+                            <th>类别二</th>
+                            <th>名称</th>
+                            <th>供应商</th>
+                            <th>单价</th>
+                            <th>数量</th>
+                            <th>实际数量</th>
+                            <th>天数</th>
+                            <th>实际天数</th>
+                            <th>预算</th>
+                            <th class="bg-aqua">决算</th>
+                            <th>预决算对比</th>
+                            <th>类别预算</th>
+                            <th class="bg-aqua">类别决算</th>
+                            <th>类别预决算对比</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="sc in shootCost.groupedConfigItems">
+                            <td rowspan="{{sc.c1rowspan}}" ng-if="sc.cat1 != undefined">
+                                {{sc.cat1}}
+                            </td>
+                            <td rowspan="{{sc.c2rowspan}}" ng-if="sc.cat2 != undefined">
+                                {{sc.cat2}}
+                            </td>
+                            <td>
+                                {{sc.name}}
+                            </td>
+                            <td>
+                                {{sc.vendor}}
+                            </td>
+                            <td>
+                                {{sc.unitPrice}}
+                            </td>
+                            <td>
+                                {{sc.amount}}
+                            </td>
+                            <td>
+                                {{sc.actualAmount}}
+                            </td>
+                            <td>
+                                {{sc.days}}
+                            </td>
+                            <td>
+                                {{sc.actualDays}}
+                            </td>
+                            <td>
+                                {{sc.cost}}
+                            </td>
+                            <td class="bg-aqua">
+                                {{sc.actualCost}}
+                            </td>
+                            <td ng-class="{'text-red': sc.diff > 0, 'text-green': sc.diff <= 0}">
+                                <span ng-if="sc.diff>0">+</span>
+                                {{sc.diff | yymoney}}
+                            </td>
+                            <td rowspan="{{sc.c2rowspan}}" ng-if="sc.cat2 != undefined">
+                                {{sc.catBudget}}
+                            </td>
+                            <td rowspan="{{sc.c2rowspan}}" ng-if="sc.cat2 != undefined" class="bg-aqua">
+                                {{sc.catCost}}
+                            </td>
+                            <td rowspan="{{sc.c2rowspan}}" ng-if="sc.cat2 != undefined" ng-class="{'text-red': sc.catDiff > 0, 'text-green': sc.catDiff <= 0}">
+                                <span ng-if="sc.catDiff>0">+</span>
+                                {{sc.catDiff | yymoney}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>合计</th>
+                            <td colspan="11"></td>
+                            <td>{{shootCost.budget}}</td>
+                            <td>{{shootCost.actualCost}}</td>
+                            <td ng-class="{'text-red': vm.shootCost.diff > 0, 'text-green': vm.shootCost.diff <= 0}">{{shootCost.diff | yymoney}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="overlay" ng-if="vm.isLoading">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12" data-ng-switch="vm.disableEdit">
+                <div ng-switch-when="false">
+                    <div class="col-sm-offset-4 col-sm-2 col-md-offset-4 col-md-2 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.save()">保存</button>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">取消</button>
+                    </div>
+                </div>
+                <div ng-switch-default>
+                    <div class="col-sm-offset-5 col-sm-2 col-md-offset-5 col-md-2 col-xs-offset-3 col-xs-6">
+                        <button type="submit" class="btn btn-primary btn-full" ng-click="vm.cancel()">返回</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div ng-init="vm.initJsComponents()"></div>

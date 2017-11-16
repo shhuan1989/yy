@@ -1,0 +1,25 @@
+{
+    "yiyingOaApp": {
+        "projectProgressItem" : {
+            "home": {
+                "title": "Project Progress Items",
+                "createLabel": "Create a new Project Progress Item",
+                "createOrEditLabel": "Create or edit a Project Progress Item",
+                "search": "Search for Project Progress Item"
+            },
+            "created": "A new Project Progress Item is created with identifier {{ param }}",
+            "updated": "A Project Progress Item is updated with identifier {{ param }}",
+            "deleted": "A Project Progress Item is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Project Progress Item {{ id }}?"
+            },
+            "detail": {
+                "title": "Project Progress Item"
+            },
+            "eta": "Eta",
+            "finishTime": "Finish Time",
+            "owner": "Owner",
+            "projectProgressTable": "Project Progress Table"
+        }
+    }
+}

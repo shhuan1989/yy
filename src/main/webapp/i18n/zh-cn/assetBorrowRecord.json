@@ -1,0 +1,28 @@
+{
+    "yiyingOaApp": {
+        "assetBorrowRecord" : {
+            "home": {
+                "title": "Asset Borrow Records",
+                "createLabel": "Create a new Asset Borrow Record",
+                "createOrEditLabel": "Create or edit a Asset Borrow Record",
+                "search": "Search for Asset Borrow Record"
+            },
+            "created": "A new Asset Borrow Record is created with identifier {{ param }}",
+            "updated": "A Asset Borrow Record is updated with identifier {{ param }}",
+            "deleted": "A Asset Borrow Record is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Asset Borrow Record {{ id }}?"
+            },
+            "detail": {
+                "title": "Asset Borrow Record"
+            },
+            "amount": "Amount",
+            "borrowTime": "Borrow Time",
+            "estimateReturnTime": "Estimate Return Time",
+            "actualReturnTime": "Actual Return Time",
+            "owner": "Owner",
+            "operator": "Operator",
+            "asset": "Asset"
+        }
+    }
+}

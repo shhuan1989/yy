@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span data-translate="yiyingOaApp.income.detail.title">Income</span> {{vm.income.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="yiyingOaApp.income.incomeTime">Income Time</span></dt>
+        <dd>
+            <span>{{vm.income.incomeTime}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.income.amount">Amount</span></dt>
+        <dd>
+            <span>{{vm.income.amount}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.income.incomeDesc">Income Desc</span></dt>
+        <dd>
+            <span>{{vm.income.incomeDesc}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.income.memo">Memo</span></dt>
+        <dd>
+            <span>{{vm.income.memo}}</span>
+        </dd>
+        <dt><span data-translate="yiyingOaApp.income.incomeMethod">Income Method</span></dt>
+        <dd>
+            <a ui-sref="dictionary-detail({id:vm.income.incomeMethodId})">{{vm.income.incomeMethodId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="income-detail.edit({id:vm.income.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
