@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ProvinceDialogController', ProvinceDialogController);
 
     ProvinceDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Province', 'City'];
@@ -33,7 +33,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:provinceUpdate', result);
+            $scope.$emit('yyOaApp:provinceUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

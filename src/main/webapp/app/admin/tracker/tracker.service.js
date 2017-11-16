@@ -3,7 +3,7 @@
     /* globals SockJS, Stomp */
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .factory('JhiTrackerService', JhiTrackerService);
 
     JhiTrackerService.$inject = ['$rootScope', '$window', '$cookies', '$http', '$q', 'AuthServerProvider'];

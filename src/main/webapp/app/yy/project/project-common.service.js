@@ -3,7 +3,7 @@
 (function () {
     'use strict';
 
-    angular.module('yiyingOaApp').factory('ProjectCommonService', ProjectCommonService);
+    angular.module('yyOaApp').factory('ProjectCommonService', ProjectCommonService);
 
     ProjectCommonService.$inject = ['$http'];
 

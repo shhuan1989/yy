@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('PasswordController', PasswordController);
 
     PasswordController.$inject = ['Auth', 'Principal'];

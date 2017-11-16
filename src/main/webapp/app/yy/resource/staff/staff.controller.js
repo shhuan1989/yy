@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('StaffManageControler', StaffManageControler);
 
     StaffManageControler.$inject = ['$scope', '$rootScope', '$state', 'StaffManageService', 'NgTableParams', 'DictionaryService'];

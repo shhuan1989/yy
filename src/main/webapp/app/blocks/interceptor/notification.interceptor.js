@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .factory('notificationInterceptor', notificationInterceptor);
 
     notificationInterceptor.$inject = ['$q', 'AlertService'];
@@ -15,9 +15,9 @@
         return service;
 
         function response (response) {
-            var alertKey = response.headers('X-yiyingOaApp-alert');
+            var alertKey = response.headers('X-yyOaApp-alert');
             if (angular.isString(alertKey)) {
-                AlertService.success(alertKey, { param : response.headers('X-yiyingOaApp-params')});
+                AlertService.success(alertKey, { param : response.headers('X-yyOaApp-params')});
             }
             return response;
         }

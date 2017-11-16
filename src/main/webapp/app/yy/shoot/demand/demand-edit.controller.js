@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('DirectorDemandEditController', DirectorDemandEditController);
 
     DirectorDemandEditController.$inject = ['$scope', '$state', '$stateParams', 'disableEdit', 'DirectorDemandService', 'ProjectManagementService'];

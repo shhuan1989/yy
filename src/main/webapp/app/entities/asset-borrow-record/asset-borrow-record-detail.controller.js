@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('AssetBorrowRecordDetailController', AssetBorrowRecordDetailController);
 
     AssetBorrowRecordDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'AssetBorrowRecord', 'Employee', 'Asset'];
@@ -13,7 +13,7 @@
         vm.assetBorrowRecord = entity;
         vm.previousState = previousState.name;
 
-        var unsubscribe = $rootScope.$on('yiyingOaApp:assetBorrowRecordUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('yyOaApp:assetBorrowRecordUpdate', function(event, result) {
             vm.assetBorrowRecord = result;
         });
         $scope.$on('$destroy', unsubscribe);

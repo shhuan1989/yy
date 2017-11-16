@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('WksVacationViewController', WksVacationViewController);
 
     WksVacationViewController.$inject = ['$timeout', '$scope', '$stateParams', '$state', 'WksVacationService', 'EmployeeService'];

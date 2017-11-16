@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('UserManagementEditController',UserManagementEditController);
 
     UserManagementEditController.$inject = ['$state', '$stateParams', 'User', 'JhiLanguageService', 'EmployeeService', 'UserService', 'Role'];

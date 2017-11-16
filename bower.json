@@ -1,6 +1,6 @@
 {
   "version": "0.0.0",
-  "name": "yiying-oa",
+  "name": "yy-oa",
   "appPath": "src/main/webapp/",
   "testPath": "src/test/javascript/spec",
   "dependencies": {

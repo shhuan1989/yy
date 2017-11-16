@@ -111,7 +111,7 @@ gulp.task('html', function () {
     return gulp.src(config.app + 'app/**/*.html')
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(templateCache({
-            module: 'yiyingOaApp',
+            module: 'yyOaApp',
             root: 'app/',
             moduleSystem: 'IIFE'
         }))
@@ -120,7 +120,7 @@ gulp.task('html', function () {
 
 gulp.task('ngconstant:dev', function () {
     return ngConstant({
-        name: 'yiyingOaApp',
+        name: 'yyOaApp',
         constants: {
             VERSION: util.parseVersion(),
             DEBUG_INFO_ENABLED: true
@@ -134,7 +134,7 @@ gulp.task('ngconstant:dev', function () {
 
 gulp.task('ngconstant:prod', function () {
     return ngConstant({
-        name: 'yiyingOaApp',
+        name: 'yyOaApp',
         constants: {
             VERSION: util.parseVersion(),
             DEBUG_INFO_ENABLED: false

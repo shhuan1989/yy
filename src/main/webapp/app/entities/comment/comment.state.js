@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .config(stateConfig);
 
     stateConfig.$inject = ['$stateProvider'];
@@ -14,7 +14,7 @@
             url: '/comment',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'yiyingOaApp.comment.home.title'
+                pageTitle: 'yyOaApp.comment.home.title'
             },
             views: {
                 'content@': {
@@ -36,7 +36,7 @@
             url: '/comment/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'yiyingOaApp.comment.detail.title'
+                pageTitle: 'yyOaApp.comment.detail.title'
             },
             views: {
                 'content@': {

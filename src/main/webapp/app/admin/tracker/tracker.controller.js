@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('JhiTrackerController', JhiTrackerController);
 
     JhiTrackerController.$inject = ['$cookies', '$http', 'JhiTrackerService'];

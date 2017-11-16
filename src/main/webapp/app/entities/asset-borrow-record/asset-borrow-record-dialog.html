@@ -4,7 +4,7 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myAssetBorrowRecordLabel" data-translate="yiyingOaApp.assetBorrowRecord.home.createOrEditLabel">Create or edit a Asset Borrow Record</h4>
+        <h4 class="modal-title" id="myAssetBorrowRecordLabel" data-translate="yyOaApp.assetBorrowRecord.home.createOrEditLabel">Create or edit a Asset Borrow Record</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
@@ -14,7 +14,7 @@
                     ng-model="vm.assetBorrowRecord.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.assetBorrowRecord.amount" for="field_amount">Amount</label>
+            <label class="control-label" data-translate="yyOaApp.assetBorrowRecord.amount" for="field_amount">Amount</label>
             <input type="number" class="form-control" name="amount" id="field_amount"
                     ng-model="vm.assetBorrowRecord.amount"
                     required />
@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.assetBorrowRecord.borrowTime" for="field_borrowTime">Borrow Time</label>
+            <label class="control-label" data-translate="yyOaApp.assetBorrowRecord.borrowTime" for="field_borrowTime">Borrow Time</label>
             <input type="number" class="form-control" name="borrowTime" id="field_borrowTime"
                     ng-model="vm.assetBorrowRecord.borrowTime"
                     required />
@@ -46,32 +46,32 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.assetBorrowRecord.estimateReturnTime" for="field_estimateReturnTime">Estimate Return Time</label>
+            <label class="control-label" data-translate="yyOaApp.assetBorrowRecord.estimateReturnTime" for="field_estimateReturnTime">Estimate Return Time</label>
             <input type="number" class="form-control" name="estimateReturnTime" id="field_estimateReturnTime"
                     ng-model="vm.assetBorrowRecord.estimateReturnTime"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.assetBorrowRecord.actualReturnTime" for="field_actualReturnTime">Actual Return Time</label>
+            <label class="control-label" data-translate="yyOaApp.assetBorrowRecord.actualReturnTime" for="field_actualReturnTime">Actual Return Time</label>
             <input type="number" class="form-control" name="actualReturnTime" id="field_actualReturnTime"
                     ng-model="vm.assetBorrowRecord.actualReturnTime"
                      />
         </div>
 
         <div class="form-group">
-            <label data-translate="yiyingOaApp.assetBorrowRecord.owner" for="field_owner">Owner</label>
+            <label data-translate="yyOaApp.assetBorrowRecord.owner" for="field_owner">Owner</label>
             <select class="form-control" id="field_owner" name="owner" ng-model="vm.assetBorrowRecord.ownerId" ng-options="employee.id as employee.id for employee in vm.employees"            >
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label data-translate="yiyingOaApp.assetBorrowRecord.operator" for="field_operator">Operator</label>
+            <label data-translate="yyOaApp.assetBorrowRecord.operator" for="field_operator">Operator</label>
             <select class="form-control" id="field_operator" name="operator" ng-model="vm.assetBorrowRecord.operatorId" ng-options="employee.id as employee.id for employee in vm.employees"            >
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label data-translate="yiyingOaApp.assetBorrowRecord.asset" for="field_asset">Asset</label>
+            <label data-translate="yyOaApp.assetBorrowRecord.asset" for="field_asset">Asset</label>
             <select class="form-control" id="field_asset" name="asset" ng-model="vm.assetBorrowRecord.assetId" ng-options="asset.id as asset.id for asset in vm.assets"            >
                 <option value=""></option>
             </select>

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ProjectTaskController', ProjectTaskController);
 
     ProjectTaskController.$inject = ['$scope', '$state', '$stateParams', 'previousState', '$timeout', 'Task'];

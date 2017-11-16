@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ProjectPaymentController', ProjectPaymentController);
 
     ProjectPaymentController.$inject = ['$scope', '$state', 'ProjectPayment'];

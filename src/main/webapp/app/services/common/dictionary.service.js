@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .factory('DictionaryService', DictionaryService);
 
     DictionaryService.$inject = ['$resource', 'Restangular', '$q', 'CacheFactory', '$timeout'];

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('DeductEditController', DeductEditController);
 
     DeductEditController.$inject = ['$timeout', '$scope', '$rootScope', '$state', '$stateParams', '$q', 'entity', 'DeductManagementService', 'disableEdit', 'EmployeeService'];
@@ -52,7 +52,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:employeeUpdate', result);
+            $scope.$emit('yyOaApp:employeeUpdate', result);
             vm.isSaving = false;
             PNotifySaveSuccess();
             $state.go("^");

@@ -1,26 +1,26 @@
 
 <div>
-    <h2><span data-translate="yiyingOaApp.comment.detail.title">Comment</span> {{vm.comment.id}}</h2>
+    <h2><span data-translate="yyOaApp.comment.detail.title">Comment</span> {{vm.comment.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
-        <dt><span data-translate="yiyingOaApp.comment.text">Text</span></dt>
+        <dt><span data-translate="yyOaApp.comment.text">Text</span></dt>
         <dd>
             <span>{{vm.comment.text}}</span>
         </dd>
-        <dt><span data-translate="yiyingOaApp.comment.creator">Creator</span></dt>
+        <dt><span data-translate="yyOaApp.comment.creator">Creator</span></dt>
         <dd>
             <span>{{vm.comment.creator}}</span>
         </dd>
-        <dt><span data-translate="yiyingOaApp.comment.createTime">Create Time</span></dt>
+        <dt><span data-translate="yyOaApp.comment.createTime">Create Time</span></dt>
         <dd>
             <span>{{vm.comment.createTime}}</span>
         </dd>
-        <dt><span data-translate="yiyingOaApp.comment.pictureInfo">Picture Info</span></dt>
+        <dt><span data-translate="yyOaApp.comment.pictureInfo">Picture Info</span></dt>
         <dd>
             <a ui-sref="picture-info-detail({id:vm.comment.pictureInfoId})">{{vm.comment.pictureInfoId}}</a>
         </dd>
-        <dt><span data-translate="yiyingOaApp.comment.fileInfo">File Info</span></dt>
+        <dt><span data-translate="yyOaApp.comment.fileInfo">File Info</span></dt>
         <dd>
             <a ui-sref="file-info-detail({id:vm.comment.fileInfoId})">{{vm.comment.fileInfoId}}</a>
         </dd>

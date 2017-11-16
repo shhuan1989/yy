@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .config(paginationConfig);
 
     paginationConfig.$inject = ['uibPaginationConfig', 'paginationConstants'];

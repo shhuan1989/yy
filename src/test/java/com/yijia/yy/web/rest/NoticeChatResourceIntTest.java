@@ -1,6 +1,6 @@
 package com.yijia.yy.web.rest;
 
-import com.yijia.yy.YiyingOaApp;
+import com.yijia.yy.yyOaApp;
 
 import com.yijia.yy.domain.NoticeChat;
 import com.yijia.yy.repository.NoticeChatRepository;
@@ -38,7 +38,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see NoticeChatResource
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = YiyingOaApp.class)
+@SpringBootTest(classes = yyOaApp.class)
 public class NoticeChatResourceIntTest {
 
     private static final String DEFAULT_TEXT = "AAAAA";

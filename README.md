@@ -1,4 +1,4 @@
-# yiyingOa
+# yyOa
 
 This application was generated using JHipster, you can find documentation and help at [https://jhipster.github.io](https://jhipster.github.io).
 
@@ -31,7 +31,7 @@ Add the `-h` flag on any command to see how you can use it. For example, `bower 
 
 ## Building for production
 
-To optimize the yiyingOa client for production, run:
+To optimize the yyOa client for production, run:
 
     ./mvnw -Pprod clean package
 
@@ -61,9 +61,9 @@ Performance tests are run by [Gatling]() and written in Scala. They're located i
 
 To setup this project in Jenkins, use the following configuration:
 
-* Project name: `yiyingOa`
+* Project name: `yyOa`
 * Source Code Management
-    * Git Repository: `git@github.com:xxxx/yiyingOa.git`
+    * Git Repository: `git@github.com:xxxx/yyOa.git`
     * Branches to build: `*/master`
     * Additional Behaviours: `Wipe out repository & force clone`
 * Build Triggers

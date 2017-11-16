@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('AssetBorrowRecordDialogController', AssetBorrowRecordDialogController);
 
     AssetBorrowRecordDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'AssetBorrowRecord', 'Employee', 'Asset'];
@@ -34,7 +34,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:assetBorrowRecordUpdate', result);
+            $scope.$emit('yyOaApp:assetBorrowRecordUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('PerformanceEditController', PerformanceEditController);
 
     PerformanceEditController.$inject = ['$timeout', '$scope', '$rootScope', '$state', '$stateParams', '$q', 'ProjectManagementService', 'ProjectRate', 'EmployeeService', 'PerformanceApprovalRequest'];

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ProjectTimelineController', ProjectTimelineController);
 
     ProjectTimelineController.$inject = ['$scope', '$rootScope', '$state', '$stateParams', '$timeout', 'ProjectManagementService', 'ProjectTimelineService'];

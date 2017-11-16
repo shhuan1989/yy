@@ -1,18 +1,18 @@
 
 <div>
-    <h2><span data-translate="yiyingOaApp.projectRate.detail.title">Project Rate</span> {{vm.projectRate.id}}</h2>
+    <h2><span data-translate="yyOaApp.projectRate.detail.title">Project Rate</span> {{vm.projectRate.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
-        <dt><span data-translate="yiyingOaApp.projectRate.createTime">Create Time</span></dt>
+        <dt><span data-translate="yyOaApp.projectRate.createTime">Create Time</span></dt>
         <dd>
             <span>{{vm.projectRate.createTime}}</span>
         </dd>
-        <dt><span data-translate="yiyingOaApp.projectRate.creator">Creator</span></dt>
+        <dt><span data-translate="yyOaApp.projectRate.creator">Creator</span></dt>
         <dd>
             <a ui-sref="employee-detail({id:vm.projectRate.creatorId})">{{vm.projectRate.creatorId}}</a>
         </dd>
-        <dt><span data-translate="yiyingOaApp.projectRate.project">Project</span></dt>
+        <dt><span data-translate="yyOaApp.projectRate.project">Project</span></dt>
         <dd>
             <a ui-sref="project-detail({id:vm.projectRate.projectId})">{{vm.projectRate.projectId}}</a>
         </dd>

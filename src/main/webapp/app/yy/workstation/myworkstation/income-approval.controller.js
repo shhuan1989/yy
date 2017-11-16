@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('IncomeApprovalController', IncomeApprovalController);
 
     IncomeApprovalController.$inject = ['$scope', '$state', '$stateParams', 'OtherIncomeService', 'ApprovalService', 'UserService'];

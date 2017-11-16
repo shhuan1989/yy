@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('PerformanceManagementController', PerformanceManagementController);
 
     PerformanceManagementController.$inject = ['$scope', '$rootScope', '$state', 'ProjectManagementService', 'NgTableParams', 'DictionaryService', 'PerformanceApprovalService'];

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('DictionaryDetailController', DictionaryDetailController);
 
     DictionaryDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Dictionary'];
@@ -13,7 +13,7 @@
         vm.dictionary = entity;
         vm.previousState = previousState.name;
 
-        var unsubscribe = $rootScope.$on('yiyingOaApp:dictionaryUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('yyOaApp:dictionaryUpdate', function(event, result) {
             vm.dictionary = result;
         });
         $scope.$on('$destroy', unsubscribe);

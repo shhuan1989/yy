@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('OvertimeWorkDetailController', OvertimeWorkDetailController);
 
     OvertimeWorkDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'OvertimeWork', 'Employee', 'ApprovalRequest'];
@@ -13,7 +13,7 @@
         vm.overtimeWork = entity;
         vm.previousState = previousState.name;
 
-        var unsubscribe = $rootScope.$on('yiyingOaApp:overtimeWorkUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('yyOaApp:overtimeWorkUpdate', function(event, result) {
             vm.overtimeWork = result;
         });
         $scope.$on('$destroy', unsubscribe);

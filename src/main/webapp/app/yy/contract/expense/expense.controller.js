@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ExpenseController', ExpenseController);
 
     ExpenseController.$inject = ['$scope', '$rootScope', '$state', 'ShootCostAuditService', 'ExpenseService', 'DictionaryService'];

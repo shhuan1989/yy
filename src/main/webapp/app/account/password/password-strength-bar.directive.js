@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .directive('passwordStrengthBar', passwordStrengthBar);
 
     function passwordStrengthBar () {

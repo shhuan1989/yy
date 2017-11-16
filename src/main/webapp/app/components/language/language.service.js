@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .factory('JhiLanguageService', JhiLanguageService);
 
     JhiLanguageService.$inject = ['$q', '$http', '$translate', 'LANGUAGES'];

@@ -1,9 +1,9 @@
 (function() {
     'use strict';
 
-    var yiyingOaApp =
+    var yyOaApp =
     angular
-        .module('yiyingOaApp', [
+        .module('yyOaApp', [
             'ngStorage',
             'tmh.dynamicLocale',
             'pascalprecht.translate',
@@ -26,7 +26,7 @@
         ])
         .run(run);
 
-    yiyingOaApp.filter('range', function() {
+    yyOaApp.filter('range', function() {
         return function(input, total) {
             total = parseInt(total);
 
@@ -38,7 +38,7 @@
         };
     });
 
-    yiyingOaApp.filter('percentage', ['$filter', function ($filter) {
+    yyOaApp.filter('percentage', ['$filter', function ($filter) {
         return function (input, decimals) {
             if (input == undefined && decimals == undefined) {
                 return "";
@@ -47,7 +47,7 @@
         };
     }]);
 
-    yiyingOaApp.filter('yyna', ['$filter', function ($filter) {
+    yyOaApp.filter('yyna', ['$filter', function ($filter) {
         return function (input) {
             if (input == undefined) {
                 return "N/A";
@@ -56,7 +56,7 @@
         };
     }]);
 
-    yiyingOaApp.filter('percentage_abs', ['$filter', function ($filter) {
+    yyOaApp.filter('percentage_abs', ['$filter', function ($filter) {
         return function (input, decimals) {
             if (!input && !decimals) {
                 return "0%";
@@ -67,7 +67,7 @@
         };
     }]);
 
-    yiyingOaApp.filter('yydate', ['$filter', function ($filter) {
+    yyOaApp.filter('yydate', ['$filter', function ($filter) {
         return function (input) {
             if (!input) {
                 return '';
@@ -86,7 +86,7 @@
         };
     }]);
 
-    yiyingOaApp.filter('yytime', ['$filter', function ($filter) {
+    yyOaApp.filter('yytime', ['$filter', function ($filter) {
         return function (input) {
             if (!input) {
                 return '';
@@ -99,7 +99,7 @@
         };
     }]);
 
-    yiyingOaApp.filter('yyhour', ['$filter', function ($filter) {
+    yyOaApp.filter('yyhour', ['$filter', function ($filter) {
         return function (input) {
             if (!input) {
                 return '';
@@ -112,7 +112,7 @@
         };
     }]);
 
-    yiyingOaApp.filter('arrprop', ['$filter', function ($filter) {
+    yyOaApp.filter('arrprop', ['$filter', function ($filter) {
         return function (input, field) {
             if (!input || input.length <= 0) {
                 return '';
@@ -128,7 +128,7 @@
     }]);
 
 
-    yiyingOaApp.filter('fixed', function() {
+    yyOaApp.filter('fixed', function() {
         return function(input, bits) {
             if (isNaN(input)) {
                 return input;
@@ -137,7 +137,7 @@
         };
     });
 
-    yiyingOaApp.filter('yymoney', function() {
+    yyOaApp.filter('yymoney', function() {
         return function(input) {
             if (isNaN(input)) {
                 return '0.0';
@@ -146,7 +146,7 @@
         };
     });
 
-    yiyingOaApp.filter('yyyesno', function() {
+    yyOaApp.filter('yyyesno', function() {
         return function(input) {
             if (input) {
                 return '是';

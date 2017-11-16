@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ProjectTaskDetailController', ProjectTaskDetailController);
 
     ProjectTaskDetailController.$inject = ['$scope', '$sce', '$state', '$stateParams', 'previousState', 'editable', 'Task', 'Comment', 'FileService'];

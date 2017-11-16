@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .factory('Vacation', Vacation);
 
     Vacation.$inject = ['$resource'];

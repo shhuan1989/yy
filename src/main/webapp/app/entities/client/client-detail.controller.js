@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ClientDetailController', ClientDetailController);
 
     ClientDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Client', 'Dictionary'];
@@ -13,7 +13,7 @@
         vm.client = entity;
         vm.previousState = previousState.name;
 
-        var unsubscribe = $rootScope.$on('yiyingOaApp:clientUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('yyOaApp:clientUpdate', function(event, result) {
             vm.client = result;
         });
         $scope.$on('$destroy', unsubscribe);

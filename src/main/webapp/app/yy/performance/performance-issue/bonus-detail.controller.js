@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('PerformanceBonusDetailController', PerformanceBonusDetailController);
 
     PerformanceBonusDetailController.$inject = ['$scope', '$rootScope', '$state', '$stateParams', 'PerformanceApprovalRequest', 'ProjectManagementService', 'PerformanceApprovalService', 'UserService'];

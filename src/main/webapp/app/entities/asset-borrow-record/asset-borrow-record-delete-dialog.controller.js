@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('AssetBorrowRecordDeleteController',AssetBorrowRecordDeleteController);
 
     AssetBorrowRecordDeleteController.$inject = ['$uibModalInstance', 'entity', 'AssetBorrowRecord'];

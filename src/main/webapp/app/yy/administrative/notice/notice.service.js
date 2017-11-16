@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .factory('AdminNoticeService', AdminNoticeService);
 
     AdminNoticeService.$inject = ['$resource'];

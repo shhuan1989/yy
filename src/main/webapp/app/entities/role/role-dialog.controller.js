@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('RoleDialogController', RoleDialogController);
 
     RoleDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Role', 'Employee'];
@@ -33,7 +33,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:roleUpdate', result);
+            $scope.$emit('yyOaApp:roleUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

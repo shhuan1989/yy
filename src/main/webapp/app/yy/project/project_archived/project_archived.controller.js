@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ProjectArchivedController', ProjectArchivedController);
 
     ProjectArchivedController.$inject = ['$scope', '$rootScope', '$state', 'ProjectManagementService', 'EmployeeService', 'DictionaryService'];

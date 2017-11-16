@@ -4,7 +4,7 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myIncomeLabel" data-translate="yiyingOaApp.income.home.createOrEditLabel">Create or edit a Income</h4>
+        <h4 class="modal-title" id="myIncomeLabel" data-translate="yyOaApp.income.home.createOrEditLabel">Create or edit a Income</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
@@ -14,32 +14,32 @@
                     ng-model="vm.income.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.income.incomeTime" for="field_incomeTime">Income Time</label>
+            <label class="control-label" data-translate="yyOaApp.income.incomeTime" for="field_incomeTime">Income Time</label>
             <input type="number" class="form-control" name="incomeTime" id="field_incomeTime"
                     ng-model="vm.income.incomeTime"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.income.amount" for="field_amount">Amount</label>
+            <label class="control-label" data-translate="yyOaApp.income.amount" for="field_amount">Amount</label>
             <input type="number" class="form-control" name="amount" id="field_amount"
                     ng-model="vm.income.amount"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.income.incomeDesc" for="field_incomeDesc">Income Desc</label>
+            <label class="control-label" data-translate="yyOaApp.income.incomeDesc" for="field_incomeDesc">Income Desc</label>
             <input type="text" class="form-control" name="incomeDesc" id="field_incomeDesc"
                     ng-model="vm.income.incomeDesc"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.income.memo" for="field_memo">Memo</label>
+            <label class="control-label" data-translate="yyOaApp.income.memo" for="field_memo">Memo</label>
             <input type="text" class="form-control" name="memo" id="field_memo"
                     ng-model="vm.income.memo"
                      />
         </div>
 
         <div class="form-group">
-            <label data-translate="yiyingOaApp.income.incomeMethod" for="field_incomeMethod">Income Method</label>
+            <label data-translate="yyOaApp.income.incomeMethod" for="field_incomeMethod">Income Method</label>
             <select class="form-control" id="field_incomeMethod" name="incomeMethod" ng-model="vm.income.incomeMethodId" ng-options="dictionary.id as dictionary.id for dictionary in vm.dictionaries"            >
                 <option value=""></option>
             </select>

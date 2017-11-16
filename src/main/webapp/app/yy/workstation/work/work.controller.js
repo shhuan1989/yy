@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('WksWorkController', WksWorkController);
 
     WksWorkController.$inject = ['$scope', '$rootScope', '$state', 'WksWorkService', 'DictionaryService'];

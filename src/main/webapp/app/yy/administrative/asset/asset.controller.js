@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('AdminAssetController', AdminAssetController);
 
     AdminAssetController.$inject = ['$scope', '$state', '$rootScope', 'AdminAssetService', 'EmployeeService'];

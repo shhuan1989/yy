@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ProjectPaymentDetailController', ProjectPaymentDetailController);
 
     ProjectPaymentDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'ProjectPayment', 'Project'];
@@ -13,7 +13,7 @@
         vm.projectPayment = entity;
         vm.previousState = previousState.name;
 
-        var unsubscribe = $rootScope.$on('yiyingOaApp:projectPaymentUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('yyOaApp:projectPaymentUpdate', function(event, result) {
             vm.projectPayment = result;
         });
         $scope.$on('$destroy', unsubscribe);

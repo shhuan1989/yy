@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .directive('pageRibbon', pageRibbon);
 
     pageRibbon.$inject = ['ProfileService', '$rootScope', '$translate'];

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('CityController', CityController);
 
     CityController.$inject = ['$scope', '$state', 'City', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];

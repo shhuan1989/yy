@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('IncomeDetailController', IncomeDetailController);
 
     IncomeDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Income', 'Dictionary'];
@@ -13,7 +13,7 @@
         vm.income = entity;
         vm.previousState = previousState.name;
 
-        var unsubscribe = $rootScope.$on('yiyingOaApp:incomeUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('yyOaApp:incomeUpdate', function(event, result) {
             vm.income = result;
         });
         $scope.$on('$destroy', unsubscribe);

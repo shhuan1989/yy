@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .config(stateConfig);
 
     stateConfig.$inject = ['$stateProvider'];
@@ -14,7 +14,7 @@
             url: '/asset-borrow-record',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'yiyingOaApp.assetBorrowRecord.home.title'
+                pageTitle: 'yyOaApp.assetBorrowRecord.home.title'
             },
             views: {
                 'content@': {
@@ -36,7 +36,7 @@
             url: '/asset-borrow-record/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'yiyingOaApp.assetBorrowRecord.detail.title'
+                pageTitle: 'yyOaApp.assetBorrowRecord.detail.title'
             },
             views: {
                 'content@': {

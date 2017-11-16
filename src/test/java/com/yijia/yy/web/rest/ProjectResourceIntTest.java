@@ -1,6 +1,6 @@
 package com.yijia.yy.web.rest;
 
-import com.yijia.yy.YiyingOaApp;
+import com.yijia.yy.yyOaApp;
 import com.yijia.yy.domain.Dictionary;
 import com.yijia.yy.domain.Project;
 import com.yijia.yy.domain.enumeration.BooleanEnum;
@@ -39,7 +39,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see ProjectResource
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = YiyingOaApp.class)
+@SpringBootTest(classes = yyOaApp.class)
 public class ProjectResourceIntTest {
 
     private static final String DEFAULT_NO = "AAAAA";

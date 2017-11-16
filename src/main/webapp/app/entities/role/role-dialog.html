@@ -4,7 +4,7 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myRoleLabel" data-translate="yiyingOaApp.role.home.createOrEditLabel">Create or edit a Role</h4>
+        <h4 class="modal-title" id="myRoleLabel" data-translate="yyOaApp.role.home.createOrEditLabel">Create or edit a Role</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
@@ -14,38 +14,38 @@
                     ng-model="vm.role.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.role.createTime" for="field_createTime">Create Time</label>
+            <label class="control-label" data-translate="yyOaApp.role.createTime" for="field_createTime">Create Time</label>
             <input type="number" class="form-control" name="createTime" id="field_createTime"
                     ng-model="vm.role.createTime"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.role.lastModifiedTime" for="field_lastModifiedTime">Last Modified Time</label>
+            <label class="control-label" data-translate="yyOaApp.role.lastModifiedTime" for="field_lastModifiedTime">Last Modified Time</label>
             <input type="number" class="form-control" name="lastModifiedTime" id="field_lastModifiedTime"
                     ng-model="vm.role.lastModifiedTime"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.role.auths" for="field_auths">Auths</label>
+            <label class="control-label" data-translate="yyOaApp.role.auths" for="field_auths">Auths</label>
             <input type="text" class="form-control" name="auths" id="field_auths"
                     ng-model="vm.role.auths"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.role.name" for="field_name">Name</label>
+            <label class="control-label" data-translate="yyOaApp.role.name" for="field_name">Name</label>
             <input type="text" class="form-control" name="name" id="field_name"
                     ng-model="vm.role.name"
                      />
         </div>
 
         <div class="form-group">
-            <label data-translate="yiyingOaApp.role.creator" for="field_creator">Creator</label>
+            <label data-translate="yyOaApp.role.creator" for="field_creator">Creator</label>
             <select class="form-control" id="field_creator" name="creator" ng-model="vm.role.creatorId" ng-options="employee.id as employee.id for employee in vm.employees"            >
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label data-translate="yiyingOaApp.role.lastModifier" for="field_lastModifier">Last Modifier</label>
+            <label data-translate="yyOaApp.role.lastModifier" for="field_lastModifier">Last Modifier</label>
             <select class="form-control" id="field_lastModifier" name="lastModifier" ng-model="vm.role.lastModifierId" ng-options="employee.id as employee.id for employee in vm.employees"            >
                 <option value=""></option>
             </select>

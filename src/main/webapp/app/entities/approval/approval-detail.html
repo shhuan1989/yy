@@ -1,22 +1,22 @@
 
 <div>
-    <h2><span data-translate="yiyingOaApp.approval.detail.title">Approval</span> {{vm.approval.id}}</h2>
+    <h2><span data-translate="yyOaApp.approval.detail.title">Approval</span> {{vm.approval.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
-        <dt><span data-translate="yiyingOaApp.approval.createTime">Create Time</span></dt>
+        <dt><span data-translate="yyOaApp.approval.createTime">Create Time</span></dt>
         <dd>
             <span>{{vm.approval.createTime}}</span>
         </dd>
-        <dt><span data-translate="yiyingOaApp.approval.lastModifiedTime">Last Modified Time</span></dt>
+        <dt><span data-translate="yyOaApp.approval.lastModifiedTime">Last Modified Time</span></dt>
         <dd>
             <span>{{vm.approval.lastModifiedTime}}</span>
         </dd>
-        <dt><span data-translate="yiyingOaApp.approval.status">Status</span></dt>
+        <dt><span data-translate="yyOaApp.approval.status">Status</span></dt>
         <dd>
             <span>{{vm.approval.status}}</span>
         </dd>
-        <dt><span data-translate="yiyingOaApp.approval.previousApproval">Previous Approval</span></dt>
+        <dt><span data-translate="yyOaApp.approval.previousApproval">Previous Approval</span></dt>
         <dd>
             <a ui-sref="approval-detail({id:vm.approval.previousApprovalId})">{{vm.approval.previousApprovalId}}</a>
         </dd>

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .factory('Activate', Activate);
 
     Activate.$inject = ['$resource'];

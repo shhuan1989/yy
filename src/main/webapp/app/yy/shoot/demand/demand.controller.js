@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('DirectorDemandController', DirectorDemandController);
 
     DirectorDemandController.$inject = ['$scope', '$rootScope', '$state', 'DirectorDemandService', 'EmployeeService'];

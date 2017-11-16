@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .factory('LogsService', LogsService);
 
     LogsService.$inject = ['$resource'];

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .config(localStorageConfig);
 
     localStorageConfig.$inject = ['$localStorageProvider', '$sessionStorageProvider'];

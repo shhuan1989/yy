@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('PictureInfoDialogController', PictureInfoDialogController);
 
     PictureInfoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'PictureInfo'];
@@ -41,7 +41,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:pictureInfoUpdate', result);
+            $scope.$emit('yyOaApp:pictureInfoUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

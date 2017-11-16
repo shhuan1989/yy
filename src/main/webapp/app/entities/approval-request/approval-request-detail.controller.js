@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ApprovalRequestDetailController', ApprovalRequestDetailController);
 
     ApprovalRequestDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'ApprovalRequest', 'Employee'];
@@ -13,7 +13,7 @@
         vm.approvalRequest = entity;
         vm.previousState = previousState.name;
 
-        var unsubscribe = $rootScope.$on('yiyingOaApp:approvalRequestUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('yyOaApp:approvalRequestUpdate', function(event, result) {
             vm.approvalRequest = result;
         });
         $scope.$on('$destroy', unsubscribe);

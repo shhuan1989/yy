@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ApprovalRequestController', ApprovalRequestController);
 
     ApprovalRequestController.$inject = ['$scope', '$state', 'ApprovalRequest'];

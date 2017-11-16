@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('VacationDetailController', VacationDetailController);
 
     VacationDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Vacation', 'Employee'];
@@ -13,7 +13,7 @@
         vm.vacation = entity;
         vm.previousState = previousState.name;
 
-        var unsubscribe = $rootScope.$on('yiyingOaApp:vacationUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('yyOaApp:vacationUpdate', function(event, result) {
             vm.vacation = result;
         });
         $scope.$on('$destroy', unsubscribe);

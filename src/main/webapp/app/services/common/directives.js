@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .directive('yyFileChange', function() {
         return {
             restrict: 'A',

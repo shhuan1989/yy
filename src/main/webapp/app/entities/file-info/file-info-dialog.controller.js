@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('FileInfoDialogController', FileInfoDialogController);
 
     FileInfoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'FileInfo'];
@@ -32,7 +32,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:fileInfoUpdate', result);
+            $scope.$emit('yyOaApp:fileInfoUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

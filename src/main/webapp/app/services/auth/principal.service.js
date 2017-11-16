@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .factory('Principal', Principal);
 
     Principal.$inject = ['$q', 'Account', 'JhiTrackerService'];

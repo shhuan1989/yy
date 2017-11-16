@@ -1,6 +1,6 @@
 package com.yijia.yy.web.rest;
 
-import com.yijia.yy.YiyingOaApp;
+import com.yijia.yy.yyOaApp;
 
 import com.yijia.yy.domain.Dept;
 import com.yijia.yy.repository.DeptRepository;
@@ -38,7 +38,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see DeptResource
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = YiyingOaApp.class)
+@SpringBootTest(classes = yyOaApp.class)
 public class DeptResourceIntTest {
 
     private static final String DEFAULT_NAME = "AAAAA";

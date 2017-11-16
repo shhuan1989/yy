@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('EmployeeDeleteController',EmployeeDeleteController);
 
     EmployeeDeleteController.$inject = ['$uibModalInstance', 'entity', 'Employee'];

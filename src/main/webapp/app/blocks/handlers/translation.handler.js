@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .factory('translationHandler', translationHandler);
 
     translationHandler.$inject = ['$rootScope', '$window', '$state', '$translate'];

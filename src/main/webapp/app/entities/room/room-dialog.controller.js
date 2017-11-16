@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('RoomDialogController', RoomDialogController);
 
     RoomDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Room'];
@@ -32,7 +32,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:roomUpdate', result);
+            $scope.$emit('yyOaApp:roomUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

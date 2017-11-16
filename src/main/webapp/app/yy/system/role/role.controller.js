@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('SysRoleController', SysRoleController);
 
     SysRoleController.$inject = ['$scope', '$rootScope', '$state', 'SysRoleService', 'NgTableParams', 'UserService'];

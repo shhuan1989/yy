@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .config(stateConfig);
 
     stateConfig.$inject = ['$stateProvider'];
@@ -14,7 +14,7 @@
             url: '/contract?page&sort&search',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'yiyingOaApp.contract.home.title'
+                pageTitle: 'yyOaApp.contract.home.title'
             },
             views: {
                 'content@': {
@@ -56,7 +56,7 @@
             url: '/contract/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'yiyingOaApp.contract.detail.title'
+                pageTitle: 'yyOaApp.contract.detail.title'
             },
             views: {
                 'content@': {

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ClientEditController', ClientEditController);
 
     ClientEditController.$inject = ['$timeout', '$scope', '$rootScope', '$state', '$stateParams', '$q', 'ClientService', 'disableEdit', 'DictionaryService'];
@@ -68,7 +68,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:clientUpdate', result);
+            $scope.$emit('yyOaApp:clientUpdate', result);
             vm.isSaving = false;
             PNotifySaveSuccess();
             $state.go("^");

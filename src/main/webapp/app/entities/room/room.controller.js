@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('RoomController', RoomController);
 
     RoomController.$inject = ['$scope', '$state', 'Room'];

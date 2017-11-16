@@ -15,6 +15,6 @@
     };
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .component('jhiItemCount', jhiItemCount);
 })();

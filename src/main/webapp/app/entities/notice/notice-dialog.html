@@ -4,7 +4,7 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myNoticeLabel" data-translate="yiyingOaApp.notice.home.createOrEditLabel">Create or edit a Notice</h4>
+        <h4 class="modal-title" id="myNoticeLabel" data-translate="yyOaApp.notice.home.createOrEditLabel">Create or edit a Notice</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
@@ -14,52 +14,52 @@
                     ng-model="vm.notice.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.notice.subject" for="field_subject">Subject</label>
+            <label class="control-label" data-translate="yyOaApp.notice.subject" for="field_subject">Subject</label>
             <input type="text" class="form-control" name="subject" id="field_subject"
                     ng-model="vm.notice.subject"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.notice.expireTime" for="field_expireTime">Expire Time</label>
+            <label class="control-label" data-translate="yyOaApp.notice.expireTime" for="field_expireTime">Expire Time</label>
             <input type="number" class="form-control" name="expireTime" id="field_expireTime"
                     ng-model="vm.notice.expireTime"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.notice.content" for="field_content">Content</label>
+            <label class="control-label" data-translate="yyOaApp.notice.content" for="field_content">Content</label>
             <input type="text" class="form-control" name="content" id="field_content"
                     ng-model="vm.notice.content"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.notice.createTime" for="field_createTime">Create Time</label>
+            <label class="control-label" data-translate="yyOaApp.notice.createTime" for="field_createTime">Create Time</label>
             <input type="number" class="form-control" name="createTime" id="field_createTime"
                     ng-model="vm.notice.createTime"
                      />
         </div>
 
         <div class="form-group">
-            <label data-translate="yiyingOaApp.notice.project" for="field_project">Project</label>
+            <label data-translate="yyOaApp.notice.project" for="field_project">Project</label>
             <select class="form-control" id="field_project" name="project" ng-model="vm.notice.projectId" ng-options="project.id as project.id for project in vm.projects"            >
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label data-translate="yiyingOaApp.notice.creator" for="field_creator">Creator</label>
+            <label data-translate="yyOaApp.notice.creator" for="field_creator">Creator</label>
             <select class="form-control" id="field_creator" name="creator" ng-model="vm.notice.creatorId" ng-options="employee.id as employee.id for employee in vm.employees"            >
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label data-translate="yiyingOaApp.notice.depts" for="field_depts">Depts</label>
+            <label data-translate="yyOaApp.notice.depts" for="field_depts">Depts</label>
             <select class="form-control" id="field_depts" multiple name="depts" ng-model="vm.notice.depts" ng-options="dept as dept.id for dept in vm.depts track by dept.id"></select>
         </div>
         <div class="form-group">
-            <label data-translate="yiyingOaApp.notice.projects" for="field_projects">Projects</label>
+            <label data-translate="yyOaApp.notice.projects" for="field_projects">Projects</label>
             <select class="form-control" id="field_projects" multiple name="projects" ng-model="vm.notice.projects" ng-options="project as project.id for project in vm.projects track by project.id"></select>
         </div>
         <div class="form-group">
-            <label data-translate="yiyingOaApp.notice.employees" for="field_employees">Employees</label>
+            <label data-translate="yyOaApp.notice.employees" for="field_employees">Employees</label>
             <select class="form-control" id="field_employees" multiple name="employees" ng-model="vm.notice.employees" ng-options="employee as employee.id for employee in vm.employees track by employee.id"></select>
         </div>
     </div>

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('NoticeController', NoticeController);
 
     NoticeController.$inject = ['$scope', '$state', 'Notice'];

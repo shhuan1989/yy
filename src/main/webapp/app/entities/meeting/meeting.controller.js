@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('MeetingEntityController', MeetingEntityController);
 
     MeetingEntityController.$inject = ['$scope', '$state', 'Meeting'];

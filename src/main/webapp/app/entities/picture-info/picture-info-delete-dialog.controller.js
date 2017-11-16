@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('PictureInfoDeleteController',PictureInfoDeleteController);
 
     PictureInfoDeleteController.$inject = ['$uibModalInstance', 'entity', 'PictureInfo'];

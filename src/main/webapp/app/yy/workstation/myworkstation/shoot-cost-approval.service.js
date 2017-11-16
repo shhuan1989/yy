@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .factory('WksShootCostService', WksShootCostService);
 
     WksShootCostService.$inject = ['$resource'];

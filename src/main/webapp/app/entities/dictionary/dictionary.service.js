@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .factory('Dictionary', Dictionary);
 
     Dictionary.$inject = ['$resource'];

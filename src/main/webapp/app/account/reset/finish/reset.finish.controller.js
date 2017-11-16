@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ResetFinishController', ResetFinishController);
 
     ResetFinishController.$inject = ['$stateParams', '$timeout', 'Auth', 'LoginService'];

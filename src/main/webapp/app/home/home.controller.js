@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('HomeController', HomeController);
 
     HomeController.$inject = ['$scope', '$rootScope', 'Principal', 'LoginService', '$state'];

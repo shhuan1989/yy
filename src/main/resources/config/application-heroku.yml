@@ -12,12 +12,12 @@
 
 eureka:
     instance:
-        hostname: yiying-oa.herokuapp.com
+        hostname: yy-oa.herokuapp.com
         non-secure-port: 80
         prefer-ip-address: false
     client:
         serviceUrl:
-            defaultZone: http://466272392@qq.com:s1mplePW2hr@yiying-oa.herokuapp.com/eureka/
+            defaultZone: http://466272392@qq.com:s1mplePW2hr@yy-oa.herokuapp.com/eureka/
 
 spring:
     datasource:

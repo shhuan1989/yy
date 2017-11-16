@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('CommentDialogController', CommentDialogController);
 
     CommentDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Comment', 'PictureInfo', 'FileInfo'];
@@ -50,7 +50,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:commentUpdate', result);
+            $scope.$emit('yyOaApp:commentUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('StaffEditController', StaffEditController);
 
     StaffEditController.$inject = ['$timeout', '$scope', '$rootScope', '$state', '$stateParams', '$q', 'StaffManageService', 'disableEdit', 'DictionaryService'];
@@ -61,7 +61,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:staffUpdate', result);
+            $scope.$emit('yyOaApp:staffUpdate', result);
             vm.isSaving = false;
             PNotifySaveSuccess();
             $state.go("^");

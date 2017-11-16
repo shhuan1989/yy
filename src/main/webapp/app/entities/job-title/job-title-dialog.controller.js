@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('JobTitleDialogController', JobTitleDialogController);
 
     JobTitleDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'JobTitle'];
@@ -32,7 +32,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:jobTitleUpdate', result);
+            $scope.$emit('yyOaApp:jobTitleUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('EmployeeController', EmployeeController);
 
     EmployeeController.$inject = ['$scope', '$state', 'Employee', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('FileInfoDetailController', FileInfoDetailController);
 
     FileInfoDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'FileInfo'];
@@ -13,7 +13,7 @@
         vm.fileInfo = entity;
         vm.previousState = previousState.name;
 
-        var unsubscribe = $rootScope.$on('yiyingOaApp:fileInfoUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('yyOaApp:fileInfoUpdate', function(event, result) {
             vm.fileInfo = result;
         });
         $scope.$on('$destroy', unsubscribe);

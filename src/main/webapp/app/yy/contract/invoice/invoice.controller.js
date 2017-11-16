@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ContractInvoiceController', ContractInvoiceController);
 
     ContractInvoiceController.$inject = ['$scope', '$state', '$rootScope', 'ContractInvoiceService', 'NgTableParams', 'DictionaryService', 'ContractManagementService'];

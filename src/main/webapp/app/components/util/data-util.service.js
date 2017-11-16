@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .factory('DataUtils', DataUtils);
 
     DataUtils.$inject = ['$window'];

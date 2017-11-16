@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('IncomeDialogController', IncomeDialogController);
 
     IncomeDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Income', 'Dictionary'];
@@ -33,7 +33,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:incomeUpdate', result);
+            $scope.$emit('yyOaApp:incomeUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

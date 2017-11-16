@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ProjectManagementEditController', ProjectManagementEditController);
 
     ProjectManagementEditController.$inject = ['$timeout', '$scope', '$rootScope', '$state', '$stateParams', 'previousState', 'Principal', 'ProjectManagementService', 'ClientService', 'EmployeeService', 'ContractManagementService', 'disableEdit', 'DictionaryService'];
@@ -121,7 +121,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:projectUpdate', result);
+            $scope.$emit('yyOaApp:projectUpdate', result);
             vm.isSaving = false;
             PNotifySaveSuccess();
             $state.go("^");

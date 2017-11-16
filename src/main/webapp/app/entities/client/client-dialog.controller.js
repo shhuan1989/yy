@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ClientDialogController', ClientDialogController);
 
     ClientDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Client', 'Dictionary'];
@@ -50,7 +50,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:clientUpdate', result);
+            $scope.$emit('yyOaApp:clientUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

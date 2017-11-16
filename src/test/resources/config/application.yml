@@ -12,12 +12,12 @@
 
 spring:
     application:
-        name: yiyingOa
+        name: yyOa
     jackson:
         serialization.write_dates_as_timestamps: false
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:h2:mem:yiyingOa;DB_CLOSE_DELAY=-1
+        url: jdbc:h2:mem:yyOa;DB_CLOSE_DELAY=-1
         name:
         username:
         password:
@@ -72,8 +72,8 @@ jhipster:
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
     swagger:
-        title: yiyingOa API
-        description: yiyingOa API documentation
+        title: yyOa API
+        description: yyOa API documentation
         version: 0.0.1
         termsOfServiceUrl:
         contactName:

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ActorDialogController', ActorDialogController);
 
     ActorDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Actor', 'PictureInfo', 'Dictionary'];
@@ -34,7 +34,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:actorUpdate', result);
+            $scope.$emit('yyOaApp:actorUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

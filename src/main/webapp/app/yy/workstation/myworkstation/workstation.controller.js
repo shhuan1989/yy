@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('WorkstationController', WorkstationController);
 
     WorkstationController.$inject = ['$scope', '$state', '$timeout', 'WorkstationService', 'ProjectRate', 'PerformanceApprovalRequest', 'UserService', 'WksVacationService', 'WksWorkService', 'WksGoodsService', 'WksShootConfigService', 'WksShootBudgetService', 'WksShootCostService', 'StatisticsService', 'ShootAgendaService', 'EmployeeService', 'ExpenseService', 'AdminNoticeService', 'OtherIncomeService', 'MeetingService', 'Task'];

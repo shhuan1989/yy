@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('VacationDialogController', VacationDialogController);
 
     VacationDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Vacation', 'Employee'];
@@ -33,7 +33,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:vacationUpdate', result);
+            $scope.$emit('yyOaApp:vacationUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('RoleDeleteController',RoleDeleteController);
 
     RoleDeleteController.$inject = ['$uibModalInstance', 'entity', 'Role'];

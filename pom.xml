@@ -10,10 +10,10 @@
     </parent>
 
     <groupId>com.yijia.yy</groupId>
-    <artifactId>yiying</artifactId>
+    <artifactId>yy</artifactId>
     <version>0.15-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>Yiying</name>
+    <name>yy</name>
 
     <prerequisites>
         <maven>3.0.0</maven>
@@ -730,7 +730,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.10</version>
                 <configuration>
-                    <imageName>yiyingoa</imageName>
+                    <imageName>yyoa</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
                     <resources>
                         <resource>

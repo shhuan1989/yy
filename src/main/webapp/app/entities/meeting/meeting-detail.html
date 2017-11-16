@@ -1,34 +1,34 @@
 
 <div>
-    <h2><span data-translate="yiyingOaApp.meeting.detail.title">Meeting</span> {{vm.meeting.id}}</h2>
+    <h2><span data-translate="yyOaApp.meeting.detail.title">Meeting</span> {{vm.meeting.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
-        <dt><span data-translate="yiyingOaApp.meeting.name">Name</span></dt>
+        <dt><span data-translate="yyOaApp.meeting.name">Name</span></dt>
         <dd>
             <span>{{vm.meeting.name}}</span>
         </dd>
-        <dt><span data-translate="yiyingOaApp.meeting.startTime">Start Time</span></dt>
+        <dt><span data-translate="yyOaApp.meeting.startTime">Start Time</span></dt>
         <dd>
             <span>{{vm.meeting.startTime}}</span>
         </dd>
-        <dt><span data-translate="yiyingOaApp.meeting.endTime">End Time</span></dt>
+        <dt><span data-translate="yyOaApp.meeting.endTime">End Time</span></dt>
         <dd>
             <span>{{vm.meeting.endTime}}</span>
         </dd>
-        <dt><span data-translate="yiyingOaApp.meeting.info">Info</span></dt>
+        <dt><span data-translate="yyOaApp.meeting.info">Info</span></dt>
         <dd>
             <span>{{vm.meeting.info}}</span>
         </dd>
-        <dt><span data-translate="yiyingOaApp.meeting.creator">Creator</span></dt>
+        <dt><span data-translate="yyOaApp.meeting.creator">Creator</span></dt>
         <dd>
             <a ui-sref="employee-detail({id:vm.meeting.creatorId})">{{vm.meeting.creatorId}}</a>
         </dd>
-        <dt><span data-translate="yiyingOaApp.meeting.room">Room</span></dt>
+        <dt><span data-translate="yyOaApp.meeting.room">Room</span></dt>
         <dd>
             <a ui-sref="room-detail({id:vm.meeting.roomId})">{{vm.meeting.roomId}}</a>
         </dd>
-        <dt><span data-translate="yiyingOaApp.meeting.project">Project</span></dt>
+        <dt><span data-translate="yyOaApp.meeting.project">Project</span></dt>
         <dd>
             <a ui-sref="project-detail({id:vm.meeting.projectId})">{{vm.meeting.projectId}}</a>
         </dd>

@@ -4,7 +4,7 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myMeetingLabel" data-translate="yiyingOaApp.meeting.home.createOrEditLabel">Create or edit a Meeting</h4>
+        <h4 class="modal-title" id="myMeetingLabel" data-translate="yyOaApp.meeting.home.createOrEditLabel">Create or edit a Meeting</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
@@ -14,13 +14,13 @@
                     ng-model="vm.meeting.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.meeting.name" for="field_name">Name</label>
+            <label class="control-label" data-translate="yyOaApp.meeting.name" for="field_name">Name</label>
             <input type="text" class="form-control" name="name" id="field_name"
                     ng-model="vm.meeting.name"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.meeting.startTime" for="field_startTime">Start Time</label>
+            <label class="control-label" data-translate="yyOaApp.meeting.startTime" for="field_startTime">Start Time</label>
             <input type="number" class="form-control" name="startTime" id="field_startTime"
                     ng-model="vm.meeting.startTime"
                     required />
@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.meeting.endTime" for="field_endTime">End Time</label>
+            <label class="control-label" data-translate="yyOaApp.meeting.endTime" for="field_endTime">End Time</label>
             <input type="number" class="form-control" name="endTime" id="field_endTime"
                     ng-model="vm.meeting.endTime"
                     required />
@@ -52,26 +52,26 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.meeting.info" for="field_info">Info</label>
+            <label class="control-label" data-translate="yyOaApp.meeting.info" for="field_info">Info</label>
             <input type="text" class="form-control" name="info" id="field_info"
                     ng-model="vm.meeting.info"
                      />
         </div>
 
         <div class="form-group">
-            <label data-translate="yiyingOaApp.meeting.creator" for="field_creator">Creator</label>
+            <label data-translate="yyOaApp.meeting.creator" for="field_creator">Creator</label>
             <select class="form-control" id="field_creator" name="creator" ng-model="vm.meeting.creatorId" ng-options="employee.id as employee.id for employee in vm.employees"            >
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label data-translate="yiyingOaApp.meeting.room" for="field_room">Room</label>
+            <label data-translate="yyOaApp.meeting.room" for="field_room">Room</label>
             <select class="form-control" id="field_room" name="room" ng-model="vm.meeting.roomId" ng-options="room.id as room.id for room in vm.rooms"            >
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label data-translate="yiyingOaApp.meeting.project" for="field_project">Project</label>
+            <label data-translate="yyOaApp.meeting.project" for="field_project">Project</label>
             <select class="form-control" id="field_project" name="project" ng-model="vm.meeting.projectId" ng-options="project.id as project.id for project in vm.projects"            >
                 <option value=""></option>
             </select>

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('RoomDetailController', RoomDetailController);
 
     RoomDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Room'];
@@ -13,7 +13,7 @@
         vm.room = entity;
         vm.previousState = previousState.name;
 
-        var unsubscribe = $rootScope.$on('yiyingOaApp:roomUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('yyOaApp:roomUpdate', function(event, result) {
             vm.room = result;
         });
         $scope.$on('$destroy', unsubscribe);

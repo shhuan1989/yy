@@ -1,6 +1,6 @@
 package com.yijia.yy.web.rest;
 
-import com.yijia.yy.YiyingOaApp;
+import com.yijia.yy.yyOaApp;
 import com.yijia.yy.config.audit.AuditEventConverter;
 import com.yijia.yy.domain.PersistentAuditEvent;
 import com.yijia.yy.repository.PersistenceAuditEventRepository;
@@ -31,7 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  *
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = YiyingOaApp.class)
+@SpringBootTest(classes = yyOaApp.class)
 @Transactional
 public class AuditResourceIntTest {
 

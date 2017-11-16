@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .config(stateConfig);
 
     stateConfig.$inject = ['$stateProvider'];
@@ -14,7 +14,7 @@
             url: '/overtime-work',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'yiyingOaApp.overtimeWork.home.title'
+                pageTitle: 'yyOaApp.overtimeWork.home.title'
             },
             views: {
                 'content@': {
@@ -36,7 +36,7 @@
             url: '/overtime-work/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'yiyingOaApp.overtimeWork.detail.title'
+                pageTitle: 'yyOaApp.overtimeWork.detail.title'
             },
             views: {
                 'content@': {

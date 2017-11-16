@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ActorController', ActorController);
 
     ActorController.$inject = ['$scope', '$state', 'Actor', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];

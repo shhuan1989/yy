@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('CommentDetailController', CommentDetailController);
 
     CommentDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Comment', 'PictureInfo', 'FileInfo'];
@@ -13,7 +13,7 @@
         vm.comment = entity;
         vm.previousState = previousState.name;
 
-        var unsubscribe = $rootScope.$on('yiyingOaApp:commentUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('yyOaApp:commentUpdate', function(event, result) {
             vm.comment = result;
         });
         $scope.$on('$destroy', unsubscribe);

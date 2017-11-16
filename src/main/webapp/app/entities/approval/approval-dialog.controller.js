@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ApprovalDialogController', ApprovalDialogController);
 
     ApprovalDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Approval'];
@@ -33,7 +33,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:approvalUpdate', result);
+            $scope.$emit('yyOaApp:approvalUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

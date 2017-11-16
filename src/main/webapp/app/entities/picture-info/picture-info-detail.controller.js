@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('PictureInfoDetailController', PictureInfoDetailController);
 
     PictureInfoDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'PictureInfo'];
@@ -13,7 +13,7 @@
         vm.pictureInfo = entity;
         vm.previousState = previousState.name;
 
-        var unsubscribe = $rootScope.$on('yiyingOaApp:pictureInfoUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('yyOaApp:pictureInfoUpdate', function(event, result) {
             vm.pictureInfo = result;
         });
         $scope.$on('$destroy', unsubscribe);

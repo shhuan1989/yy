@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('NoticeChatDetailController', NoticeChatDetailController);
 
     NoticeChatDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'NoticeChat', 'Employee', 'PictureInfo', 'FileInfo', 'Notice'];
@@ -13,7 +13,7 @@
         vm.noticeChat = entity;
         vm.previousState = previousState.name;
 
-        var unsubscribe = $rootScope.$on('yiyingOaApp:noticeChatUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('yyOaApp:noticeChatUpdate', function(event, result) {
             vm.noticeChat = result;
         });
         $scope.$on('$destroy', unsubscribe);

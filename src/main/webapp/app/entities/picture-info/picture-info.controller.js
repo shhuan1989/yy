@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('PictureInfoController', PictureInfoController);
 
     PictureInfoController.$inject = ['$scope', '$state', 'PictureInfo', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];

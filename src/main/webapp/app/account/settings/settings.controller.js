@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('SettingsController', SettingsController);
 
     SettingsController.$inject = ['Principal', 'Auth', 'JhiLanguageService', '$translate'];

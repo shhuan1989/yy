@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('MeetingDialogController', MeetingDialogController);
 
     MeetingDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Meeting', 'Employee', 'Room', 'Project'];
@@ -35,7 +35,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:meetingUpdate', result);
+            $scope.$emit('yyOaApp:meetingUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('EmployeeEditController', EmployeeEditController);
 
     EmployeeEditController.$inject = ['$timeout', 'AuthServerProvider', '$scope', 'DictionaryService', '$state', '$stateParams', '$q', 'disableEdit', 'EmployeeService'];

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ProvinceDeleteController',ProvinceDeleteController);
 
     ProvinceDeleteController.$inject = ['$uibModalInstance', 'entity', 'Province'];

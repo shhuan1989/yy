@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('OvertimeWorkDialogController', OvertimeWorkDialogController);
 
     OvertimeWorkDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'OvertimeWork', 'Employee', 'ApprovalRequest'];
@@ -42,7 +42,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:overtimeWorkUpdate', result);
+            $scope.$emit('yyOaApp:overtimeWorkUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

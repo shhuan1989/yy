@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('RequestResetController', RequestResetController);
 
     RequestResetController.$inject = ['$timeout', 'Auth'];

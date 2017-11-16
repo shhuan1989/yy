@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('CommentController', CommentController);
 
     CommentController.$inject = ['$scope', '$state', 'Comment'];

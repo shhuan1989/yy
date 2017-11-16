@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('FileInfoController', FileInfoController);
 
     FileInfoController.$inject = ['$scope', '$state', 'FileInfo'];

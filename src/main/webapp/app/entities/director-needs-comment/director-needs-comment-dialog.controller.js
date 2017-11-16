@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('DirectorNeedsCommentDialogController', DirectorNeedsCommentDialogController);
 
     DirectorNeedsCommentDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'DirectorNeedsComment', 'Employee'];
@@ -33,7 +33,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:directorNeedsCommentUpdate', result);
+            $scope.$emit('yyOaApp:directorNeedsCommentUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

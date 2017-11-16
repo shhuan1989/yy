@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ActorRepoController', ActorRepoController);
 
     ActorRepoController.$inject = ['$scope', '$rootScope', '$state', 'ActorRepoService', 'PictureService', 'DictionaryService'];

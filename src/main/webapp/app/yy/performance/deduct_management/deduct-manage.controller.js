@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('DeductManagementController', DeductManagementController);
 
     DeductManagementController.$inject = ['$scope', '$rootScope', '$state', 'DeductManagementService', 'NgTableParams'];

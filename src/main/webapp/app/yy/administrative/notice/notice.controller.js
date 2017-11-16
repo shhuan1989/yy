@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('AdminNoticeController', AdminNoticeController);
 
     AdminNoticeController.$inject = ['$scope', '$state', '$rootScope', 'AdminNoticeService', 'ProjectManagementService'];

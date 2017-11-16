@@ -1,7 +1,7 @@
 version: '2'
 services:
-    yiyingoa-sonar:
-        container_name: yiyingoa-sonar
+    yyoa-sonar:
+        container_name: yyoa-sonar
         image: sonarqube:5.6.1-alpine
         ports:
             - 9000:9000

@@ -4,7 +4,7 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myPictureInfoLabel" data-translate="yiyingOaApp.pictureInfo.home.createOrEditLabel">Create or edit a Picture Info</h4>
+        <h4 class="modal-title" id="myPictureInfoLabel" data-translate="yyOaApp.pictureInfo.home.createOrEditLabel">Create or edit a Picture Info</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
@@ -14,44 +14,44 @@
                     ng-model="vm.pictureInfo.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.pictureInfo.originName" for="field_originName">Origin Name</label>
+            <label class="control-label" data-translate="yyOaApp.pictureInfo.originName" for="field_originName">Origin Name</label>
             <input type="text" class="form-control" name="originName" id="field_originName"
                     ng-model="vm.pictureInfo.originName"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.pictureInfo.name" for="field_name">Name</label>
+            <label class="control-label" data-translate="yyOaApp.pictureInfo.name" for="field_name">Name</label>
             <input type="text" class="form-control" name="name" id="field_name"
                     ng-model="vm.pictureInfo.name"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.pictureInfo.createTime" for="field_createTime">Create Time</label>
+            <label class="control-label" data-translate="yyOaApp.pictureInfo.createTime" for="field_createTime">Create Time</label>
             <input type="number" class="form-control" name="createTime" id="field_createTime"
                     ng-model="vm.pictureInfo.createTime"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.pictureInfo.creator" for="field_creator">Creator</label>
+            <label class="control-label" data-translate="yyOaApp.pictureInfo.creator" for="field_creator">Creator</label>
             <input type="text" class="form-control" name="creator" id="field_creator"
                     ng-model="vm.pictureInfo.creator"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.pictureInfo.lastModifier" for="field_lastModifier">Last Modifier</label>
+            <label class="control-label" data-translate="yyOaApp.pictureInfo.lastModifier" for="field_lastModifier">Last Modifier</label>
             <input type="text" class="form-control" name="lastModifier" id="field_lastModifier"
                     ng-model="vm.pictureInfo.lastModifier"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.pictureInfo.lastModifiedTime" for="field_lastModifiedTime">Last Modified Time</label>
+            <label class="control-label" data-translate="yyOaApp.pictureInfo.lastModifiedTime" for="field_lastModifiedTime">Last Modified Time</label>
             <input type="number" class="form-control" name="lastModifiedTime" id="field_lastModifiedTime"
                     ng-model="vm.pictureInfo.lastModifiedTime"
                      />
         </div>
 
         <div class="form-group">
-            <label data-translate="yiyingOaApp.pictureInfo.thumbnail" for="field_thumbnail">Thumbnail</label>
+            <label data-translate="yyOaApp.pictureInfo.thumbnail" for="field_thumbnail">Thumbnail</label>
             <select class="form-control" id="field_thumbnail" name="thumbnail" ng-model="vm.pictureInfo.thumbnail" ng-options="pictureInfo as pictureInfo.id for pictureInfo in vm.thumbnails | orderBy:'id' track by pictureInfo.id">
                 <option value=""></option>
             </select>

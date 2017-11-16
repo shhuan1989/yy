@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ProjectRateController', ProjectRateController);
 
     ProjectRateController.$inject = ['$scope', '$state', '$timeout', '$stateParams', 'ProjectRate', 'Project', 'ProjectRatePrivilegeService'];

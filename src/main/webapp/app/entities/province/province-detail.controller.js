@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ProvinceDetailController', ProvinceDetailController);
 
     ProvinceDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Province', 'City'];
@@ -13,7 +13,7 @@
         vm.province = entity;
         vm.previousState = previousState.name;
 
-        var unsubscribe = $rootScope.$on('yiyingOaApp:provinceUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('yyOaApp:provinceUpdate', function(event, result) {
             vm.province = result;
         });
         $scope.$on('$destroy', unsubscribe);

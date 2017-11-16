@@ -1,46 +1,46 @@
 
 <div>
-    <h2><span data-translate="yiyingOaApp.notice.detail.title">Notice</span> {{vm.notice.id}}</h2>
+    <h2><span data-translate="yyOaApp.notice.detail.title">Notice</span> {{vm.notice.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
-        <dt><span data-translate="yiyingOaApp.notice.subject">Subject</span></dt>
+        <dt><span data-translate="yyOaApp.notice.subject">Subject</span></dt>
         <dd>
             <span>{{vm.notice.subject}}</span>
         </dd>
-        <dt><span data-translate="yiyingOaApp.notice.expireTime">Expire Time</span></dt>
+        <dt><span data-translate="yyOaApp.notice.expireTime">Expire Time</span></dt>
         <dd>
             <span>{{vm.notice.expireTime}}</span>
         </dd>
-        <dt><span data-translate="yiyingOaApp.notice.content">Content</span></dt>
+        <dt><span data-translate="yyOaApp.notice.content">Content</span></dt>
         <dd>
             <span>{{vm.notice.content}}</span>
         </dd>
-        <dt><span data-translate="yiyingOaApp.notice.createTime">Create Time</span></dt>
+        <dt><span data-translate="yyOaApp.notice.createTime">Create Time</span></dt>
         <dd>
             <span>{{vm.notice.createTime}}</span>
         </dd>
-        <dt><span data-translate="yiyingOaApp.notice.project">Project</span></dt>
+        <dt><span data-translate="yyOaApp.notice.project">Project</span></dt>
         <dd>
             <a ui-sref="project-detail({id:vm.notice.projectId})">{{vm.notice.projectId}}</a>
         </dd>
-        <dt><span data-translate="yiyingOaApp.notice.creator">Creator</span></dt>
+        <dt><span data-translate="yyOaApp.notice.creator">Creator</span></dt>
         <dd>
             <a ui-sref="employee-detail({id:vm.notice.creatorId})">{{vm.notice.creatorId}}</a>
         </dd>
-        <dt><span data-translate="yiyingOaApp.notice.depts">Depts</span></dt>
+        <dt><span data-translate="yyOaApp.notice.depts">Depts</span></dt>
         <dd>
             <span ng-repeat="depts in vm.notice.depts">
                 <a ui-sref="dept-detail({id: depts.id})">{{depts.id}}</a>{{$last ? '' : ', '}}
             </span>
         </dd>
-        <dt><span data-translate="yiyingOaApp.notice.projects">Projects</span></dt>
+        <dt><span data-translate="yyOaApp.notice.projects">Projects</span></dt>
         <dd>
             <span ng-repeat="projects in vm.notice.projects">
                 <a ui-sref="project-detail({id: projects.id})">{{projects.id}}</a>{{$last ? '' : ', '}}
             </span>
         </dd>
-        <dt><span data-translate="yiyingOaApp.notice.employees">Employees</span></dt>
+        <dt><span data-translate="yyOaApp.notice.employees">Employees</span></dt>
         <dd>
             <span ng-repeat="employees in vm.notice.employees">
                 <a ui-sref="employee-detail({id: employees.id})">{{employees.id}}</a>{{$last ? '' : ', '}}

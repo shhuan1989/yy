@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('SystemDictionaryController', SystemDictionaryController);
 
     SystemDictionaryController.$inject = ['$scope', '$rootScope', '$state', 'SystemDictionaryService', 'DictionaryService', 'Dept', 'JobTitle'];

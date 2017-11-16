@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('VacationAprovalController', VacationAprovalController);
 
     VacationAprovalController.$inject = ['$scope', '$state', '$stateParams', 'WksVacationService', 'ApprovalService', 'UserService'];

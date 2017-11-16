@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .factory('PasswordResetFinish', PasswordResetFinish);
 
     PasswordResetFinish.$inject = ['$resource'];

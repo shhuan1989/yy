@@ -137,7 +137,7 @@ public class JHipsterProperties {
 
     public static class Mail {
 
-        private String from = "yiying@localhost";
+        private String from = "yy@localhost";
 
         public String getFrom() {
             return from;
@@ -200,9 +200,9 @@ public class JHipsterProperties {
 
     public static class Swagger {
 
-        private String title = "yiyingOa API";
+        private String title = "yyOa API";
 
-        private String description = "yiyingOa API documentation";
+        private String description = "yyOa API documentation";
 
         private String version = "0.0.1";
 
@@ -371,7 +371,7 @@ public class JHipsterProperties {
 
             private int port = 2003;
 
-            private String prefix = "yiyingOa";
+            private String prefix = "yyOa";
 
             public boolean isEnabled() {
                 return enabled;

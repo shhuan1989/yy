@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('RoleController', RoleController);
 
     RoleController.$inject = ['$scope', '$state', 'Role'];

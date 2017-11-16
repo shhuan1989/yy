@@ -1,7 +1,7 @@
 {
   "generator-jhipster": {
     "jhipsterVersion": "3.8.0",
-    "baseName": "yiyingOa",
+    "baseName": "yyOa",
     "packageName": "com.yijia.yy",
     "packageFolder": "com/yijia/yy",
     "serverPort": "8080",

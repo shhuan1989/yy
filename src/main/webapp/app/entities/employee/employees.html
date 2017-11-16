@@ -1,12 +1,12 @@
 <div>
-    <h2 data-translate="yiyingOaApp.employee.home.title">Employees</h2>
+    <h2 data-translate="yyOaApp.employee.home.title">Employees</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="employee.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span  data-translate="yiyingOaApp.employee.home.createLabel">
+                    <span  data-translate="yyOaApp.employee.home.createLabel">
                         Create new Employee
                     </span>
                 </button>
@@ -19,46 +19,46 @@
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="name"><span data-translate="yiyingOaApp.employee.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="gender"><span data-translate="yiyingOaApp.employee.gender">Gender</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="age"><span data-translate="yiyingOaApp.employee.age">Age</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="education"><span data-translate="yiyingOaApp.employee.education">Education</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="empNumber"><span data-translate="yiyingOaApp.employee.empNumber">Emp Number</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="nativePlace"><span data-translate="yiyingOaApp.employee.nativePlace">Native Place</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="nationality"><span data-translate="yiyingOaApp.employee.nationality">Nationality</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="idNumber"><span data-translate="yiyingOaApp.employee.idNumber">Id Number</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="basicInfo"><span data-translate="yiyingOaApp.employee.basicInfo">Basic Info</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="hireDate"><span data-translate="yiyingOaApp.employee.hireDate">Hire Date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="probationSalary"><span data-translate="yiyingOaApp.employee.probationSalary">Probation Salary</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="salary"><span data-translate="yiyingOaApp.employee.salary">Salary</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="jobPositionStatus"><span data-translate="yiyingOaApp.employee.jobPositionStatus">Job Position Status</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="jobPositionInfo"><span data-translate="yiyingOaApp.employee.jobPositionInfo">Job Position Info</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="birthDate"><span data-translate="yiyingOaApp.employee.birthDate">Birth Date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="marriage"><span data-translate="yiyingOaApp.employee.marriage">Marriage</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="childbearing"><span data-translate="yiyingOaApp.employee.childbearing">Childbearing</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="hukou"><span data-translate="yiyingOaApp.employee.hukou">Hukou</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="pensionAccount"><span data-translate="yiyingOaApp.employee.pensionAccount">Pension Account</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="houseFoundAccount"><span data-translate="yiyingOaApp.employee.houseFoundAccount">House Found Account</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="hasDriverLicense"><span data-translate="yiyingOaApp.employee.hasDriverLicense">Has Driver License</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="cellphone"><span data-translate="yiyingOaApp.employee.cellphone">Cellphone</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="mail"><span data-translate="yiyingOaApp.employee.mail">Mail</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="qq"><span data-translate="yiyingOaApp.employee.qq">Qq</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="workQq"><span data-translate="yiyingOaApp.employee.workQq">Work Qq</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="workQqPassword"><span data-translate="yiyingOaApp.employee.workQqPassword">Work Qq Password</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="wechart"><span data-translate="yiyingOaApp.employee.wechart">Wechart</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="address"><span data-translate="yiyingOaApp.employee.address">Address</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="tel"><span data-translate="yiyingOaApp.employee.tel">Tel</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="emergencyTel"><span data-translate="yiyingOaApp.employee.emergencyTel">Emergency Tel</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="emergencyContact"><span data-translate="yiyingOaApp.employee.emergencyContact">Emergency Contact</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="relationshipWithEmergencyContact"><span data-translate="yiyingOaApp.employee.relationshipWithEmergencyContact">Relationship With Emergency Contact</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="additionalInfo"><span data-translate="yiyingOaApp.employee.additionalInfo">Additional Info</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="computerLevel"><span data-translate="yiyingOaApp.employee.computerLevel">Computer Level</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="foreignLanguageLevel"><span data-translate="yiyingOaApp.employee.foreignLanguageLevel">Foreign Language Level</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="probationDeduction"><span data-translate="yiyingOaApp.employee.probationDeduction">Probation Deduction</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="employeeDeduction"><span data-translate="yiyingOaApp.employee.employeeDeduction">Employee Deduction</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="jobTitleId"><span data-translate="yiyingOaApp.employee.jobTitle">Job Title</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="nativePlaceId"><span data-translate="yiyingOaApp.employee.nativePlace">Native Place</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="deptId"><span data-translate="yiyingOaApp.employee.dept">Dept</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span data-translate="yyOaApp.employee.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="gender"><span data-translate="yyOaApp.employee.gender">Gender</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="age"><span data-translate="yyOaApp.employee.age">Age</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="education"><span data-translate="yyOaApp.employee.education">Education</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="empNumber"><span data-translate="yyOaApp.employee.empNumber">Emp Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nativePlace"><span data-translate="yyOaApp.employee.nativePlace">Native Place</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nationality"><span data-translate="yyOaApp.employee.nationality">Nationality</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="idNumber"><span data-translate="yyOaApp.employee.idNumber">Id Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="basicInfo"><span data-translate="yyOaApp.employee.basicInfo">Basic Info</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="hireDate"><span data-translate="yyOaApp.employee.hireDate">Hire Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="probationSalary"><span data-translate="yyOaApp.employee.probationSalary">Probation Salary</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="salary"><span data-translate="yyOaApp.employee.salary">Salary</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="jobPositionStatus"><span data-translate="yyOaApp.employee.jobPositionStatus">Job Position Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="jobPositionInfo"><span data-translate="yyOaApp.employee.jobPositionInfo">Job Position Info</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="birthDate"><span data-translate="yyOaApp.employee.birthDate">Birth Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="marriage"><span data-translate="yyOaApp.employee.marriage">Marriage</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="childbearing"><span data-translate="yyOaApp.employee.childbearing">Childbearing</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="hukou"><span data-translate="yyOaApp.employee.hukou">Hukou</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pensionAccount"><span data-translate="yyOaApp.employee.pensionAccount">Pension Account</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="houseFoundAccount"><span data-translate="yyOaApp.employee.houseFoundAccount">House Found Account</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="hasDriverLicense"><span data-translate="yyOaApp.employee.hasDriverLicense">Has Driver License</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cellphone"><span data-translate="yyOaApp.employee.cellphone">Cellphone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="mail"><span data-translate="yyOaApp.employee.mail">Mail</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="qq"><span data-translate="yyOaApp.employee.qq">Qq</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="workQq"><span data-translate="yyOaApp.employee.workQq">Work Qq</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="workQqPassword"><span data-translate="yyOaApp.employee.workQqPassword">Work Qq Password</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="wechart"><span data-translate="yyOaApp.employee.wechart">Wechart</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="address"><span data-translate="yyOaApp.employee.address">Address</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tel"><span data-translate="yyOaApp.employee.tel">Tel</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="emergencyTel"><span data-translate="yyOaApp.employee.emergencyTel">Emergency Tel</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="emergencyContact"><span data-translate="yyOaApp.employee.emergencyContact">Emergency Contact</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="relationshipWithEmergencyContact"><span data-translate="yyOaApp.employee.relationshipWithEmergencyContact">Relationship With Emergency Contact</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="additionalInfo"><span data-translate="yyOaApp.employee.additionalInfo">Additional Info</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="computerLevel"><span data-translate="yyOaApp.employee.computerLevel">Computer Level</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="foreignLanguageLevel"><span data-translate="yyOaApp.employee.foreignLanguageLevel">Foreign Language Level</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="probationDeduction"><span data-translate="yyOaApp.employee.probationDeduction">Probation Deduction</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="employeeDeduction"><span data-translate="yyOaApp.employee.employeeDeduction">Employee Deduction</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="jobTitleId"><span data-translate="yyOaApp.employee.jobTitle">Job Title</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nativePlaceId"><span data-translate="yyOaApp.employee.nativePlace">Native Place</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="deptId"><span data-translate="yyOaApp.employee.dept">Dept</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -66,9 +66,9 @@
                 <tr ng-repeat="employee in vm.employees track by employee.id">
                     <td><a ui-sref="employee-detail({id:employee.id})">{{employee.id}}</a></td>
                     <td>{{employee.name}}</td>
-                    <td data-translate="{{'yiyingOaApp.Gender.' + employee.gender}}">{{employee.gender}}</td>
+                    <td data-translate="{{'yyOaApp.Gender.' + employee.gender}}">{{employee.gender}}</td>
                     <td>{{employee.age}}</td>
-                    <td data-translate="{{'yiyingOaApp.Education.' + employee.education}}">{{employee.education}}</td>
+                    <td data-translate="{{'yyOaApp.Education.' + employee.education}}">{{employee.education}}</td>
                     <td>{{employee.empNumber}}</td>
                     <td>{{employee.nativePlace}}</td>
                     <td>{{employee.nationality}}</td>
@@ -77,7 +77,7 @@
                     <td>{{employee.hireDate}}</td>
                     <td>{{employee.probationSalary}}</td>
                     <td>{{employee.salary}}</td>
-                    <td data-translate="{{'yiyingOaApp.JobPositionStatus.' + employee.jobPositionStatus}}">{{employee.jobPositionStatus}}</td>
+                    <td data-translate="{{'yyOaApp.JobPositionStatus.' + employee.jobPositionStatus}}">{{employee.jobPositionStatus}}</td>
                     <td>{{employee.jobPositionInfo}}</td>
                     <td>{{employee.birthDate}}</td>
                     <td>{{employee.marriage}}</td>

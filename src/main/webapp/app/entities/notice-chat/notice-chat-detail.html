@@ -1,22 +1,22 @@
 
 <div>
-    <h2><span data-translate="yiyingOaApp.noticeChat.detail.title">Notice Chat</span> {{vm.noticeChat.id}}</h2>
+    <h2><span data-translate="yyOaApp.noticeChat.detail.title">Notice Chat</span> {{vm.noticeChat.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
-        <dt><span data-translate="yiyingOaApp.noticeChat.text">Text</span></dt>
+        <dt><span data-translate="yyOaApp.noticeChat.text">Text</span></dt>
         <dd>
             <span>{{vm.noticeChat.text}}</span>
         </dd>
-        <dt><span data-translate="yiyingOaApp.noticeChat.createTime">Create Time</span></dt>
+        <dt><span data-translate="yyOaApp.noticeChat.createTime">Create Time</span></dt>
         <dd>
             <span>{{vm.noticeChat.createTime}}</span>
         </dd>
-        <dt><span data-translate="yiyingOaApp.noticeChat.creator">Creator</span></dt>
+        <dt><span data-translate="yyOaApp.noticeChat.creator">Creator</span></dt>
         <dd>
             <a ui-sref="employee-detail({id:vm.noticeChat.creatorId})">{{vm.noticeChat.creatorId}}</a>
         </dd>
-        <dt><span data-translate="yiyingOaApp.noticeChat.notice">Notice</span></dt>
+        <dt><span data-translate="yyOaApp.noticeChat.notice">Notice</span></dt>
         <dd>
             <a ui-sref="notice-detail({id:vm.noticeChat.noticeId})">{{vm.noticeChat.noticeId}}</a>
         </dd>

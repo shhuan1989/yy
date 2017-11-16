@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('NoticeChatDeleteController',NoticeChatDeleteController);
 
     NoticeChatDeleteController.$inject = ['$uibModalInstance', 'entity', 'NoticeChat'];

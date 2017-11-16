@@ -4,7 +4,7 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myNoticeChatLabel" data-translate="yiyingOaApp.noticeChat.home.createOrEditLabel">Create or edit a Notice Chat</h4>
+        <h4 class="modal-title" id="myNoticeChatLabel" data-translate="yyOaApp.noticeChat.home.createOrEditLabel">Create or edit a Notice Chat</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
@@ -14,26 +14,26 @@
                     ng-model="vm.noticeChat.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.noticeChat.text" for="field_text">Text</label>
+            <label class="control-label" data-translate="yyOaApp.noticeChat.text" for="field_text">Text</label>
             <input type="text" class="form-control" name="text" id="field_text"
                     ng-model="vm.noticeChat.text"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="yiyingOaApp.noticeChat.createTime" for="field_createTime">Create Time</label>
+            <label class="control-label" data-translate="yyOaApp.noticeChat.createTime" for="field_createTime">Create Time</label>
             <input type="number" class="form-control" name="createTime" id="field_createTime"
                     ng-model="vm.noticeChat.createTime"
                      />
         </div>
 
         <div class="form-group">
-            <label data-translate="yiyingOaApp.noticeChat.creator" for="field_creator">Creator</label>
+            <label data-translate="yyOaApp.noticeChat.creator" for="field_creator">Creator</label>
             <select class="form-control" id="field_creator" name="creator" ng-model="vm.noticeChat.creatorId" ng-options="employee.id as employee.id for employee in vm.employees"            >
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label data-translate="yiyingOaApp.noticeChat.notice" for="field_notice">Notice</label>
+            <label data-translate="yyOaApp.noticeChat.notice" for="field_notice">Notice</label>
             <select class="form-control" id="field_notice" name="notice" ng-model="vm.noticeChat.noticeId" ng-options="notice.id as notice.id for notice in vm.notices"            >
                 <option value=""></option>
             </select>

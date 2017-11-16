@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ProvinceController', ProvinceController);
 
     ProvinceController.$inject = ['$scope', '$state', 'Province', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];

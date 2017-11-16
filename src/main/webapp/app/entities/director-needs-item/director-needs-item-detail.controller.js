@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('DirectorNeedsItemDetailController', DirectorNeedsItemDetailController);
 
     DirectorNeedsItemDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'DirectorNeedsItem', 'DirectorNeeds'];
@@ -13,7 +13,7 @@
         vm.directorNeedsItem = entity;
         vm.previousState = previousState.name;
 
-        var unsubscribe = $rootScope.$on('yiyingOaApp:directorNeedsItemUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('yyOaApp:directorNeedsItemUpdate', function(event, result) {
             vm.directorNeedsItem = result;
         });
         $scope.$on('$destroy', unsubscribe);

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ProjectProgressTableController', ProjectProgressTableController);
 
     ProjectProgressTableController.$inject = ['$scope', '$state', '$stateParams', 'ProjectManagementService', '$timeout', 'ProjectProgressTableService', 'EmployeeService'];

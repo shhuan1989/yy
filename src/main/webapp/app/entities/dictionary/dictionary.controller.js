@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('DictionaryController', DictionaryController);
 
     DictionaryController.$inject = ['$scope', '$state', 'Dictionary', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];

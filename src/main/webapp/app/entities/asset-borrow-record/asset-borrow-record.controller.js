@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('AssetBorrowRecordController', AssetBorrowRecordController);
 
     AssetBorrowRecordController.$inject = ['$scope', '$state', 'AssetBorrowRecord'];

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('EmployeeDetailController', EmployeeDetailController);
 
     EmployeeDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Employee', 'JobTitle', 'City', 'Dept', 'Project'];
@@ -13,7 +13,7 @@
         vm.employee = entity;
         vm.previousState = previousState.name;
 
-        var unsubscribe = $rootScope.$on('yiyingOaApp:employeeUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('yyOaApp:employeeUpdate', function(event, result) {
             vm.employee = result;
         });
         $scope.$on('$destroy', unsubscribe);

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ProjectAuditViewController', ProjectAuditViewController);
 
     ProjectAuditViewController.$inject = ['$scope', '$rootScope', '$state', '$stateParams', 'ProjectManagementService', 'EmployeeService', 'ProjectRate'];

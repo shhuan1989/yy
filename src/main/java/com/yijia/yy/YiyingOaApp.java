@@ -33,9 +33,9 @@ import static reactor.bus.selector.Selectors.$;
 @ComponentScan
 @EnableAutoConfiguration(exclude = { MetricFilterAutoConfiguration.class, MetricRepositoryAutoConfiguration.class })
 @EnableConfigurationProperties({ JHipsterProperties.class, LiquibaseProperties.class })
-public class YiyingOaApp {
+public class yyOaApp {
 
-    private static final Logger log = LoggerFactory.getLogger(YiyingOaApp.class);
+    private static final Logger log = LoggerFactory.getLogger(yyOaApp.class);
 
     @Inject
     private Environment env;
@@ -72,7 +72,7 @@ public class YiyingOaApp {
     private Consumer approvalEventReceiver;
 
     /**
-     * Initializes YiyingOA.
+     * Initializes yyOA.
      * <p>
      * Spring profiles can be configured with a program arguments --spring.profiles.active=your-active-profile
      * <p>
@@ -112,7 +112,7 @@ public class YiyingOaApp {
      * @throws UnknownHostException if the local host name could not be resolved into an address
      */
     public static void main(String[] args) throws UnknownHostException {
-        SpringApplication app = new SpringApplication(YiyingOaApp.class);
+        SpringApplication app = new SpringApplication(yyOaApp.class);
         DefaultProfileUtil.addDefaultProfile(app);
         Environment env = app.run(args).getEnvironment();
         log.info("\n----------------------------------------------------------\n\t" +

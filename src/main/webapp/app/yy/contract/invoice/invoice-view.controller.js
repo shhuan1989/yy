@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ContractInvoiceViewController', ContractInvoiceViewController);
 
     ContractInvoiceViewController.$inject = ['$timeout', '$scope', '$state', '$stateParams', 'ContractManagementService', 'ContractInvoiceService'];

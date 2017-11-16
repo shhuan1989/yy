@@ -1,6 +1,6 @@
 package com.yijia.yy.service;
 
-import com.yijia.yy.YiyingOaApp;
+import com.yijia.yy.yyOaApp;
 import com.yijia.yy.domain.User;
 import com.yijia.yy.repository.UserRepository;
 import java.time.ZonedDateTime;
@@ -24,7 +24,7 @@ import static org.assertj.core.api.Assertions.*;
  * @see UserService
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = YiyingOaApp.class)
+@SpringBootTest(classes = yyOaApp.class)
 @Transactional
 public class UserServiceIntTest {
 

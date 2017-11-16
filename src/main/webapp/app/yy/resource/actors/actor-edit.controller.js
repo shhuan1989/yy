@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ActorEditController', ActorEditController);
 
     ActorEditController.$inject = ['$timeout', 'AuthServerProvider', '$scope', '$rootScope', '$state', '$stateParams', '$q', 'disableEdit', 'ActorRepoService', 'DictionaryService'];
@@ -84,7 +84,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:actorUpdate', result);
+            $scope.$emit('yyOaApp:actorUpdate', result);
             vm.isSaving = false;
             PNotifySaveSuccess();
             $state.go("^");

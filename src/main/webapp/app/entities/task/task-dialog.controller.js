@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('TaskDialogController', TaskDialogController);
 
     TaskDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Task', 'Employee', 'FileInfo', 'PictureInfo', 'Dictionary', 'Comment', 'Project'];
@@ -38,7 +38,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:taskUpdate', result);
+            $scope.$emit('yyOaApp:taskUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

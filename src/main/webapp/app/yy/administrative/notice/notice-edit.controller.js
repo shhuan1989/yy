@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('AdminNoticeEditController', AdminNoticeEditController);
 
     AdminNoticeEditController.$inject = ['$timeout', '$scope', '$stateParams', '$state', 'AdminNoticeService', 'Dept', 'ProjectManagementService', 'EmployeeService'];

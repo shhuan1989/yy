@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('NavbarController', NavbarController);
 
     NavbarController.$inject = ['$scope', '$rootScope', '$timeout', '$state', 'Auth', 'Principal', 'ProfileService', 'LoginService', 'Meeting'];

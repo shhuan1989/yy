@@ -1,7 +1,7 @@
 {
-  "name": "yiying-oa",
+  "name": "yy-oa",
   "version": "0.0.0",
-  "description": "Description for yiyingOa",
+  "description": "Description for yyOa",
   "private": true,
   "cacheDirectories": [
     "node_modules",

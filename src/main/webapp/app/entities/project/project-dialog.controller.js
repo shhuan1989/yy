@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ProjectDialogController', ProjectDialogController);
 
     ProjectDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Project', 'Client', 'Contract', 'Employee'];
@@ -43,7 +43,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:projectUpdate', result);
+            $scope.$emit('yyOaApp:projectUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

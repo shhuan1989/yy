@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .directive('hasAnyAuthority', hasAnyAuthority);
 
     hasAnyAuthority.$inject = ['Principal'];

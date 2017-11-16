@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('SysRoleEditController', SysRoleEditController);
 
     SysRoleEditController.$inject = ['$timeout', '$scope', '$rootScope', '$state', '$stateParams', '$q', 'SysRoleService', 'disableEdit', 'UserService'];

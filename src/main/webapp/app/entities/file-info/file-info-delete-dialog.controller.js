@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('FileInfoDeleteController',FileInfoDeleteController);
 
     FileInfoDeleteController.$inject = ['$uibModalInstance', 'entity', 'FileInfo'];

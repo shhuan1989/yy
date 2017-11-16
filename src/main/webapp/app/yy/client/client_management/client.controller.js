@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('ClientManagementController', ClientManagementController);
 
     ClientManagementController.$inject = ['$scope', '$rootScope', '$state', 'ClientService', 'NgTableParams', 'DictionaryService'];

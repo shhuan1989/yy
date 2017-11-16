@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('yiyingOaApp')
+        .module('yyOaApp')
         .controller('NoticeChatDialogController', NoticeChatDialogController);
 
     NoticeChatDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'NoticeChat', 'Employee', 'PictureInfo', 'FileInfo', 'Notice'];
@@ -36,7 +36,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('yiyingOaApp:noticeChatUpdate', result);
+            $scope.$emit('yyOaApp:noticeChatUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }
